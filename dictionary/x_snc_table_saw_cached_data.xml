@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Cached Data" max_length="40" name="x_snc_table_saw_cached_data" type="collection">
+        <element label="Identifier" max_length="8000" name="identifier" read_only="true" type="string"/>
+        <element label="JSON payload" max_length="8000" name="json_payload" read_only="true" type="string"/>
+        <element label="Last viewed" max_length="40" name="last_viewed" read_only="true" type="glide_date_time"/>
+        <element default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" read_only="true" type="string"/>
+        <element choice="1" label="Type" max_length="40" name="type" read_only="true" type="choice">
+            <choice>
+                <element label="Filter" sequence="0" value="filter"/>
+                <element label="Table View" sequence="1" value="table_view"/>
+            </choice>
+        </element>
+    </element>
+</database>

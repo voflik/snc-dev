@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_documentation element="last_viewed" label="Last viewed" language="en" table="x_snc_table_saw_cached_data">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>last_viewed</element>
+            <help/>
+            <hint/>
+            <label>Last viewed</label>
+            <language>en</language>
+            <name>x_snc_table_saw_cached_data</name>
+            <plural>Last viewed</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>ben.hollifield@snc_SHARE</sys_created_by>
+            <sys_created_on>2015-11-17 23:22:43</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>1498f8250f3b4200c8badf2be1050e26</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Last viewed</sys_name>
+            <sys_package display_value="Table Saw" source="x_snc_table_saw">1f006bd40f4202007a2b778ce1050ec3</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Table Saw">1f006bd40f4202007a2b778ce1050ec3</sys_scope>
+            <sys_update_name>sys_documentation_x_snc_table_saw_cached_data_last_viewed_en</sys_update_name>
+            <sys_updated_by>ben.hollifield@snc_SHARE</sys_updated_by>
+            <sys_updated_on>2015-11-17 23:22:43</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

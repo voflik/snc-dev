@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_macro">
+    <sys_ui_macro action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category>general</category>
+        <description>Sample table view renderer for Table Saw table views</description>
+        <media_type/>
+        <name>sample_kb_view_renderer</name>
+        <scoped_name>x_snc_table_saw_sample_kb_view_renderer</scoped_name>
+        <sys_class_name>sys_ui_macro</sys_class_name>
+        <sys_created_by>ben.hollifield@snc_SHARE_SHARE</sys_created_by>
+        <sys_created_on>2015-08-19 19:23:59</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>a0b264600f8202007a2b778ce1050eb6</sys_id>
+        <sys_mod_count>239</sys_mod_count>
+        <sys_name>sample_kb_view_renderer</sys_name>
+        <sys_package display_value="Table Saw" source="x_snc_table_saw">1f006bd40f4202007a2b778ce1050ec3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Table Saw">1f006bd40f4202007a2b778ce1050ec3</sys_scope>
+        <sys_update_name>sys_ui_macro_a0b264600f8202007a2b778ce1050eb6</sys_update_name>
+        <sys_updated_by>ben.hollifield_SHARE</sys_updated_by>
+        <sys_updated_on>2016-02-23 15:38:03</sys_updated_on>
+        <xml><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+	
+	<!-- Begin apply styles for table view -->
+	<style>
+		<!-- Filter styles -->
+		#filter-widget .filter-results-label {
+			color: #A09E9E;
+			font-size: 1.275rem;
+			font-family: 'Varela Round', sans-serif;
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+		#filter-widget .filter-group {
+			padding: 0 1.5em 1.5rem 2rem;
+		}
+		<!-- Pagination widget styles -->
+		#results-pane .pagination li.active a {
+			color: #FFFFFF;
+			background-color: #A09E9E;
+			border-color: #A09E9E;
+		}
+		#results-pane .pagination a {
+			color: #A09E9E;
+		}
+	</style>
+	<!-- End apply style for table view -->
+	
+	<!-- Begin visual components -->
+	<div id="ts-widget">
+		
+		<!-- Begin filter widget -->
+		<div id="filter-widget" class="col-md-3 col-md-push-9 ng-cloak">
+			<div class="nav nav-stacked" id="accordion1">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4>
+							<a class="accordion-toggle filter-results-label" data-toggle="collapse" data-parent="#accordion1" href="#tsFilter">Filter Results<i ng-show="recordsLoaded == false" class="glyphicon glyphicon-repeat gly-spin pull-right"></i></a>
+						</h4>
+					</div>
+					<div id="tsFilter" class="panel-body collapse in">
+						<div ng-repeat="filterSection in filterSectionsArray track by filterSection.sectionID" class="ts-animate">
+							<span class="filter-results-label">{{filterSection.sectionName}}</span>
+							<div class="filter-group">
+							<!-- Conditionally render each fil_section ui macro -->
+							<div ng-if="filterSection.sectionType == 'checkboxes'">	
+								<g:inline template="x_snc_table_saw_fil_checkbox_renderer.xml" />
+							</div>
+							<div ng-if="filterSection.sectionType == 'choice'">	
+								<g:inline template="x_snc_table_saw_fil_choice_renderer.xml" />
+							</div>
+							<div ng-if="filterSection.sectionType == 'date'">	
+								<g:inline template="x_snc_table_saw_fil_date_renderer.xml" />
+							</div>
+							<div ng-if="filterSection.sectionType == 'free_text'">	
+								<g:inline template="x_snc_table_saw_fil_free_text_renderer.xml" />
+							</div>
+							<div ng-if="filterSection.sectionType == 'icons'">	
+								<g:inline template="x_snc_table_saw_fil_icon_renderer.xml" />
+							</div>
+							<div ng-if="filterSection.sectionType == 'radio_buttons'">	
+								<g:inline template="x_snc_table_saw_fil_radio_button_renderer.xml" />
+							</div>
+							<div ng-if="filterSection.sectionType == 'reference'">	
+								<g:inline template="x_snc_table_saw_fil_reference_renderer.xml" />
+							</div>
+							<div ng-if="filterSection.sectionType == 'switches'">	
+								<g:inline template="x_snc_table_saw_fil_switch_renderer.xml" />
+							</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<!-- Collapse filter widget on small screens -->
+		<div class="device-xs visible-xs"></div>
+		<div class="device-sm visible-sm"></div>
+		<script>
+			if(isBreakpoint('xs') || isBreakpoint('sm'))
+				$j('div#tsFilter').removeClass('collapse in').addClass('collapse');
+	
+			function isBreakpoint(alias) {
+				return $j('.device-' + alias).is(':visible');
+			}
+		</script>
+	
+		<!-- End filter widget -->
+	
+		<!-- Begin results pane -->
+		<!-- Record data is accessible via the format {{record["fieldname"]}} -->
+		<!-- **Fields required must be listed on the table view record! -->
+		<div id="results-pane" class="col-md-9 col-md-pull-3 ng-cloak">
+			<div ng-repeat="record in recordsArray track by record.sys_id" class="panel panel-default ts-animate">
+				<div class="panel-heading">
+					<h5 class="panel-title">
+						<a href="kb_view_customer.do?sysparm_article={{record['number']}}" target="_blank">{{record["short_description"]}} ({{record['number']}})</a>
+					</h5>
+				</div>
+				<div class="panel-body">
+					<span ng-bind-html="renderHTML(record['text'])"></span>
+					<span class="pull-right"><i>Posted {{record["sys_created_on"]}} by {{record["author"]}}</i></span>
+				</div>
+			</div>
+			<div class="col-xs-12 text-center" ng-show="totalItems == 0 &amp;&amp; initDataLoaded == true">
+				<h4><i>There's nothing to see here!</i></h4>
+			</div>
+		
+			<!-- Begin paginator -->
+			<div class="col-xs-12 text-center">
+				<uib-pagination
+					ng-model="currentPage"
+					ng-change="getPageRecords(currentPage)"
+					ng-show="itemsPerPage &amp;&amp; initDataLoaded == true"
+					total-items="totalItems"
+					items-per-page="itemsPerPage"
+					class="pagination-med"
+					previous-text="&#8249;"
+					next-text="&#8250;"
+					boundary-links="true"
+					first-text="&#171;"
+					last-text="&#187;"
+					max-size="10">
+  	  		</uib-pagination>
+			</div>
+			<!-- End paginator -->
+			
+			<!-- Begin Copy Link action -->
+			<div ng-show="initDataLoaded == true" class="col-xs-12" style="text-align: center;">
+				<a ng-click="aPrompt('Because of a browser limitation the URL can not be placed directly in the clipboard.  Please use Ctrl-C to copy the data and escape to dismiss this dialog', getLink())">Copy link</a>
+			</div>
+			<!-- End Copy Link action -->
+		
+		</div>
+		<!-- End results pane -->
+		
+	</div>
+	<!-- End visual components -->
+
+</j:jelly>]]></xml>
+    </sys_ui_macro>
+</record_update>

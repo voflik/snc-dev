@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="pa_dashboards">
+    <pa_dashboards action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <breakdown_source/>
+        <group/>
+        <groups/>
+        <is_breakdown>false</is_breakdown>
+        <managed_breakdown/>
+        <managed_publisher/>
+        <name>PA Activity Usage</name>
+        <no_tabs>false</no_tabs>
+        <order/>
+        <owner display_value="admin ">6816f79cc0a8016401c5a33be04be441</owner>
+        <restrict_to_roles/>
+        <role_override>true</role_override>
+        <roles/>
+        <should_migrate_permissions>false</should_migrate_permissions>
+        <sys_class_name>pa_dashboards</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-08-17 05:36:33</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>b074bfbe0fa80300a19acf8ce1050e42</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>PA Activity Usage</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Table Saw" source="x_snc_table_saw">1f006bd40f4202007a2b778ce1050ec3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Table Saw">1f006bd40f4202007a2b778ce1050ec3</sys_scope>
+        <sys_update_name>pa_dashboards_b074bfbe0fa80300a19acf8ce1050e42</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2017-08-17 05:36:33</sys_updated_on>
+        <users/>
+        <visible_to>2</visible_to>
+    </pa_dashboards>
+</record_update>

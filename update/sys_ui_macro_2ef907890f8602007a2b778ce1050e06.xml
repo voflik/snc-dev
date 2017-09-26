@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_macro">
+    <sys_ui_macro action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category>general</category>
+        <description>** CURRENTLY NON-FUNCTIONAL **&#13;
+Renderer for Reference filter sections in Table Saw</description>
+        <media_type/>
+        <name>fil_reference_renderer</name>
+        <scoped_name>x_snc_table_saw_fil_reference_renderer</scoped_name>
+        <sys_class_name>sys_ui_macro</sys_class_name>
+        <sys_created_by>ben.hollifield@snc_SHARE_SHARE</sys_created_by>
+        <sys_created_on>2015-08-21 20:51:10</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>2ef907890f8602007a2b778ce1050e06</sys_id>
+        <sys_mod_count>27</sys_mod_count>
+        <sys_name>fil_reference_renderer</sys_name>
+        <sys_package display_value="Table Saw" source="x_snc_table_saw">1f006bd40f4202007a2b778ce1050ec3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Table Saw">1f006bd40f4202007a2b778ce1050ec3</sys_scope>
+        <sys_update_name>sys_ui_macro_2ef907890f8602007a2b778ce1050e06</sys_update_name>
+        <sys_updated_by>ben.hollifield@snc_SHARE_SHARE</sys_updated_by>
+        <sys_updated_on>2015-09-06 15:14:23</sys_updated_on>
+        <xml><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+	<fieldset>
+    	<div ng-repeat="filter in filterSection.filters track by filter.filterID" class="row form-group">
+			<label for="ref1" class="control-label">{{filter.filterName}}</label>
+			
+			<!-- ui_reference doesn't currently work in AngularJS scope -->
+			<g:ui_reference ng-change="adjustQuery(filter,filterSection.sectionID,filterSection.sectionType)" ng-model="filter.filterValue" id="ref1" name="ref1" table="sys_user" value="" displayvalue=""  query=""/>
+			
+        </div>
+	</fieldset>
+</j:jelly>]]></xml>
+    </sys_ui_macro>
+</record_update>

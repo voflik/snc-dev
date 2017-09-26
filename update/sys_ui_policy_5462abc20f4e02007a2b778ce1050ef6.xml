@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="sys_ui_policy">
+    <sys_ui_policy action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <conditions table="x_snc_table_saw_filter_section">filter_source=related_list^EQ<item endquery="false" field="filter_source" goto="false" newquery="false" operator="=" or="false" value="related_list"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </conditions>
+        <description/>
+        <global>true</global>
+        <inherit>false</inherit>
+        <model_id/>
+        <model_table/>
+        <on_load>true</on_load>
+        <order>100</order>
+        <reverse_if_false>true</reverse_if_false>
+        <run_scripts>true</run_scripts>
+        <script_false><![CDATA[function onCondition() {
+	g_form.setDisplay('script', 'true');
+	g_form.hideRelatedList('x_snc_table_saw_filter.filter_section');
+}]]></script_false>
+        <script_true><![CDATA[function onCondition() {
+	g_form.setDisplay('script', 'false');
+	g_form.showRelatedList('x_snc_table_saw_filter.filter_section');
+}]]></script_true>
+        <set_values/>
+        <short_description>Table Saw - Related List or Script</short_description>
+        <sys_class_name>sys_ui_policy</sys_class_name>
+        <sys_created_by>ben.hollifield@snc_SHARE_SHARE</sys_created_by>
+        <sys_created_on>2015-08-25 01:12:03</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>5462abc20f4e02007a2b778ce1050ef6</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>Table Saw - Related List or Script</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Table Saw" source="x_snc_table_saw">1f006bd40f4202007a2b778ce1050ec3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Table Saw">1f006bd40f4202007a2b778ce1050ec3</sys_scope>
+        <sys_update_name>sys_ui_policy_5462abc20f4e02007a2b778ce1050ef6</sys_update_name>
+        <sys_updated_by>ben.hollifield@snc_SHARE_SHARE</sys_updated_by>
+        <sys_updated_on>2015-08-25 01:20:34</sys_updated_on>
+        <table>x_snc_table_saw_filter_section</table>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_ui_policy>
+</record_update>

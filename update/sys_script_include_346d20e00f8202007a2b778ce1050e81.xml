@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_snc_table_saw.tableSawAjax</api_name>
+        <client_callable>true</client_callable>
+        <description>Ajax Script Include in support of the Table Saw application</description>
+        <name>tableSawAjax</name>
+        <script><![CDATA[// __fileURL = https://esnightly.service-now.com/sys_script_include.do?sys_id=346d20e00f8202007a2b778ce1050e81
+// __fieldName = script
+// __authentication = STORED
+var tableSawAjax = Class.create();
+tableSawAjax.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+	//Initialize
+	getInit: function() {
+		var initVals = {
+			debug:gs.getProperty('x_snc_table_saw.debug'),
+			filterCache:gs.getProperty('x_snc_table_saw.filter_cache'),
+			tableViewCache:gs.getProperty('x_snc_table_saw.table_view_cache')
+		};
+		return initVals;
+	},
+	
+	//Get initialization data for table view:
+	//results per page, auto-refresh
+	getInitData: function(){
+		var initVals = this.getInit();
+		var returnVal = '';
+		var tableViewID = this.getParameter('sysparm_table_view_id');
+		var tableView = new GlideRecord("x_snc_table_saw_table_view");
+		if (tableView.get(tableViewID)){
+			//Initialize auto-refresh data
+			var initData = {
+				'autoRefresh':tableView.auto_refresh.toString(),
+				'refreshFrequency':tableView.refresh_frequency.toString()
+			};
+			//Only send itemsPerPage if it is configured
+			if (!tableView.results_per_page.nil())
+				initData.itemsPerPage = tableView.results_per_page.toString();
+			returnVal = new global.JSON().encode(initData);
+		}
+		if (initVals.debug == 'true')
+			gs.info('Table Saw: Returning JSON object containing init data - ' + returnVal);
+		return returnVal;
+	},
+	
+	//Get table view records & pagination data for display for display
+	getRecords: function(){
+		var initVals = this.getInit();
+		var returnVal = '';
+		var tableViewID = this.getParameter('sysparm_table_view_id');
+		var pageNum = this.getParameter('sysparm_page_number');
+		var encQueryString = this.getParameter('sysparm_encoded_query');
+		var tableView = new GlideRecord("x_snc_table_saw_table_view");
+		if (tableView.get(tableViewID)){
+			//Attempt to gather from cache, depending on properties
+			if (tableView.enable_table_view_caching.toString() == 'true' ||
+				(initVals.tableViewCache == 'true' && tableView.enable_table_view_caching.toString() == 'default'))
+				returnVal = this.getCache('table_view', this.getIdentifier(tableViewID, pageNum, encQueryString));
+			//If no cache available or if cache disabled, gather real-time
+			if (returnVal == '' ||
+				tableView.enable_table_view_caching.toString() == 'false' ||
+				(initVals.tableViewCache == 'false' && tableView.enable_table_view_caching.toString() == 'default')){
+					var recordBatch = this.getRecordsJSON(tableView, pageNum, encQueryString);
+					returnVal = new global.JSON().encode(recordBatch);
+					//Save cache value, depending on properties
+					if (tableView.enable_table_view_caching.toString() == 'true' ||
+						(initVals.tableViewCache == 'true' && tableView.enable_table_view_caching.toString() == 'default'))
+						this.insertCache('table_view', this.getIdentifier(tableViewID, pageNum, encQueryString), returnVal);
+			}
+		}
+		if (initVals.debug == 'true')
+			gs.info('Table Saw: Returning JSON object containing table view records - ' + returnVal);
+		return returnVal;
+	},
+	//Return object containing things:
+	//1) Array (records) of JSON objects, each index correlating to a single record.
+	//Within each index, all required fields are contained and addressable
+	//via dot-walk notation.
+	//2) totalItems variable (for pagination)
+	getRecordsJSON: function(tableView, pageNum, filterQueryString){
+		var initVals = this.getInit();
+		var recordBatch = {};
+		recordBatch.records = [];
+		var i = 0;
+		var tableViewRecs = new GlideRecord(tableView.table);
+		//Add base query from table view record
+		if (tableView.base_query_type == 'simple' && !tableView.base_query.nil())
+			tableViewRecs.addEncodedQuery(tableView.base_query);
+		else if (tableView.base_query_type == 'scripted'){
+			try{
+				//Evaluate script on Filter to get query
+				var evaluatorBaseQuery = new GlideScopedEvaluator();
+				var varsBaseQuery = {};
+				varsBaseQuery.table = tableView.table.toString();
+				var baseQuery = evaluatorBaseQuery.evaluateScript(tableView, 'base_query_script', varsBaseQuery);
+				if (baseQuery && baseQuery != '')
+					tableViewRecs.addEncodedQuery(baseQuery);
+				else if (initVals.debug == 'true')
+					gs.info('Table Saw: Empty encodedQuery returned from base query script for table view ' + tableView.name);
+			}
+			catch(errBaseQuery){
+				if (initVals.debug == 'true')
+					gs.info('Table Saw: Error processing base query script for table view ' + tableView.name + ' with error ' + errBaseQuery);
+			}
+		}
+		//Add additional query from filters
+		if (filterQueryString != '')
+			tableViewRecs.addEncodedQuery(filterQueryString);
+		//Add window information for pagination
+		if (!tableView.results_per_page.nil())
+			tableViewRecs.chooseWindow((pageNum-1)*tableView.results_per_page, (pageNum-1)*tableView.results_per_page+tableView.results_per_page);
+		tableViewRecs.query();
+		//Set pagination data (re-fetch totalItems, as that may change)
+		if (!tableView.results_per_page.nil())
+			recordBatch.totalItems = tableViewRecs.getRowCount();
+		//Set results data
+		while (tableViewRecs.next()) {
+			//Gather sys_id and any other fields required for results records
+			recordBatch.records[i] = {};
+			recordBatch.records[i].sys_id = tableViewRecs.sys_id.toString();
+			var fieldsRequired = tableView.fields_required.toString().split(',');
+			for (var j = 0; j < fieldsRequired.length; j++)
+				recordBatch.records[i][fieldsRequired[j]] = tableViewRecs.getDisplayValue(fieldsRequired[j]);
+			//Calculate scripted additional fields
+			var addField = new GlideRecord("x_snc_table_saw_additional_field");
+			addField.addQuery("table_view", tableView.sys_id.toString());
+			addField.addQuery("active", true);
+			addField.addQuery("for_table_view", true);
+			addField.query();
+			while (addField.next()) {
+				try{
+					//Evaluate script on Additional Field to get value
+					var evaluatorAddField = new GlideScopedEvaluator();
+					var varsAddField = {};
+					varsAddField.table = tableView.table.toString();
+					varsAddField.recordID = tableViewRecs.sys_id.toString();
+					varsAddField.record = tableViewRecs;
+					var addFieldValue = evaluatorAddField.evaluateScript(addField, 'script', varsAddField);
+					if (addFieldValue && addFieldValue != '')
+						recordBatch.records[i][addField.name.toString()] = addFieldValue;
+					else if (initVals.debug == 'true')
+						gs.info('Table Saw: Empty value returned from Additional Field script for ' + addField.name);
+				}
+				catch(errAddField){
+					if (initVals.debug == 'true')
+						gs.info('Table Saw: Error processing script for Additional Field ' + addField.name + ' with error ' + errAddField);
+				}
+			}
+			i++;
+		}
+		return recordBatch;
+	},
+	
+	//Get table view filters for display
+	getFilters: function(){
+		var initVals = this.getInit();
+		var returnVal = '';
+		var tableViewID = this.getParameter('sysparm_table_view_id');
+		var tableView = new GlideRecord("x_snc_table_saw_table_view");
+		tableView.addQuery("sys_id", tableViewID);
+		tableView.addQuery("active", true);
+		tableView.query();
+		if (tableView.next()){
+			//Attempt to gather from cache, depending on properties
+			if (tableView.enable_filter_caching.toString() == 'true' ||
+				(initVals.filterCache == 'true' && tableView.enable_filter_caching.toString() == 'default'))
+				returnVal = this.getCache('filter', this.getIdentifier(tableViewID));
+			//If no cache available or if cache disabled, gather real-time
+			if (returnVal == '' ||
+				tableView.enable_filter_caching.toString() == 'false' ||
+				(initVals.filterCache == 'false' && tableView.enable_filter_caching.toString() == 'default')){
+					var filterSections = this.getFiltersJSON(tableView);
+					returnVal = new global.JSON().encode(filterSections);
+					//Save cache value, depending on properties
+					if (tableView.enable_filter_caching.toString() == 'true' ||
+					(initVals.filterCache == 'true' && tableView.enable_filter_caching.toString() == 'default'))
+						this.insertCache('filter', this.getIdentifier(tableViewID), returnVal);
+			}
+		}
+		if (initVals.debug == 'true')
+			gs.info('Table Saw: Returning JSON object containing table view filters - ' + returnVal);
+		return returnVal;
+	},
+	//Return array of JSON objects, each index correlating to a single filter section.
+	//Within each section are necessary fields and an array of individual filters.
+	getFiltersJSON: function(tableView){
+		var initVals = this.getInit();
+		var filterSections = [];
+		var i = 0;
+		var filterSectionRecs = new GlideRecord("x_snc_table_saw_filter_section");
+		filterSectionRecs.addQuery("table_view", tableView.sys_id.toString());
+		filterSectionRecs.addQuery("active", true);
+		filterSectionRecs.orderBy("order");
+		filterSectionRecs.query();
+		while (filterSectionRecs.next()) {
+			//Gather ID, name, type, and filters values for filter sections
+			filterSections[i] = {};
+			filterSections[i].sectionName = filterSectionRecs.name.toString();
+			filterSections[i].sectionID = filterSectionRecs.sys_id.toString().substr(filterSectionRecs.sys_id.toString().length - 4) + '_' + filterSections[i].sectionName.toLowerCase().replace(/ /g,"_");
+			filterSections[i].sectionType = filterSectionRecs.type.toString();
+			filterSections[i].filters = [];
+			//If filter source is related_list, iterate through filters,
+			//building the filters array.
+			if (filterSectionRecs.filter_source == 'related_list'){
+				var j = 0;
+				var filterRecs = new GlideRecord("x_snc_table_saw_filter");
+				filterRecs.addQuery("filter_section", filterSectionRecs.sys_id.toString());
+				filterRecs.addQuery("active", true);
+				filterRecs.orderBy("order");
+				filterRecs.query();
+				while (filterRecs.next()) {
+					//Gather ID, name, value, icon (if needed), and query values for filters
+					filterSections[i].filters[j] = {};
+					filterSections[i].filters[j].filterName = filterRecs.name.toString();
+					filterSections[i].filters[j].filterID = filterSectionRecs.sys_id.toString().substr(filterSectionRecs.sys_id.toString().length - 4) + '_' + filterRecs.sys_id.toString().substr(filterRecs.sys_id.toString().length - 4) + '_' + filterSections[i].filters[j].filterName.toLowerCase().replace(/ /g,"_");
+					filterSections[i].filters[j].filterValue = '';
+					if (filterSectionRecs.type == 'icons')
+						filterSections[i].filters[j].filterIcon = filterRecs.icon.getDisplayValue();
+					if (filterRecs.query_type == 'simple' && !filterRecs.filter_query.nil())
+						filterSections[i].filters[j].filterQuery = filterRecs.filter_query.toString().replace("^EQ","");
+					else if (filterRecs.query_type == 'scripted'){
+						try{
+							//Evaluate script on Filter to get query
+							var evaluatorFilter = new GlideScopedEvaluator();
+							var varsFilter = {};
+							varsFilter.table = filterRecs.table.toString();
+							varsFilter.sectionType = filterSectionRecs.type.toString();
+							var filterQuery = evaluatorFilter.evaluateScript(filterRecs, 'query_script', varsFilter);
+							if (filterQuery && filterQuery != '')
+								filterSections[i].filters[j].filterQuery = filterQuery.toString().replace("^EQ","");
+							else if (initVals.debug == 'true')
+								gs.info('Table Saw: Empty encodedQuery returned from query script for filter ' + filterRecs.name);
+						}
+						catch(errFilter){
+							if (initVals.debug == 'true')
+								gs.info('Table Saw: Error processing query script for filter ' + filterRecs.name + ' with error ' + errFilter);
+						}
+					}
+					j++;
+				}
+			}
+			//Else if filter source is script, evaluate script on the
+			//filter section record to build filters array
+			else if (filterSectionRecs.filter_source == 'script'){
+				try{
+					//Evaluate script on Filter Section to get object array
+					//Requires script to set object variables:
+					//filterID, filterName, filterQuery, filterIcon
+					var evaluatorSection = new GlideScopedEvaluator();
+					var varsSection = {};
+					varsSection.table = filterSectionRecs.table_view.table.toString();
+					varsSection.sectionID = filterSectionRecs.sys_id.toString();
+					var filterArray = evaluatorSection.evaluateScript(filterSectionRecs, 'script', varsSection);
+					if (filterArray && filterArray != ''){
+						//Fill out additional needed object variables: filterValue
+						for (var k = 0; k < filterArray.length; k++)
+							filterArray[k].filterValue = '';
+						filterSections[i].filters = filterArray;
+					}
+					else if (initVals.debug == 'true')
+						gs.info('Table Saw: Empty filter array object returned from script for filter section ' + filterSectionRecs.name);
+				}
+				catch(errSection){
+					if (initVals.debug == 'true')
+						gs.info('Table Saw: Error processing script for filter section ' + filterSectionRecs.name + ' with error ' + errSection);
+				}
+			}
+			i++;
+		}
+		return filterSections;
+	},
+	
+	//Get detail data for the detailed record view
+	getDetail: function(){
+		var initVals = this.getInit();
+		var returnVal = '';
+		var tableViewID = this.getParameter('sysparm_table_view_id');
+		var recordID = this.getParameter('sysparm_record_id');
+		var tableView = new GlideRecord("x_snc_table_saw_table_view");
+		if (tableView.get(tableViewID)){
+			if (tableView.enable_detail_view == true){
+				var recordDetail = this.getDetailJSON(tableView, recordID);
+				returnVal = new global.JSON().encode(recordDetail);
+			}
+		}
+		if (initVals.debug == 'true'){
+			var msg = 'Table Saw: Returning JSON object containing record detail - ' + returnVal;
+			if (returnVal == '')
+				msg += '. Record detail appears empty - perhaps "Enable record detail" is false on the table view record?';
+			gs.info(msg);
+		}
+		return returnVal;
+	},
+	//Return object containing 1 thing:
+	//1) Object containing all detail data for the specified record
+	//Within each object, all required fields are contained and addressable
+	//via dot-walk notation.
+	getDetailJSON: function(tableView, recordID){
+		var initVals = this.getInit();
+		var recordDetail = {};
+		var tableViewRecord = new GlideRecord(tableView.table);
+		if (tableViewRecord.get(recordID)){
+			//Gather sys_id and any other fields required for record detail
+			recordDetail.sys_id = tableViewRecord.sys_id.toString();
+			var fieldsRequired = tableView.detail_fields_required.toString().split(',');
+			for (var j = 0; j < fieldsRequired.length; j++)
+				recordDetail[fieldsRequired[j]] = tableViewRecord.getDisplayValue(fieldsRequired[j]);
+			//Calculate scripted additional fields
+			var addField = new GlideRecord("x_snc_table_saw_additional_field");
+			addField.addQuery("table_view", tableView.sys_id.toString());
+			addField.addQuery("active", true);
+			addField.addQuery("for_detail_view", true);
+			addField.query();
+			while (addField.next()) {
+				try{
+					//Evaluate script on Additional Field to get value
+					var evaluatorAddField = new GlideScopedEvaluator();
+					var varsAddField = {};
+					varsAddField.table = tableView.table.toString();
+					varsAddField.recordID = tableViewRecord.sys_id.toString();
+					varsAddField.record = tableViewRecord;
+					var addFieldValue = evaluatorAddField.evaluateScript(addField, 'script', varsAddField);
+					if (addFieldValue && addFieldValue != '')
+						recordDetail[addField.name.toString()] = addFieldValue;
+					else if (initVals.debug == 'true')
+						gs.info('Table Saw: Empty value returned from Additional Field script for ' + addField.name);
+				}
+				catch(errAddField){
+					if (initVals.debug == 'true')
+						gs.info('Table Saw: Error processing script for Additional Field ' + addField.name + ' with error ' + errAddField);
+				}
+			}
+		}
+		return recordDetail;
+	},
+
+	//Get a cache identifier (for cache retrieval or insertion) (pageNum & encQueryString only required for Table View)
+	getIdentifier: function(tableViewID, pageNum, encQueryString){
+		var initVals = this.getInit();
+		var returnValue = '';
+		var identifier = {};
+		identifier.tableViewID = tableViewID;
+		if (pageNum)
+			identifier.pageNum = pageNum;
+		if (encQueryString)
+			identifier.encQueryString = encQueryString;
+		returnValue = new global.JSON().encode(identifier);
+		if (initVals.debug == 'true')
+			gs.info('Table Saw: Returned identifier ' + returnValue + '.');
+		return returnValue;
+	},
+
+	//Attempt to retrieve a cached value, given a type and identifier
+	getCache: function(type, identifier){
+		var initVals = this.getInit();
+		var returnValue = '';
+		var cacheRec = new GlideRecord("x_snc_table_saw_cached_data");
+		cacheRec.addQuery("type", type);
+		cacheRec.addQuery("identifier", identifier);
+		cacheRec.query();
+		if (cacheRec.next()) {
+			returnValue = cacheRec.json_payload.toString();
+			cacheRec.last_viewed = new GlideDateTime();
+			cacheRec.update();
+			if (initVals.debug == 'true')
+				gs.info('Table Saw: Returning ' + type + ' value from cache.');
+		}
+		return returnValue;
+	},
+
+	//Insert a new cache record, given a type and identifier
+	insertCache: function(type, identifier, cacheValue){
+		var initVals = this.getInit();
+		var cacheRec = new GlideRecord("x_snc_table_saw_cached_data");
+		cacheRec.addQuery("type", type);
+		cacheRec.addQuery("identifier", identifier);
+		cacheRec.query();
+		if (cacheRec.next()) {
+			cacheRec.json_payload = cacheValue;
+			cacheRec.last_viewed = new GlideDateTime();
+			cacheRec.update();
+			if (initVals.debug == 'true')
+				gs.info('Table Saw: Cache updated for ' + type + ' w/ identifier ' + identifier + '.');
+		}
+		else{
+			var newCacheRec = new GlideRecord("x_snc_table_saw_cached_data");
+			newCacheRec.initialize();
+			newCacheRec.type = type;
+			newCacheRec.identifier = identifier;
+			newCacheRec.json_payload = cacheValue;
+			newCacheRec.last_viewed = new GlideDateTime();
+			newCacheRec.insert();
+			if (initVals.debug == 'true')
+				gs.info('Table Saw: Cache inserted for ' + type + ' w/ identifier ' + identifier + '.');
+		}
+	},
+
+	//Update the specified cache (table_view or filter)
+	updateCache: function(type){
+		var initVals = this.getInit();
+		//Remove all expired caches
+		var expireDays = gs.getProperty("x_snc_table_saw.expire_days");
+		var cacheRec = new GlideRecord("x_snc_table_saw_cached_data");
+		cacheRec.addEncodedQuery("type=" + type + "^last_viewedRELATIVELT@dayofweek@ago@" + expireDays);
+		cacheRec.query();
+		var cacheRecCount = cacheRec.getRowCount();
+		cacheRec.deleteMultiple();
+		if (initVals.debug == 'true')
+			gs.info('Table Saw: Deletion of ' + type + ' cache records not viewed in ' + expireDays + ' days is complete. ' + cacheRecCount + ' cache records deleted.');
+		
+		//Refresh all remaining caches
+		cacheRec = new GlideRecord("x_snc_table_saw_cached_data");
+		cacheRec.addQuery("type", type);
+		cacheRec.query();
+		while (cacheRec.next()) {
+			var identifierObject = new global.JSON().decode(cacheRec.identifier.toString());
+			if (type == 'table_view')
+				cacheRec.json_payload = new global.JSON().encode(this.getRecordsJSON(this.getTableView(identifierObject.tableViewID), identifierObject.pageNum, identifierObject.encQueryString));
+			else if (type == 'filter')
+				cacheRec.json_payload = new global.JSON().encode(this.getFiltersJSON(this.getTableView(identifierObject.tableViewID)));
+			cacheRec.update();
+		}
+
+		if (initVals.debug == 'true')
+			gs.info('Table Saw: Cache update complete for ' + type + '.');
+	},
+
+	//Get a table view record, given a table view ID
+	getTableView: function(tableViewID){
+		var returnValue;
+		var tableViewRec = new GlideRecord("x_snc_table_saw_table_view");
+		if (tableViewRec.get(tableViewID))
+		   returnValue = tableViewRec;
+		return tableViewRec;
+	},
+	
+	type: 'tableSawAjax'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>ben.hollifield@snc_SHARE_SHARE</sys_created_by>
+        <sys_created_on>2015-08-19 20:10:28</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>346d20e00f8202007a2b778ce1050e81</sys_id>
+        <sys_mod_count>154</sys_mod_count>
+        <sys_name>tableSawAjax</sys_name>
+        <sys_package display_value="Table Saw" source="x_snc_table_saw">1f006bd40f4202007a2b778ce1050ec3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Table Saw">1f006bd40f4202007a2b778ce1050ec3</sys_scope>
+        <sys_update_name>sys_script_include_346d20e00f8202007a2b778ce1050e81</sys_update_name>
+        <sys_updated_by>ben.hollifield_SHARE</sys_updated_by>
+        <sys_updated_on>2016-02-11 23:12:22</sys_updated_on>
+    </sys_script_include>
+</record_update>

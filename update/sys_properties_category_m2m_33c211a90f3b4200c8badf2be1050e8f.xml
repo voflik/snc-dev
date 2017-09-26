@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_properties_category_m2m">
+    <sys_properties_category_m2m action="INSERT_OR_UPDATE">
+        <category display_value="Table Saw">d09e28e00f8202007a2b778ce1050ef3</category>
+        <order>400</order>
+        <property display_value="x_snc_table_saw.expire_days" name="x_snc_table_saw.expire_days">7f225d690f3b4200c8badf2be1050efc</property>
+        <sys_class_name>sys_properties_category_m2m</sys_class_name>
+        <sys_created_by>ben.hollifield@snc_SHARE</sys_created_by>
+        <sys_created_on>2015-11-18 01:17:22</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>33c211a90f3b4200c8badf2be1050e8f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_snc_table_saw.expire_days.Table Saw</sys_name>
+        <sys_package display_value="Table Saw" source="x_snc_table_saw">1f006bd40f4202007a2b778ce1050ec3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Table Saw">1f006bd40f4202007a2b778ce1050ec3</sys_scope>
+        <sys_update_name>sys_properties_category_m2m_33c211a90f3b4200c8badf2be1050e8f</sys_update_name>
+        <sys_updated_by>ben.hollifield@snc_SHARE</sys_updated_by>
+        <sys_updated_on>2015-11-18 01:17:22</sys_updated_on>
+    </sys_properties_category_m2m>
+</record_update>

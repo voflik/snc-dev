@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_page">
+    <sys_ui_page action="INSERT_OR_UPDATE">
+        <category>general</category>
+        <client_script/>
+        <description>Basic UI Page to demonstrate Table Saw usage. Pass a table name parameter (that has an active Table Saw table view) to see how your view looks. Use either format:&#13;
+&#13;
+https://[instance_name].service-now.com/x_snc_table_saw_home.do?sysparm_view_id=[sysID]&#13;
+https://[instance_name].service-now.com/x_snc_table_saw_home.do?sysparm_table=[tableName]</description>
+        <direct>false</direct>
+        <endpoint>x_snc_table_saw_home.do</endpoint>
+        <html><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+
+	<!-- Gather table view ID and/or table name from parameters -->
+	<j:set var="jvar_id" value="${JS:sysparm_view_id}"/>
+	<j:set var="jvar_table" value="${JS:sysparm_table}"/>
+
+	<!-- If view ID wasn't passed directly, check for sysparm_table parameter -->
+	<j:if test="${jvar_id == null}">
+		<g:evaluate var="jvar_id" jelly="true">
+			var tableViewID = '';
+			var tableView = new GlideRecord("x_snc_table_saw_table_view");
+			tableView.addQuery("table", jelly.jvar_table);
+			tableView.addQuery("active", true);
+			tableView.query();
+			if (tableView.next())
+				tableViewID = tableView.sys_id.toString();
+			tableViewID;
+		</g:evaluate>
+	</j:if>
+	
+	<!-- If a Table Saw exists for the ID, render it -->
+	<j:if test="${jvar_id != ''}">
+		<!-- Call the table saw shell ui macro, being sure that jvar_id is defined -->
+		<g:inline template="x_snc_table_saw_shell.xml"/>
+	</j:if>
+	
+	<!-- If a Table Saw does not exist for the table, let 'em know. -->
+	<j:if test="${jvar_id == ''}">
+		<h3>Sorry, but no Table Saw table view has been defined matching those parameters. Bummer.</h3>
+		<p><i>Check to be sure a correct sysparm_view_id or sysparm_table parameter is set in the URL, and that there is an active table view record to match.</i></p>
+	</j:if>
+</j:jelly>]]></html>
+        <name>home</name>
+        <processing_script/>
+        <sys_class_name>sys_ui_page</sys_class_name>
+        <sys_created_by>ben.hollifield@snc_SHARE_SHARE</sys_created_by>
+        <sys_created_on>2015-08-19 20:23:36</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>3d10bce00f8202007a2b778ce1050eb8</sys_id>
+        <sys_mod_count>49</sys_mod_count>
+        <sys_name>home</sys_name>
+        <sys_package display_value="Table Saw" source="x_snc_table_saw">1f006bd40f4202007a2b778ce1050ec3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Table Saw">1f006bd40f4202007a2b778ce1050ec3</sys_scope>
+        <sys_update_name>sys_ui_page_3d10bce00f8202007a2b778ce1050eb8</sys_update_name>
+        <sys_updated_by>ben.hollifield@snc_SHARE_SHARE</sys_updated_by>
+        <sys_updated_on>2015-09-23 02:42:58</sys_updated_on>
+    </sys_ui_page>
+</record_update>

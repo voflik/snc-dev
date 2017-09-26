@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_ui_section caption="" section_id="cc5323180f4202007a2b778ce1050eaa" sys_domain="global" table="x_snc_table_saw_table_view" version="3" view="">
+        <sys_ui_annotation action="INSERT_OR_UPDATE">
+            <is_plain_text>false</is_plain_text>
+            <sys_created_by>ben.hollifield@snc_SHARE</sys_created_by>
+            <sys_created_on>2015-11-18 03:22:49</sys_created_on>
+            <sys_id>d98f2ded0f3b4200c8badf2be1050eea</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>ben.hollifield@snc_SHARE</sys_updated_by>
+            <sys_updated_on>2015-11-18 03:22:49</sys_updated_on>
+            <text>A table view represents 1) a pane of record results, 2) a widget for filtering those results, and (optionally) 3) a detailed record view.&lt;ul&gt;&lt;li&gt;&lt;b&gt;Name&lt;/b&gt;: A descriptive name for this table view.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Renderer&lt;/b&gt;: This is a UI macro that renders all aspects of the view, including the results pane, the filter widget, and (optionally) the detail view. This can be customized for particular tables or views.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Table&lt;/b&gt;: The table from which results will be displayed and filtered.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Fields required&lt;/b&gt;: The fields that will be used in the results pane of the renderer. If you need data that is not available on the table directly, use the additional fields related list at bottom. Any fields not listed here or in additional fields will &lt;i&gt;not&lt;/i&gt; be available for display! (Specifying only the necessary fields improves user experience.)&lt;/li&gt;&lt;li&gt;&lt;b&gt;Base query type&lt;/b&gt;: The source of the base query, whether simple (from a condition builder) or scripted (from a server script).&lt;/li&gt;&lt;li&gt;&lt;b&gt;Results per page&lt;/b&gt;: Used for pagination, this is the total results displayed per page in the results pane (leave blank to disable pagination).&lt;/li&gt;&lt;li&gt;&lt;b&gt;Auto-refresh&lt;/b&gt;: Enable continual refresh of visible record data (for table view and detail view).&lt;/li&gt;&lt;li&gt;&lt;b&gt;Refresh frequency&lt;/b&gt;: Frequency at which auto-refresh occurs, in seconds.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Enable detail view&lt;/b&gt;: This enables a second display phase for a detailed record view. Generally, the detail view is implemented as a bootstrap modal when a record is clicked. In order for this to function, the modal must be defined within the renderer (see sample data for examples). In lieu of a detail view, you may utilize standard HTML links in your renderer to redirect users specific pages.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Enable filter caching&lt;/b&gt;: Enable server-side caching to expedite filter rendering (See Table Saw Properties for additional information).&lt;/li&gt;&lt;li&gt;&lt;b&gt;Enable table view caching&lt;/b&gt;: Enable server-side caching to expedite table view rendering (See Table Saw Properties for additional information).&lt;/li&gt;&lt;li&gt;&lt;b&gt;Base query&lt;/b&gt;: This is the basic query that will *always* apply to the viewed results, regardless of any additional queries added by filters.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Filter Sections(related list)&lt;/b&gt;: The filter sections included in the filter widget.&lt;/li&gt;&lt;/ul&gt;&lt;i&gt;Notes:&lt;ul&gt;&lt;li&gt;Test your table view with the 'Test Table View' button or by visiting https://[instanceName]/x_snc_table_saw_home.do?sysparm_view_id=[tableViewID].&lt;/li&gt;&lt;li&gt;To insert your table view into any Jelly script, use ${AMP}lt;g:inline template="x_snc_table_saw_shell.xml" /${AMP}gt;, ensuring that jvar_id is defined prior to calling Table Saw or that URL parameter sysparm_view_id will always be present when the page is loaded, where both are the sys_id of the desired table view.&lt;/li&gt;&lt;/ul&gt;&lt;/i&gt;</text>
+            <type display_value="Info Box Blue">753f88a80f930000b12e6903cfe01206</type>
+        </sys_ui_annotation>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>d98f2ded0f3b4200c8badf2be1050eea</element>
+            <position>0</position>
+            <sys_created_by>ben.hollifield@snc_SHARE</sys_created_by>
+            <sys_created_on>2015-11-18 03:22:49</sys_created_on>
+            <sys_id>1d8f2ded0f3b4200c8badf2be1050eea</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_table_saw_table_view" sys_domain="global" view="Default view">cc5323180f4202007a2b778ce1050eaa</sys_ui_section>
+            <sys_updated_by>ben.hollifield@snc_SHARE</sys_updated_by>
+            <sys_updated_on>2015-11-18 03:22:49</sys_updated_on>
+            <sys_user/>
+            <type>annotation</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>name</element>
+            <position>1</position>
+            <sys_created_by>ben.hollifield@snc_SHARE</sys_created_by>
+            <sys_created_on>2015-11-18 03:22:49</sys_created_on>
+            <sys_id>5d8f2ded0f3b4200c8badf2be1050eea</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_table_saw_table_view" sys_domain="global" view="Default view">cc5323180f4202007a2b778ce1050eaa</sys_ui_section>
+            <sys_updated_by>ben.hollifield@snc_SHARE</sys_updated_by>
+            <sys_updated_on>2015-11-18 03:22:49</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.begin_split</element>
+            <position>2</position>
+            <sys_created_by>ben.hollifield@snc_SHARE</sys_created_by>
+            <sys_created_on>2015-11-18 03:22:49</sys_created_on>
+            <sys_id>9d8f2ded0f3b4200c8badf2be1050eea</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_table_saw_table_view" sys_domain="global" view="Default view">cc5323180f4202007a2b778ce1050eaa</sys_ui_section>
+            <sys_updated_by>ben.hollifield@snc_SHARE</sys_updated_by>
+            <sys_updated_on>2015-11-18 03:22:49</sys_updated_on>
+            <sys_user/>
+            <type>.begin_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>renderer</element>
+            <position>3</position>
+            <sys_created_by>ben.hollifield@snc_SHARE</sys_created_by>
+            <sys_created_on>2015-11-18 03:22:49</sys_created_on>
+            <sys_id>dd8f2ded0f3b4200c8badf2be1050eea</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_table_saw_table_view" sys_domain="global" view="Default view">cc5323180f4202007a2b778ce1050eaa</sys_ui_section>
+            <sys_updated_by>ben.hollifield@snc_SHARE</sys_updated_by>
+            <sys_updated_on>2015-11-18 03:22:49</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>table</element>
+            <position>4</position>
+            <sys_created_by>ben.hollifield@snc_SHARE</sys_created_by>
+            <sys_created_on>2015-11-18 03:22:49</sys_created_on>
+            <sys_id>118f2ded0f3b4200c8badf2be1050eeb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_table_saw_table_view" sys_domain="global" view="Default view">cc5323180f4202007a2b778ce1050eaa</sys_ui_section>
+            <sys_updated_by>ben.hollifield@snc_SHARE</sys_updated_by>
+            <sys_updated_on>2015-11-18 03:22:49</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>fields_required</element>
+            <position>5</position>
+            <sys_created_by>ben.hollifield@snc_SHARE</sys_created_by>
+            <sys_created_on>2015-11-18 03:22:49</sys_created_on>
+            <sys_id>518f2ded0f3b4200c8badf2be1050eeb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_table_saw_table_view" sys_domain="global" view="Default view">cc5323180f4202007a2b778ce1050eaa</sys_ui_section>
+            <sys_updated_by>ben.hollifield@snc_SHARE</sys_updated_by>
+            <sys_updated_on>2015-11-18 03:22:49</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>base_query_type</element>
+            <position>6</position>
+            <sys_created_by>ben.hollifield@snc_SHARE</sys_created_by>
+            <sys_created_on>2015-11-18 03:22:49</sys_created_on>
+            <sys_id>918f2ded0f3b4200c8badf2be1050eeb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_table_saw_table_view" sys_domain="global" view="Default view">cc5323180f4202007a2b778ce1050eaa</sys_ui_section>
+            <sys_updated_by>ben.hollifield@snc_SHARE</sys_updated_by>
+            <sys_updated_on>2015-11-18 03:22:49</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>7</position>
+            <sys_created_by>ben.hollifield@snc_SHARE</sys_created_by>
+            <sys_created_on>2015-11-18 03:22:49</sys_created_on>
+            <sys_id>d18f2ded0f3b4200c8badf2be1050eeb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_table_saw_table_view" sys_domain="global" view="Default view">cc5323180f4202007a2b778ce1050eaa</sys_ui_section>
+            <sys_updated_by>ben.hollifield@snc_SHARE</sys_updated_by>
+            <sys_updated_on>2015-11-18 03:22:49</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>results_per_page</element>
+            <position>8</position>
+            <sys_created_by>ben.hollifield@snc_SHARE</sys_created_by>
+            <sys_created_on>2015-11-18 03:22:49</sys_created_on>
+            <sys_id>158f2ded0f3b4200c8badf2be1050eeb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_table_saw_table_view" sys_domain="global" view="Default view">cc5323180f4202007a2b778ce1050eaa</sys_ui_section>
+            <sys_updated_by>ben.hollifield@snc_SHARE</sys_updated_by>
+            <sys_updated_on>2015-11-18 03:22:49</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>auto_refresh</element>
+            <position>9</position>
+            <sys_created_by>ben.hollifield@snc_SHARE</sys_created_by>
+            <sys_created_on>2015-11-18 03:22:49</sys_created_on>
+            <sys_id>558f2ded0f3b4200c8badf2be1050eeb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_table_saw_table_view" sys_domain="global" view="Default view">cc5323180f4202007a2b778ce1050eaa</sys_ui_section>
+            <sys_updated_by>ben.hollifield@snc_SHARE</sys_updated_by>
+            <sys_updated_on>2015-11-18 03:22:49</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>refresh_frequency</element>
+            <position>10</position>
+            <sys_created_by>ben.hollifield@snc_SHARE</sys_created_by>
+            <sys_created_on>2015-11-18 03:22:49</sys_created_on>
+            <sys_id>958f2ded0f3b4200c8badf2be1050eeb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_table_saw_table_view" sys_domain="global" view="Default view">cc5323180f4202007a2b778ce1050eaa</sys_ui_section>
+            <sys_updated_by>ben.hollifield@snc_SHARE</sys_updated_by>
+            <sys_updated_on>2015-11-18 03:22:49</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>enable_detail_view</element>
+            <position>11</position>
+            <sys_created_by>ben.hollifield@snc_SHARE</sys_created_by>
+            <sys_created_on>2015-11-18 03:22:49</sys_created_on>
+            <sys_id>d58f2ded0f3b4200c8badf2be1050eeb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_table_saw_table_view" sys_domain="global" view="Default view">cc5323180f4202007a2b778ce1050eaa</sys_ui_section>
+            <sys_updated_by>ben.hollifield@snc_SHARE</sys_updated_by>
+            <sys_updated_on>2015-11-18 03:22:49</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>enable_filter_caching</element>
+            <position>12</position>
+            <sys_created_by>ben.hollifield@snc_SHARE</sys_created_by>
+            <sys_created_on>2015-11-18 03:22:49</sys_created_on>
+            <sys_id>198f2ded0f3b4200c8badf2be1050eeb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_table_saw_table_view" sys_domain="global" view="Default view">cc5323180f4202007a2b778ce1050eaa</sys_ui_section>
+            <sys_updated_by>ben.hollifield@snc_SHARE</sys_updated_by>
+            <sys_updated_on>2015-11-18 03:22:49</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>enable_table_view_caching</element>
+            <position>13</position>
+            <sys_created_by>ben.hollifield@snc_SHARE</sys_created_by>
+            <sys_created_on>2015-11-18 03:22:49</sys_created_on>
+            <sys_id>598f2ded0f3b4200c8badf2be1050eeb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_table_saw_table_view" sys_domain="global" view="Default view">cc5323180f4202007a2b778ce1050eaa</sys_ui_section>
+            <sys_updated_by>ben.hollifield@snc_SHARE</sys_updated_by>
+            <sys_updated_on>2015-11-18 03:22:49</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>active</element>
+            <position>14</position>
+            <sys_created_by>ben.hollifield@snc_SHARE</sys_created_by>
+            <sys_created_on>2015-11-18 03:22:49</sys_created_on>
+            <sys_id>998f2ded0f3b4200c8badf2be1050eeb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_table_saw_table_view" sys_domain="global" view="Default view">cc5323180f4202007a2b778ce1050eaa</sys_ui_section>
+            <sys_updated_by>ben.hollifield@snc_SHARE</sys_updated_by>
+            <sys_updated_on>2015-11-18 03:22:49</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.end_split</element>
+            <position>15</position>
+            <sys_created_by>ben.hollifield@snc_SHARE</sys_created_by>
+            <sys_created_on>2015-11-18 03:22:49</sys_created_on>
+            <sys_id>d98f2ded0f3b4200c8badf2be1050eeb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_table_saw_table_view" sys_domain="global" view="Default view">cc5323180f4202007a2b778ce1050eaa</sys_ui_section>
+            <sys_updated_by>ben.hollifield@snc_SHARE</sys_updated_by>
+            <sys_updated_on>2015-11-18 03:22:49</sys_updated_on>
+            <sys_user/>
+            <type>.end_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>base_query</element>
+            <position>16</position>
+            <sys_created_by>ben.hollifield@snc_SHARE</sys_created_by>
+            <sys_created_on>2015-11-18 03:22:49</sys_created_on>
+            <sys_id>1d8f2ded0f3b4200c8badf2be1050eeb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_table_saw_table_view" sys_domain="global" view="Default view">cc5323180f4202007a2b778ce1050eaa</sys_ui_section>
+            <sys_updated_by>ben.hollifield@snc_SHARE</sys_updated_by>
+            <sys_updated_on>2015-11-18 03:22:49</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>base_query_script</element>
+            <position>17</position>
+            <sys_created_by>ben.hollifield@snc_SHARE</sys_created_by>
+            <sys_created_on>2015-11-18 03:22:49</sys_created_on>
+            <sys_id>5d8f2ded0f3b4200c8badf2be1050eeb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_table_saw_table_view" sys_domain="global" view="Default view">cc5323180f4202007a2b778ce1050eaa</sys_ui_section>
+            <sys_updated_by>ben.hollifield@snc_SHARE</sys_updated_by>
+            <sys_updated_on>2015-11-18 03:22:49</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption/>
+            <header>false</header>
+            <name>x_snc_table_saw_table_view</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>ben.hollifield@snc_SHARE_SHARE</sys_created_by>
+            <sys_created_on>2015-08-19 14:46:26</sys_created_on>
+            <sys_customer_update>true</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>cc5323180f4202007a2b778ce1050eaa</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_snc_table_saw_table_view</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Table Saw" source="x_snc_table_saw">1f006bd40f4202007a2b778ce1050ec3</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Table Saw">1f006bd40f4202007a2b778ce1050ec3</sys_scope>
+            <sys_update_name>sys_ui_section_cc5323180f4202007a2b778ce1050eaa</sys_update_name>
+            <sys_updated_by>ben.hollifield@snc_SHARE_SHARE</sys_updated_by>
+            <sys_updated_on>2015-08-19 14:46:26</sys_updated_on>
+            <sys_user/>
+            <title>true</title>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

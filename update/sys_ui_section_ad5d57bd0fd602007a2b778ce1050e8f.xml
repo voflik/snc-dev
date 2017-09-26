@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_ui_section caption="Detail View" section_id="ad5d57bd0fd602007a2b778ce1050e8f" sys_domain="global" table="x_snc_table_saw_table_view" version="3" view="">
+        <sys_ui_annotation action="INSERT_OR_UPDATE">
+            <is_plain_text>false</is_plain_text>
+            <sys_created_by>ben.hollifield@snc_SHARE_SHARE</sys_created_by>
+            <sys_created_on>2015-09-05 16:51:23</sys_created_on>
+            <sys_id>5cf2a7fd0fd602007a2b778ce1050eee</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>ben.hollifield@snc_SHARE_SHARE</sys_updated_by>
+            <sys_updated_on>2015-09-05 16:51:23</sys_updated_on>
+            <text>Detail view enables a second display phase for a detailed record view. This is usually presented as a bootstrap modal displayed when a record is clicked. The detail view is defined alongside the results pane and the filter widget within the renderer UI macro.&lt;ul&gt;&lt;li&gt;&lt;b&gt;Modal fields required&lt;/b&gt;: The fields that will be used in the detail view. These are generally similar to, but more detailed than, the fields required for the table view. If you need data that is not available on the table directly, use the additional fields related list at bottom. Any fields not listed here or in additional fields will &lt;i&gt;not&lt;/i&gt; be available for display! (Specifying only the necessary fields improves user experience.)&lt;/li&gt;&lt;/ul&gt;</text>
+            <type display_value="Info Box Blue">753f88a80f930000b12e6903cfe01206</type>
+        </sys_ui_annotation>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>5cf2a7fd0fd602007a2b778ce1050eee</element>
+            <position>0</position>
+            <sys_created_by>ben.hollifield@snc_SHARE_SHARE</sys_created_by>
+            <sys_created_on>2015-09-05 16:51:23</sys_created_on>
+            <sys_id>9cf2a7fd0fd602007a2b778ce1050eee</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Detail View" display_value="Detail View" name="x_snc_table_saw_table_view" sys_domain="global" view="Default view">ad5d57bd0fd602007a2b778ce1050e8f</sys_ui_section>
+            <sys_updated_by>ben.hollifield@snc_SHARE_SHARE</sys_updated_by>
+            <sys_updated_on>2015-09-05 16:51:23</sys_updated_on>
+            <sys_user/>
+            <type>annotation</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>detail_fields_required</element>
+            <position>1</position>
+            <sys_created_by>ben.hollifield@snc_SHARE_SHARE</sys_created_by>
+            <sys_created_on>2015-09-05 16:51:23</sys_created_on>
+            <sys_id>dcf2a7fd0fd602007a2b778ce1050eee</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Detail View" display_value="Detail View" name="x_snc_table_saw_table_view" sys_domain="global" view="Default view">ad5d57bd0fd602007a2b778ce1050e8f</sys_ui_section>
+            <sys_updated_by>ben.hollifield@snc_SHARE_SHARE</sys_updated_by>
+            <sys_updated_on>2015-09-05 16:51:23</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption>Detail View</caption>
+            <header>false</header>
+            <name>x_snc_table_saw_table_view</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>ben.hollifield@snc_SHARE_SHARE</sys_created_by>
+            <sys_created_on>2015-09-05 16:26:54</sys_created_on>
+            <sys_customer_update>true</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>ad5d57bd0fd602007a2b778ce1050e8f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Detail View</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Table Saw" source="x_snc_table_saw">1f006bd40f4202007a2b778ce1050ec3</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Table Saw">1f006bd40f4202007a2b778ce1050ec3</sys_scope>
+            <sys_update_name>sys_ui_section_ad5d57bd0fd602007a2b778ce1050e8f</sys_update_name>
+            <sys_updated_by>ben.hollifield@snc_SHARE_SHARE</sys_updated_by>
+            <sys_updated_on>2015-09-05 16:26:54</sys_updated_on>
+            <sys_user/>
+            <title>false</title>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

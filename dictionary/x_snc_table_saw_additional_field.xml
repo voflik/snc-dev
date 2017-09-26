@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Additional Field" max_length="40" name="x_snc_table_saw_additional_field" type="collection">
+        <element default="true" label="Active" max_length="40" name="active" type="boolean"/>
+        <element default="true" label="For detail view" max_length="40" name="for_detail_view" type="boolean"/>
+        <element default="true" label="For table view" max_length="40" name="for_table_view" type="boolean"/>
+        <element display="true" label="Name" mandatory="true" max_length="40" name="name" type="string"/>
+        <element default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" read_only="true" type="string"/>
+        <element default="/*&#13;&#10;Available variables:&#13;&#10;table - table associated with the table view&#13;&#10;recordID - sysID of the result record (ie - a specific KB article)&#13;&#10;record - entire GlideRecord object of the result record&#13;&#10;&#13;&#10;Result variable:&#13;&#10;answer - String or Object for use in the table view renderer. Addressable as 'record[&quot;name&quot;]' in the table view and 'detail[&quot;name&quot;]' in the detail view.&#13;&#10;*/" label="Script" max_length="8000" name="script" type="script_plain"/>
+        <element label="Short description" max_length="100" name="short_description" type="string"/>
+        <element label="Table view" mandatory="true" max_length="32" name="table_view" reference="x_snc_table_saw_table_view" reference_cascade_rule="delete" type="reference"/>
+        <index name="index">
+            <element name="table_view"/>
+        </index>
+    </element>
+</database>

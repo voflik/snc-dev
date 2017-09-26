@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_script">
+    <sys_ui_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <description>UI Script in support of the Table Saw application</description>
+        <global>false</global>
+        <name>x_snc_table_saw.table_saw_js</name>
+        <script><![CDATA[// __fileURL = https://esnightly.service-now.com/sys_ui_script.do?sys_id=4e4deca00f8202007a2b778ce1050eeb
+// __fieldName = script
+// __authentication = STORED
+(function(){
+	var tsApp = angular.module('tablesaw', ['ui.bootstrap','ngAnimate']);
+	//App controller
+	tsApp.controller('TableSawController', function($scope, $sce, $timeout, $filter){
+		/*Variables available from UI Macro:
+		tableViewID: sysID of the table view record
+		contextParameter: URL parameter containing view context
+		debugTableSaw: 'true'/'false' if debugging is enabled*/
+		$scope.recordsArray = []; //Array of all records displayed in main frame
+		$scope.filterSectionsArray = []; //Array of all filters displayed in filter frame
+		$scope.selectedFilter = {};
+		$scope.detail = {}; //Object containing detailed single record data for detail view
+		$scope.recordID = ''; //SysID of the record currently visible in a detail view.
+		$scope.sectionQueries = {}; //Object containing active filters for each section
+		$scope.initDataLoaded = false; //Is initial data load complete?
+		$scope.recordsLoaded = false; //Is record list loaded after latest fetch?
+		$scope.detailLoaded = false; //Is record detail loaded after latest fetch?
+		
+		//Pagination variables
+		$scope.itemsPerPage = ''; //Total items per page, as defined on table view
+		$scope.currentPage = 1; //Current page being viewed
+		$scope.totalItems = 0; //Total available items for display
+		
+		//Auto-refresh variables
+		$scope.autoRefresh = 'false'; //Is auto-refresh enabled for this table view?
+		$scope.refreshFrequency = ''; //If enabled, the auto-refresh frequency (in seconds)
+		
+		//Date-picker variables
+		$scope.dateOpen = {};
+		$scope.open = function(filterID) {
+			$scope.dateOpen[filterID] = true;
+		};
+		
+		//Initialization
+		$scope.init = function(){
+			if (debugTableSaw == "true")
+				console.log("Table Saw: Is Starting...");
+			//If unable to get context param from server, try from client
+			if (contextParameter == '')
+				contextParameter = $scope.getUrlParameter('sysparm_context');
+			//Initialize data for table view
+			getInitData(tableViewID);
+			//If auto-refresh enabled, set up poller for table/detail view
+			if ($scope.autoRefresh == 'true' && $scope.refreshFrequency != ''){
+				var poller = (function tick() {
+					getRecords(tableViewID, true, $scope.currentPage);
+					if ($scope.detail.sys_id && $scope.detail.sys_id != '')
+						getDetail($scope.recordID);
+					$timeout(tick, parseInt($scope.refreshFrequency*1000));
+				})();
+			}
+			//If auto-refresh disabled, get first batch of records
+			else
+				getRecords(tableViewID, false, $scope.currentPage);
+			//Initialize filters
+			getFilters(tableViewID);
+			//If a filter context came in via parameter, wait for filters to render and then set them accordingly
+			if (contextParameter){
+				var filterLoop = setInterval(function(){
+					if ($scope.filterSectionsArray.length > 0){
+						clearInterval(filterLoop);
+						parseUrlContext();
+					}
+					else if (debugTableSaw == "true")
+						console.log("Table Saw: Waiting for filters to pre-set according to context parameter...");
+				}, 500);
+			}
+		};
+		
+		//Get data for initialization of table view:
+		//results per page, auto-refresh
+		getInitData = function(tableViewID){
+			var ga = new GlideAjax('x_snc_table_saw.tableSawAjax');
+			ga.addParam('sysparm_name', 'getInitData');
+			ga.addParam('sysparm_table_view_id', tableViewID);
+			ga.getXMLWait();
+			var results = ga.getAnswer();
+			if (results != ''){
+				var initData = JSON.parse(results);
+				$scope.itemsPerPage = initData.itemsPerPage;
+				$scope.autoRefresh = initData.autoRefresh;
+				if ($scope.autoRefresh == 'true')
+					$scope.refreshFrequency = initData.refreshFrequency;
+			}
+		};
+		
+		//Add/remove queries from the sectionQueries array when filters are initiated
+		$scope.adjustQuery = function(filter, filterSectionID, filterSectionType, runSearch){
+			if (filter || filterSectionID){
+				//If a valid filter and query, apply
+				if (filter && filter.filterQuery){
+					var queryToAdjust = filter.filterQuery;
+					//Extract any ORDERBY parameter and save it
+					var orderStringRx = /\^ORDERBY.*/g;
+					var orderMatch = queryToAdjust.match(orderStringRx);
+					if (orderMatch){
+						$scope.sectionQueries.orderBy = orderMatch[0];
+						queryToAdjust = queryToAdjust.replace(orderStringRx,"");
+					}
+					//CHECKBOXES & ICONS & SWITCHES
+					//Checkboxes, icons & switches are binary, so add or remove the query term
+					//There may be multiple simultaneously
+					if (filterSectionType == 'checkboxes' || filterSectionType == 'icons' || filterSectionType == 'switches'){
+						var querySpliced = false; //Have we removed query from array?
+						if ($scope.sectionQueries[filterSectionID]){
+							//If we find an existing query for the checkbox, simply remove it
+							for (var i = 0; i < $scope.sectionQueries[filterSectionID].length; i++) {
+								if ($scope.sectionQueries[filterSectionID][i].filterQuery == queryToAdjust){
+									$scope.sectionQueries[filterSectionID].splice(i,1);
+									filter.filterValue=false;
+									querySpliced = true;
+								}
+							}
+							//If we do not find an existing query for the checkbox, add it
+							if (querySpliced == false){
+								filter.filterValue = true;
+								$scope.sectionQueries[filterSectionID].push(
+								{"filterQuery":queryToAdjust,
+								"filterID":filter.filterID,
+								"filterValue":filter.filterValue});
+							}
+						}
+						//If we do not find a query object for this section yet, create it and add the query
+						else{
+							filter.filterValue = true;
+							$scope.sectionQueries[filterSectionID] = [];
+							$scope.sectionQueries[filterSectionID].push(
+							{"filterQuery":queryToAdjust,
+							"filterID":filter.filterID,
+							"filterValue":filter.filterValue});
+						}
+					}
+					//RADIO BUTTONS
+					//Radio Buttons are 1-at-a-time, so only one allowed per section
+					else if (filterSectionType == 'radio_buttons'){
+						//Reset values of all existing buttons in section
+						for (var j=0; j < $scope.filterSectionsArray.length; j++) {
+							if ($scope.filterSectionsArray[j].sectionID == filterSectionID){
+								for (var k=0; k < $scope.filterSectionsArray[j].filters.length; k++) {
+									$scope.filterSectionsArray[j].filters[k].filterValue = '';
+								}
+							}
+						}
+						//Clear/create existing section and add the query
+						filter.filterValue = true;
+						$scope.sectionQueries[filterSectionID] = [];
+						$scope.sectionQueries[filterSectionID].push(
+						{"filterQuery":queryToAdjust,
+						"filterID":filter.filterID,
+						"filterValue":filter.filterValue});
+					}
+					//CHOICE LISTS
+					//Choices are 1-at-a-time, so only one allowed per section
+					else if (filterSectionType == 'choice'){
+						//Clear/create existing section and add the query
+						filter.filterValue = true;
+						$scope.sectionQueries[filterSectionID] = [];
+						$scope.sectionQueries[filterSectionID].push(
+						{"filterQuery":queryToAdjust,
+						"filterID":filter.filterID,
+						"filterValue":filter.filterValue});
+					}
+					//FREE TEXT & REFERENCE
+					//Free Text & Reference are (for now) 1-at-a-time, so only one allowed per section
+					else if (filterSectionType == 'free_text' || filterSectionType == 'reference'){
+						//Clear/create existing section and add the query
+						$scope.sectionQueries[filterSectionID] = [];
+						//For Free Text & Reference, must add input to query term
+						if (filter.filterValue && filter.filterValue != ''){
+							queryToAdjust = filter.filterQuery.replace(/\{\{searchTerm\}\}/g, filter.filterValue);
+							$scope.sectionQueries[filterSectionID].push(
+							{"filterQuery":queryToAdjust,
+							"filterID":filter.filterID,
+							"filterValue":filter.filterValue});
+						}
+					}
+					//DATE
+					//Date are (for now) 1-at-a-time, so only one allowed per section
+					else if (filterSectionType == 'date'){
+						//Clear/create existing section and add the query
+						$scope.sectionQueries[filterSectionID] = [];
+						//For Date, must adjust queryTerm
+						if (filter.filterValue && filter.filterValue != ''){
+							//If comparator is ON or NOT ON, be inclusive of entire day
+							if (filter.filterQuery.indexOf('ON') > -1)
+								queryToAdjust = filter.filterQuery.split('javascript:')[0] + $filter('date')(new Date(filter.filterValue),'yyyy-MM-dd HH:mm:ss') + '@' + $filter('date')(new Date(filter.filterValue),'yyyy-MM-dd') + ' 23:59:59';
+							//Else, just use midnight on day chosen, choosing side of day based on < or >
+							else if (filter.filterQuery.indexOf('<') > -1)
+								queryToAdjust = filter.filterQuery.split('javascript:')[0] + $filter('date')(new Date(filter.filterValue),'yyyy-MM-dd') + ' 23:59:59';
+							else if (filter.filterQuery.indexOf('>') > -1)
+								queryToAdjust = filter.filterQuery.split('javascript:')[0] + $filter('date')(new Date(filter.filterValue),'yyyy-MM-dd') + ' 00:00:00';
+							$scope.sectionQueries[filterSectionID].push(
+							{"filterQuery":queryToAdjust,
+							"filterID":filter.filterID,
+							"filterValue":filter.filterValue});
+						}
+					}
+				}
+				//Else if filter is null but section valid, clear filter for section
+				else if (filterSectionID){
+					$scope.sectionQueries[filterSectionID] = [];
+				}
+				//If there are no more filters in the section, clear section from query object
+				if ($scope.sectionQueries[filterSectionID] && $scope.sectionQueries[filterSectionID].length == 0)
+					delete $scope.sectionQueries[filterSectionID];
+				if (debugTableSaw == "true")
+					console.log("Table Saw: Query array is currently " + JSON.stringify($scope.sectionQueries));
+				if (runSearch != false)
+					getRecords(tableViewID, true, $scope.currentPage);
+			}
+		};
+		
+		//Handler for rendering HTML in Angular
+		$scope.renderHTML = function(html_code){
+			return $sce.trustAsHtml(html_code);
+		};
+		
+		//Return a link to the current table saw, pre-populated with filters
+		$scope.getLink = function(){
+			//Adjust & build base URL for view
+			var newURL = window.location.href.toString();
+			newURL = newURL.split('?')[0];
+			newURL = newURL + '?sysparm_view_id=' + tableViewID;
+			//Add all filter info
+			var contextArray = [];
+			for (var key in $scope.sectionQueries) {
+				for (var i=0; i < $scope.sectionQueries[key].length; i++) {
+					if ($scope.sectionQueries[key][i].filterID)
+						contextArray.push({"filterID":$scope.sectionQueries[key][i].filterID,"filterValue":$scope.sectionQueries[key][i].filterValue});
+				}
+			}
+			if (contextArray.length > 0){
+				var encodedContext = encodeURIComponent(JSON.stringify(contextArray));
+				newURL = newURL + '&sysparm_context=' + encodedContext;
+			}
+			return newURL;
+		};
+		
+		//Normal javascript prompt, but available in scope
+		$scope.aPrompt = function(text, value){
+			prompt(text, value);
+		};
+		
+		//Grab a URL parameter
+		$scope.getUrlParameter = function(param){
+			var returnVal = '';
+			var pageURL = window.location.search.substring(1);
+			var urlVars = pageURL.split('&');
+			var urlVarDecoded;
+			var paramName;
+			for (var i = 0; i < urlVars.length; i++) {
+				urlVarDecoded = decodeURIComponent(urlVars[i]);
+				paramName = urlVarDecoded.split('=');
+				if (paramName[0] == param) {
+					if (paramName[1] != null){
+						returnVal = paramName[1];
+						break;
+					}
+				}
+			}
+			return returnVal;
+		};
+		
+		//Parse context parameter and apply to table view
+		parseUrlContext = function(){
+			var contextParam = contextParameter;
+			if (contextParam){
+				var contextArray = JSON.parse(contextParam);
+				if (debugTableSaw == "true")
+					console.log("Table Saw: Query object from parameters is " + JSON.stringify(contextArray));
+				var runSearch = false; //Wait until last query added to run search
+				for (var i=0; i < contextArray.length; i++) {
+					if (i == contextArray.length-1)
+						runSearch = true;
+					for (var j=0; j < $scope.filterSectionsArray.length; j++) {
+						for (var k=0; k < $scope.filterSectionsArray[j].filters.length; k++) {
+							if ($scope.filterSectionsArray[j].filters[k].filterID == contextArray[i].filterID){
+								//If this is a date filter, instantiate it properly
+								if ($scope.filterSectionsArray[j].filters[k].filterValue.indexOf('.000Z'))
+									$scope.filterSectionsArray[j].filters[k].filterValue = new Date(contextArray[i].filterValue);
+								//Else, set value directly
+								else
+									$scope.filterSectionsArray[j].filters[k].filterValue = contextArray[i].filterValue;
+								$scope.selectedFilter[$scope.filterSectionsArray[j].sectionID] = $scope.filterSectionsArray[j].filters[k];
+								$scope.adjustQuery($scope.filterSectionsArray[j].filters[k], $scope.filterSectionsArray[j].sectionID, $scope.filterSectionsArray[j].sectionType, runSearch);
+							}
+						}
+					}
+				}
+			}
+		};
+		
+		//In-scope function to get a page of records.
+		//Called by the paginator.
+		$scope.getPageRecords = function(){
+			getRecords(tableViewID, true, $scope.currentPage);
+		};
+		
+		//Get table view records for display.
+		//Provide optional useFilters parameter to determine whether
+		//filters are included in the query or no.
+		//Provide pageNum parameter to determine which batch of records is gathered
+		getRecords = function(tableViewID, useFilters, pageNum){
+			$scope.recordsLoaded = false;
+			var encQueryString = '';
+			//If using filters, build the query string
+			//AND within sections, OR across sections
+			if (useFilters == true){
+				for (var i = 0; i < $scope.filterSectionsArray.length; i++) {
+					if ($scope.sectionQueries[$scope.filterSectionsArray[i].sectionID]){
+						for (var j = 0; j < $scope.sectionQueries[$scope.filterSectionsArray[i].sectionID].length; j++) {
+							if ($scope.sectionQueries[$scope.filterSectionsArray[i].sectionID][j].filterQuery != ''){
+								if (encQueryString != ''){
+									encQueryString = encQueryString + '^';
+									if (j != 0)
+										encQueryString = encQueryString + 'OR';
+								}
+								encQueryString = encQueryString + $scope.sectionQueries[$scope.filterSectionsArray[i].sectionID][j].filterQuery;
+							}
+						}
+					}
+				}
+				if ($scope.sectionQueries.orderBy)
+					encQueryString = encQueryString + '^EQ' + $scope.sectionQueries.orderBy;
+				if (debugTableSaw == "true")
+					console.log("Table Saw: Filter query encoded string is " + encQueryString);
+			}
+			var ga = new GlideAjax('x_snc_table_saw.tableSawAjax');
+			ga.addParam('sysparm_name', 'getRecords');
+			ga.addParam('sysparm_table_view_id', tableViewID);
+			ga.addParam('sysparm_encoded_query', encQueryString);
+			ga.addParam('sysparm_page_number', pageNum);
+			ga.getXMLAnswer(processRecordsResults);
+		};
+		//Asynchronous callback to process table view records
+		processRecordsResults = function(results){
+			if (results != ''){
+				$scope.$apply(function(){
+					var recordBatch = JSON.parse(results);
+					$scope.totalItems = recordBatch.totalItems;
+					$scope.recordsArray = recordBatch.records;
+					$scope.recordsLoaded = true;
+					$scope.initDataLoaded = true;
+					if (debugTableSaw == "true")
+						console.log("Table Saw: RecordsArray " + JSON.stringify($scope.recordsArray));
+				});
+			}
+		};
+		
+		//Get table view filters for display
+		getFilters = function(tableViewID){
+			var ga = new GlideAjax('x_snc_table_saw.tableSawAjax');
+			ga.addParam('sysparm_name', 'getFilters');
+			ga.addParam('sysparm_table_view_id', tableViewID);
+			ga.getXMLAnswer(processFiltersResults);
+		};
+		//Asynchronous callback to process table view filters
+		processFiltersResults = function(results){
+			if (results != ''){
+				$scope.$apply(function(){
+					$scope.filterSectionsArray = JSON.parse(results);
+					if (debugTableSaw == "true")
+						console.log("Table Saw: FiltersArray " + JSON.stringify($scope.filterSectionsArray));
+				});
+			}
+		};
+		
+		//In-scope function for getting record detail data
+		$scope.getDetail = function(recordID){
+			$scope.detailLoaded = false;
+			$scope.recordID = recordID;
+			getDetail($scope.recordID);
+		};
+		//Get detailed record data for display
+		getDetail = function(recordID){
+			var ga = new GlideAjax('x_snc_table_saw.tableSawAjax');
+			ga.addParam('sysparm_name', 'getDetail');
+			ga.addParam('sysparm_table_view_id', tableViewID);
+			ga.addParam('sysparm_record_id', recordID);
+			ga.getXMLAnswer(processDetailResults);
+		};
+		//Asynchronous callback to process table view filters
+		processDetailResults = function(results){
+			if (results != ''){
+				$scope.$apply(function(){
+					$scope.detail = JSON.parse(results);
+					$scope.detailLoaded = true;
+					if (debugTableSaw == "true")
+						console.log("Table Saw: Detail " + JSON.stringify($scope.detail));
+				});
+			}
+		};
+	});
+})();]]></script>
+        <script_name>tablesaw_js</script_name>
+        <sys_class_name>sys_ui_script</sys_class_name>
+        <sys_created_by>ben.hollifield@snc_SHARE_SHARE</sys_created_by>
+        <sys_created_on>2015-08-19 20:09:51</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>4e4deca00f8202007a2b778ce1050eeb</sys_id>
+        <sys_mod_count>388</sys_mod_count>
+        <sys_name>x_snc_table_saw.table_saw_js</sys_name>
+        <sys_package display_value="Table Saw" source="x_snc_table_saw">1f006bd40f4202007a2b778ce1050ec3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Table Saw">1f006bd40f4202007a2b778ce1050ec3</sys_scope>
+        <sys_update_name>sys_ui_script_4e4deca00f8202007a2b778ce1050eeb</sys_update_name>
+        <sys_updated_by>ben.hollifield_SHARE</sys_updated_by>
+        <sys_updated_on>2016-02-23 19:47:24</sys_updated_on>
+        <use_scoped_format>false</use_scoped_format>
+    </sys_ui_script>
+</record_update>

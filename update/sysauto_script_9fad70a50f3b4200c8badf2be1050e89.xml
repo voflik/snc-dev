@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sysauto_script">
+    <sysauto_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <condition/>
+        <conditional>false</conditional>
+        <name>Table Saw - Update Table View Cache</name>
+        <run_as display_value="">ben.hollifield@snc</run_as>
+        <run_as_tz/>
+        <run_dayofmonth>1</run_dayofmonth>
+        <run_dayofweek>1</run_dayofweek>
+        <run_period>1970-01-01 00:30:00</run_period>
+        <run_start>2015-04-12 07:00:00</run_start>
+        <run_time>1970-01-01 08:00:00</run_time>
+        <run_type>periodically</run_type>
+        <script><![CDATA[updateTableViewCache();
+
+function updateTableViewCache(){
+	if (gs.getProperty('x_snc_table_saw.debug') == 'true')
+		gs.info('Table Saw: Updating cache for table_view.');
+	var tableSawHelper = new x_snc_table_saw.tableSawAjax();
+	tableSawHelper.updateCache('table_view');
+}]]></script>
+        <sys_class_name>sysauto_script</sys_class_name>
+        <sys_created_by>ben.hollifield@snc_SHARE</sys_created_by>
+        <sys_created_on>2015-11-17 23:45:03</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>9fad70a50f3b4200c8badf2be1050e89</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>Table Saw - Update Table View Cache</sys_name>
+        <sys_package display_value="Table Saw" source="x_snc_table_saw">1f006bd40f4202007a2b778ce1050ec3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Table Saw">1f006bd40f4202007a2b778ce1050ec3</sys_scope>
+        <sys_update_name>sysauto_script_9fad70a50f3b4200c8badf2be1050e89</sys_update_name>
+        <sys_updated_by>ben.hollifield@snc_SHARE</sys_updated_by>
+        <sys_updated_on>2015-11-18 03:36:51</sys_updated_on>
+        <upgrade_safe>false</upgrade_safe>
+    </sysauto_script>
+</record_update>

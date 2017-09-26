@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_macro">
+    <sys_ui_macro action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category>general</category>
+        <description>Renderer for Icon filter sections in Table Saw</description>
+        <media_type/>
+        <name>fil_icon_renderer</name>
+        <scoped_name>x_snc_table_saw_fil_icon_renderer</scoped_name>
+        <sys_class_name>sys_ui_macro</sys_class_name>
+        <sys_created_by>ben.hollifield@snc_SHARE_SHARE</sys_created_by>
+        <sys_created_on>2015-08-21 20:18:26</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>fa720fc50f8602007a2b778ce1050e4d</sys_id>
+        <sys_mod_count>67</sys_mod_count>
+        <sys_name>fil_icon_renderer</sys_name>
+        <sys_package display_value="Table Saw" source="x_snc_table_saw">1f006bd40f4202007a2b778ce1050ec3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Table Saw">1f006bd40f4202007a2b778ce1050ec3</sys_scope>
+        <sys_update_name>sys_ui_macro_fa720fc50f8602007a2b778ce1050e4d</sys_update_name>
+        <sys_updated_by>ben.hollifield@snc_SHARE_SHARE</sys_updated_by>
+        <sys_updated_on>2015-09-24 16:03:44</sys_updated_on>
+        <xml><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+	<!-- Add icon styles -->
+	<style>
+		#ts-icons .selected{
+		    -webkit-border-radius: 50%;
+			-moz-border-radius: 50%;
+			height: 74px;
+			width: 74px;
+		    -webkit-filter: grayscale(0%);
+		    filter: grayscale(0%);
+		
+		    -webkit-transform: scale(1);
+		    transform: scale(1);
+		    -webkit-transform: scale(1);
+		    transform: scale(1);
+		    -webkit-transition: .3s ease-in-out;
+		    transition: .3s ease-in-out;
+		
+		    -webkit-transition: all 0.3s ease-out;
+		    -moz-transition: all 0.3s ease-out;
+		    -ms-transition: all 0.3s ease-out;
+		    -o-transition: all 0.3s ease-out;
+		    transition: all 0.3s ease-out;
+		}
+		
+		#ts-icons .notSelected {
+		  opacity: 0.5;
+		  -webkit-filter: grayscale(100%);
+		  filter: grayscale(100%);
+	  	-webkit-transition: .3s ease-in-out;
+  		transition: .3s ease-in-out;
+		  -webkit-transform: scale(1);
+		  transform: scale(1);
+		}
+
+		#ts-icons img.notSelected:hover{
+		  opacity: 1;
+		  -webkit-transition: all 0.3s ease-out;
+		  -moz-transition: all 0.3s ease-out;
+		  -ms-transition: all 0.3s ease-out;
+		  -o-transition: all 0.3s ease-out;
+		  transition: all 0.3s ease-out;
+		
+		  -webkit-filter: grayscale(0);
+		  filter: grayscale(0);
+		  -webkit-transform: scale(1.1);
+		  transform: scale(1.1);
+		  -webkit-transform: scale(1.1);
+		  transform: scale(1.1);
+		  -webkit-transition: .3s ease-in-out;
+		  transition: .3s ease-in-out;
+		}
+	</style>
+	
+	<fieldset>
+		<div id="ts-icons" class="row form-group">
+    		<span ng-repeat="filter in filterSection.filters track by filter.filterID">
+				<img ng-click="adjustQuery(filter,filterSection.sectionID,filterSection.sectionType)" ng-model="filter.filterValue" ng-class="{'img-circle':true,'selected':filter.filterValue==true, 'notSelected':filter.filterValue!=true}" id="{{filter.filterID}}" src="{{filter.filterIcon}}" alt="icon" name="{{filter.filterName}}" title="{{filter.filterName}}" style="width:40px;height:40px;margin:2px;"></img>
+        	</span>
+		</div>
+	</fieldset>
+</j:jelly>]]></xml>
+    </sys_ui_macro>
+</record_update>

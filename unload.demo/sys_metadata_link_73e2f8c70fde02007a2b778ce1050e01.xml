@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_metadata_link">
+    <sys_metadata_link action="INSERT_OR_UPDATE">
+        <directory>unload.demo</directory>
+        <documentkey>d946fbbe0f9e02007a2b778ce1050e97</documentkey>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;record_update table="x_snc_table_saw_additional_field"&gt;
+    &lt;x_snc_table_saw_additional_field action="INSERT_OR_UPDATE"&gt;
+        &lt;active&gt;true&lt;/active&gt;
+        &lt;for_detail_view&gt;true&lt;/for_detail_view&gt;
+        &lt;for_table_view&gt;false&lt;/for_table_view&gt;
+        &lt;name&gt;open_ritm&lt;/name&gt;
+        &lt;number&gt;ADD0001032&lt;/number&gt;
+        &lt;script&gt;&lt;![CDATA[/*
+Available variables:
+table - table associated with the table view
+recordID - sysID of the result record (ie - a specific KB article)
+record - entire GlideRecord object of the result record
+
+Result variable:
+answer - String or Object for use in the table view renderer. Addressable as 'record["name"]' in the table view and 'detail["name"]' in the detail view.
+*/
+var count = new GlideAggregate('sc_req_item');
+count.addAggregate('COUNT');
+count.addQuery('request.requested_for', recordID);
+count.addQuery('active', true);
+count.query();
+var ritms = 0;
+if (count.next())
+	ritms = count.getAggregate('COUNT');
+answer = ritms;]]&gt;&lt;/script&gt;
+        &lt;short_description&gt;Open Request Items for User&lt;/short_description&gt;
+        &lt;sys_created_by&gt;ben.hollifield@snc_SHARE_SHARE&lt;/sys_created_by&gt;
+        &lt;sys_created_on&gt;2015-09-08 20:49:45&lt;/sys_created_on&gt;
+        &lt;sys_id&gt;d946fbbe0f9e02007a2b778ce1050e97&lt;/sys_id&gt;
+        &lt;sys_mod_count&gt;5&lt;/sys_mod_count&gt;
+        &lt;sys_updated_by&gt;ben.hollifield@snc_SHARE_SHARE&lt;/sys_updated_by&gt;
+        &lt;sys_updated_on&gt;2015-09-17 19:59:54&lt;/sys_updated_on&gt;
+        &lt;table_view display_value="User Directory"&gt;d3c5a2f20f9e02007a2b778ce1050e3d&lt;/table_view&gt;
+    &lt;/x_snc_table_saw_additional_field&gt;
+&lt;/record_update&gt;
+</payload>
+        <sys_class_name>sys_metadata_link</sys_class_name>
+        <sys_created_by>ben.hollifield@snc_SHARE_SHARE</sys_created_by>
+        <sys_created_on>2015-09-09 01:14:49</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>73e2f8c70fde02007a2b778ce1050e01</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>open_ritm</sys_name>
+        <sys_package display_value="Table Saw" source="x_snc_table_saw">1f006bd40f4202007a2b778ce1050ec3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Table Saw">1f006bd40f4202007a2b778ce1050ec3</sys_scope>
+        <sys_update_name>sys_metadata_link_73e2f8c70fde02007a2b778ce1050e01</sys_update_name>
+        <sys_updated_by>ben.hollifield@snc_SHARE_SHARE</sys_updated_by>
+        <sys_updated_on>2015-09-17 20:00:08</sys_updated_on>
+        <tablename>x_snc_table_saw_additional_field</tablename>
+    </sys_metadata_link>
+</record_update>

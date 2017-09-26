@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_properties">
+    <sys_properties action="INSERT_OR_UPDATE">
+        <choices/>
+        <description>Enable global filter caching (can be overriden for specific table views). Doing so will improve performance, but may introduce a delay from when underlying data changes to when filters update. Scheduled Jobs dictate how often cache will update.</description>
+        <ignore_cache>false</ignore_cache>
+        <is_private>false</is_private>
+        <name>x_snc_table_saw.filter_cache</name>
+        <read_roles/>
+        <suffix>filter_cache</suffix>
+        <sys_class_name>sys_properties</sys_class_name>
+        <sys_created_by>ben.hollifield@snc_SHARE</sys_created_by>
+        <sys_created_on>2015-11-17 23:40:50</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>40d934650f3b4200c8badf2be1050e1a</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name>x_snc_table_saw.filter_cache</sys_name>
+        <sys_package display_value="Table Saw" source="x_snc_table_saw">1f006bd40f4202007a2b778ce1050ec3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Table Saw">1f006bd40f4202007a2b778ce1050ec3</sys_scope>
+        <sys_update_name>sys_properties_40d934650f3b4200c8badf2be1050e1a</sys_update_name>
+        <sys_updated_by>ben.hollifield@snc_SHARE</sys_updated_by>
+        <sys_updated_on>2015-11-18 03:41:17</sys_updated_on>
+        <type>boolean</type>
+        <value>false</value>
+        <write_roles/>
+    </sys_properties>
+    <sys_translated_text action="delete_multiple" query="documentkey=40d934650f3b4200c8badf2be1050e1a"/>
+</record_update>

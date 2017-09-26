@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_metadata_link">
+    <sys_metadata_link action="INSERT_OR_UPDATE">
+        <directory>unload.demo</directory>
+        <documentkey>93b5ebf413b99600c794b7a12244b06f</documentkey>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;record_update table="x_snc_table_saw_filter_section"&gt;
+    &lt;x_snc_table_saw_filter_section action="INSERT_OR_UPDATE"&gt;
+        &lt;active&gt;true&lt;/active&gt;
+        &lt;filter_source&gt;related_list&lt;/filter_source&gt;
+        &lt;name&gt;Posted After&lt;/name&gt;
+        &lt;number&gt;FLS0001036&lt;/number&gt;
+        &lt;order&gt;100&lt;/order&gt;
+        &lt;script&gt;&lt;![CDATA[/*
+Available variables:
+table - table associated with the table view
+sectionID - sys_id of this section
+
+Result variable:
+answer - array of filter objects, each index in the following format:
+{	filterID = [HTML ID for the field],
+filterName = [HTML Name for the field],
+filterQuery = [encodedQuery string to apply when filter is active],
+filterIcon = [displayName of an image field(only for icon-type sections)]}
+*/]]&gt;&lt;/script&gt;
+        &lt;sys_created_by&gt;ben.hollifield_SHARE&lt;/sys_created_by&gt;
+        &lt;sys_created_on&gt;2016-02-23 14:09:27&lt;/sys_created_on&gt;
+        &lt;sys_id&gt;93b5ebf413b99600c794b7a12244b06f&lt;/sys_id&gt;
+        &lt;sys_mod_count&gt;2&lt;/sys_mod_count&gt;
+        &lt;sys_updated_by&gt;ben.hollifield_SHARE&lt;/sys_updated_by&gt;
+        &lt;sys_updated_on&gt;2016-02-23 15:07:19&lt;/sys_updated_on&gt;
+        &lt;table_view display_value="Knowledge"&gt;09f4af580f4202007a2b778ce1050eef&lt;/table_view&gt;
+        &lt;type&gt;date&lt;/type&gt;
+    &lt;/x_snc_table_saw_filter_section&gt;
+&lt;/record_update&gt;
+</payload>
+        <sys_class_name>sys_metadata_link</sys_class_name>
+        <sys_created_by>ben.hollifield_SHARE</sys_created_by>
+        <sys_created_on>2016-02-23 15:07:56</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>8823fff813b99600c794b7a12244b084</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Posted After</sys_name>
+        <sys_package display_value="Table Saw" source="x_snc_table_saw">1f006bd40f4202007a2b778ce1050ec3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Table Saw">1f006bd40f4202007a2b778ce1050ec3</sys_scope>
+        <sys_update_name>sys_metadata_link_8823fff813b99600c794b7a12244b084</sys_update_name>
+        <sys_updated_by>ben.hollifield_SHARE</sys_updated_by>
+        <sys_updated_on>2016-02-23 15:07:56</sys_updated_on>
+        <tablename>x_snc_table_saw_filter_section</tablename>
+    </sys_metadata_link>
+</record_update>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="sys_app_module">
+    <sys_app_module action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <application display_value="Table Saw">d411e3d40f4202007a2b778ce1050ee7</application>
+        <assessment/>
+        <content_page/>
+        <device_type/>
+        <filter/>
+        <hint/>
+        <homepage/>
+        <image/>
+        <link_type>LIST</link_type>
+        <map_page/>
+        <mobile_title>Filter Sections</mobile_title>
+        <mobile_view_name>Mobile</mobile_view_name>
+        <name>x_snc_table_saw_filter_section</name>
+        <order>20</order>
+        <override_menu_roles>false</override_menu_roles>
+        <query>GROUPBYtable_view</query>
+        <report/>
+        <roles>admin</roles>
+        <survey/>
+        <survey_overwrite>true</survey_overwrite>
+        <sys_class_name>sys_app_module</sys_class_name>
+        <sys_created_by>ben.hollifield@snc_SHARE_SHARE</sys_created_by>
+        <sys_created_on>2015-08-19 14:42:04</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>84526bd40f4202007a2b778ce1050e70</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Filter Sections</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Table Saw" source="x_snc_table_saw">1f006bd40f4202007a2b778ce1050ec3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Table Saw">1f006bd40f4202007a2b778ce1050ec3</sys_scope>
+        <sys_update_name>sys_app_module_84526bd40f4202007a2b778ce1050e70</sys_update_name>
+        <sys_updated_by>ben.hollifield@snc_SHARE_SHARE</sys_updated_by>
+        <sys_updated_on>2015-08-20 01:00:18</sys_updated_on>
+        <timeline_page/>
+        <title>Filter Sections</title>
+        <uncancelable>false</uncancelable>
+        <view_name/>
+        <window_name/>
+    </sys_app_module>
+</record_update>

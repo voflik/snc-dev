@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_ui_section caption="" section_id="909a97250f9602007a2b778ce1050e51" sys_domain="global" table="x_snc_table_saw_additional_field" version="3" view="">
+        <sys_ui_annotation action="INSERT_OR_UPDATE">
+            <is_plain_text>false</is_plain_text>
+            <sys_created_by>ben.hollifield@snc_SHARE_SHARE</sys_created_by>
+            <sys_created_on>2015-09-05 17:45:31</sys_created_on>
+            <sys_id>155f67710f1a02007a2b778ce1050e11</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>ben.hollifield@snc_SHARE_SHARE</sys_updated_by>
+            <sys_updated_on>2015-09-05 17:45:31</sys_updated_on>
+            <text>An additional field represents a piece of data that is needed for the table view renderer, but is not available directly on the table associated with the table view. Adding only the necessary fields, and adding them only to the views where needed (table view vs. detail view) ensures the best user experience.&lt;ul&gt;&lt;li&gt;&lt;b&gt;Name&lt;/b&gt;: A name for the additional field. The value of the additional field will be available within the table view renderer as 'record["name"]' and within the detail view as 'detail["name"]'.&lt;/li&gt;&lt;li&gt;&lt;b&gt;For table view&lt;/b&gt;: This field is needed for the basic table view.&lt;/li&gt;&lt;li&gt;&lt;b&gt;For detail view&lt;/b&gt;: This field is needed for the detail view (if enabled).&lt;/li&gt;&lt;li&gt;&lt;b&gt;Table view&lt;/b&gt;: The parent table view for this additional field.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Short description&lt;/b&gt;: A description of the additional field and its use.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Script&lt;/b&gt;: The script that calculates and returns the value of the additional field.&lt;/li&gt;&lt;/ul&gt;</text>
+            <type display_value="Info Box Blue">753f88a80f930000b12e6903cfe01206</type>
+        </sys_ui_annotation>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>155f67710f1a02007a2b778ce1050e11</element>
+            <position>0</position>
+            <sys_created_by>ben.hollifield@snc_SHARE_SHARE</sys_created_by>
+            <sys_created_on>2015-09-05 17:45:31</sys_created_on>
+            <sys_id>555f67710f1a02007a2b778ce1050e11</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_table_saw_additional_field" sys_domain="global" view="Default view">909a97250f9602007a2b778ce1050e51</sys_ui_section>
+            <sys_updated_by>ben.hollifield@snc_SHARE_SHARE</sys_updated_by>
+            <sys_updated_on>2015-09-05 17:45:31</sys_updated_on>
+            <sys_user/>
+            <type>annotation</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.begin_split</element>
+            <position>1</position>
+            <sys_created_by>ben.hollifield@snc_SHARE_SHARE</sys_created_by>
+            <sys_created_on>2015-09-05 17:45:31</sys_created_on>
+            <sys_id>955f67710f1a02007a2b778ce1050e11</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_table_saw_additional_field" sys_domain="global" view="Default view">909a97250f9602007a2b778ce1050e51</sys_ui_section>
+            <sys_updated_by>ben.hollifield@snc_SHARE_SHARE</sys_updated_by>
+            <sys_updated_on>2015-09-05 17:45:31</sys_updated_on>
+            <sys_user/>
+            <type>.begin_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>name</element>
+            <position>2</position>
+            <sys_created_by>ben.hollifield@snc_SHARE_SHARE</sys_created_by>
+            <sys_created_on>2015-09-05 17:45:31</sys_created_on>
+            <sys_id>d55f67710f1a02007a2b778ce1050e11</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_table_saw_additional_field" sys_domain="global" view="Default view">909a97250f9602007a2b778ce1050e51</sys_ui_section>
+            <sys_updated_by>ben.hollifield@snc_SHARE_SHARE</sys_updated_by>
+            <sys_updated_on>2015-09-05 17:45:31</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>for_table_view</element>
+            <position>3</position>
+            <sys_created_by>ben.hollifield@snc_SHARE_SHARE</sys_created_by>
+            <sys_created_on>2015-09-05 17:45:31</sys_created_on>
+            <sys_id>195f67710f1a02007a2b778ce1050e11</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_table_saw_additional_field" sys_domain="global" view="Default view">909a97250f9602007a2b778ce1050e51</sys_ui_section>
+            <sys_updated_by>ben.hollifield@snc_SHARE_SHARE</sys_updated_by>
+            <sys_updated_on>2015-09-05 17:45:31</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>for_detail_view</element>
+            <position>4</position>
+            <sys_created_by>ben.hollifield@snc_SHARE_SHARE</sys_created_by>
+            <sys_created_on>2015-09-05 17:45:31</sys_created_on>
+            <sys_id>595f67710f1a02007a2b778ce1050e11</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_table_saw_additional_field" sys_domain="global" view="Default view">909a97250f9602007a2b778ce1050e51</sys_ui_section>
+            <sys_updated_by>ben.hollifield@snc_SHARE_SHARE</sys_updated_by>
+            <sys_updated_on>2015-09-05 17:45:31</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>5</position>
+            <sys_created_by>ben.hollifield@snc_SHARE_SHARE</sys_created_by>
+            <sys_created_on>2015-09-05 17:45:31</sys_created_on>
+            <sys_id>995f67710f1a02007a2b778ce1050e11</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_table_saw_additional_field" sys_domain="global" view="Default view">909a97250f9602007a2b778ce1050e51</sys_ui_section>
+            <sys_updated_by>ben.hollifield@snc_SHARE_SHARE</sys_updated_by>
+            <sys_updated_on>2015-09-05 17:45:31</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>table_view</element>
+            <position>6</position>
+            <sys_created_by>ben.hollifield@snc_SHARE_SHARE</sys_created_by>
+            <sys_created_on>2015-09-05 17:45:31</sys_created_on>
+            <sys_id>d95f67710f1a02007a2b778ce1050e11</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_table_saw_additional_field" sys_domain="global" view="Default view">909a97250f9602007a2b778ce1050e51</sys_ui_section>
+            <sys_updated_by>ben.hollifield@snc_SHARE_SHARE</sys_updated_by>
+            <sys_updated_on>2015-09-05 17:45:31</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>active</element>
+            <position>7</position>
+            <sys_created_by>ben.hollifield@snc_SHARE_SHARE</sys_created_by>
+            <sys_created_on>2015-09-05 17:45:31</sys_created_on>
+            <sys_id>1d5f67710f1a02007a2b778ce1050e11</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_table_saw_additional_field" sys_domain="global" view="Default view">909a97250f9602007a2b778ce1050e51</sys_ui_section>
+            <sys_updated_by>ben.hollifield@snc_SHARE_SHARE</sys_updated_by>
+            <sys_updated_on>2015-09-05 17:45:31</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.end_split</element>
+            <position>8</position>
+            <sys_created_by>ben.hollifield@snc_SHARE_SHARE</sys_created_by>
+            <sys_created_on>2015-09-05 17:45:31</sys_created_on>
+            <sys_id>5d5f67710f1a02007a2b778ce1050e11</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_table_saw_additional_field" sys_domain="global" view="Default view">909a97250f9602007a2b778ce1050e51</sys_ui_section>
+            <sys_updated_by>ben.hollifield@snc_SHARE_SHARE</sys_updated_by>
+            <sys_updated_on>2015-09-05 17:45:31</sys_updated_on>
+            <sys_user/>
+            <type>.end_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>short_description</element>
+            <position>9</position>
+            <sys_created_by>ben.hollifield@snc_SHARE_SHARE</sys_created_by>
+            <sys_created_on>2015-09-05 17:45:31</sys_created_on>
+            <sys_id>9d5f67710f1a02007a2b778ce1050e11</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_table_saw_additional_field" sys_domain="global" view="Default view">909a97250f9602007a2b778ce1050e51</sys_ui_section>
+            <sys_updated_by>ben.hollifield@snc_SHARE_SHARE</sys_updated_by>
+            <sys_updated_on>2015-09-05 17:45:31</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>script</element>
+            <position>10</position>
+            <sys_created_by>ben.hollifield@snc_SHARE_SHARE</sys_created_by>
+            <sys_created_on>2015-09-05 17:45:31</sys_created_on>
+            <sys_id>dd5f67710f1a02007a2b778ce1050e11</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_table_saw_additional_field" sys_domain="global" view="Default view">909a97250f9602007a2b778ce1050e51</sys_ui_section>
+            <sys_updated_by>ben.hollifield@snc_SHARE_SHARE</sys_updated_by>
+            <sys_updated_on>2015-09-05 17:45:31</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption/>
+            <header>false</header>
+            <name>x_snc_table_saw_additional_field</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>ben.hollifield@snc_SHARE_SHARE</sys_created_by>
+            <sys_created_on>2015-09-04 21:36:19</sys_created_on>
+            <sys_customer_update>true</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>909a97250f9602007a2b778ce1050e51</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_snc_table_saw_additional_field</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Table Saw" source="x_snc_table_saw">1f006bd40f4202007a2b778ce1050ec3</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Table Saw">1f006bd40f4202007a2b778ce1050ec3</sys_scope>
+            <sys_update_name>sys_ui_section_909a97250f9602007a2b778ce1050e51</sys_update_name>
+            <sys_updated_by>ben.hollifield@snc_SHARE_SHARE</sys_updated_by>
+            <sys_updated_on>2015-09-04 21:36:19</sys_updated_on>
+            <sys_user/>
+            <title>true</title>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

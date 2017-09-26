@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="sys_ui_action">
+    <sys_ui_action action="INSERT_OR_UPDATE">
+        <action_name>copy_table_view</action_name>
+        <active>true</active>
+        <client>false</client>
+        <comments/>
+        <condition/>
+        <form_action>true</form_action>
+        <form_button>true</form_button>
+        <form_context_menu>false</form_context_menu>
+        <form_link>false</form_link>
+        <form_style/>
+        <hint/>
+        <list_action>false</list_action>
+        <list_banner_button>false</list_banner_button>
+        <list_button>false</list_button>
+        <list_choice>false</list_choice>
+        <list_context_menu>false</list_context_menu>
+        <list_link>false</list_link>
+        <list_save_with_form_button>false</list_save_with_form_button>
+        <list_style/>
+        <name>Copy Table View</name>
+        <onclick/>
+        <order>100</order>
+        <script><![CDATA[copyRecord();
+
+function copyRecord(){
+	var oldRecID = current.sys_id.toString();
+	var newRec = current;
+	newRec.name = 'Copy of ' + current.name;
+	newRec.active = false;
+	var newRecID = newRec.insert();
+	copyAdditionalFields(oldRecID, newRecID);
+	copySections(oldRecID, newRecID);
+	gs.addInfoMessage('Table View copied & set inactive. You are viewing the inactive copy.');
+	action.setRedirectURL(newRec);
+}
+
+function copyAdditionalFields(oldRecID, newRecID){
+	var addField = new GlideRecord("x_snc_table_saw_additional_field");
+	addField.addQuery("table_view", oldRecID);
+	addField.query();
+	while (addField.next()) {
+		var oldRecID2 = addField.sys_id.toString();
+		var newRec = addField;
+		newRec.table_view = newRecID;
+		var newRecID2 = newRec.insert();
+	}
+}
+
+function copySections(oldRecID, newRecID){
+	var section = new GlideRecord("x_snc_table_saw_filter_section");
+	section.addQuery("table_view", oldRecID);
+	section.query();
+	while (section.next()) {
+		var oldRecID2 = section.sys_id.toString();
+		var newRec = section;
+		newRec.table_view = newRecID;
+		var newRecID2 = newRec.insert();
+		copyFilter(oldRecID2, newRecID2);
+	}
+}
+
+function copyFilter(oldRecID, newRecID){
+	var filter = new GlideRecord("x_snc_table_saw_filter");
+	filter.addQuery("filter_section", oldRecID);
+	filter.query();
+	while (filter.next()) {
+		var newRec = filter;
+		newRec.filter_section = newRecID;
+		newRec.insert();
+	}
+}]]></script>
+        <show_insert>false</show_insert>
+        <show_multiple_update>false</show_multiple_update>
+        <show_query>false</show_query>
+        <show_update>true</show_update>
+        <sys_class_name>sys_ui_action</sys_class_name>
+        <sys_created_by>ben.hollifield@snc_SHARE_SHARE</sys_created_by>
+        <sys_created_on>2015-08-20 01:15:49</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>09f0f12c0f8202007a2b778ce1050ef8</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Copy Table View</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Table Saw" source="x_snc_table_saw">1f006bd40f4202007a2b778ce1050ec3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Table Saw">1f006bd40f4202007a2b778ce1050ec3</sys_scope>
+        <sys_update_name>sys_ui_action_09f0f12c0f8202007a2b778ce1050ef8</sys_update_name>
+        <sys_updated_by>ben.hollifield@snc_SHARE_SHARE</sys_updated_by>
+        <sys_updated_on>2015-09-08 14:52:37</sys_updated_on>
+        <table>x_snc_table_saw_table_view</table>
+        <ui11_compatible>true</ui11_compatible>
+        <ui16_compatible>false</ui16_compatible>
+    </sys_ui_action>
+</record_update>

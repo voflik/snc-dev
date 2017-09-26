@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="query_type" table="x_snc_table_saw_filter" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>query_type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Simple</label>
+            <language>en</language>
+            <name>x_snc_table_saw_filter</name>
+            <sequence>0</sequence>
+            <sys_created_by>ben.hollifield@snc_SHARE_SHARE</sys_created_by>
+            <sys_created_on>2015-08-25 00:17:28</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>f1f5db420f4e02007a2b778ce1050eae</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>ben.hollifield@snc_SHARE_SHARE</sys_updated_by>
+            <sys_updated_on>2015-08-25 00:17:40</sys_updated_on>
+            <value>simple</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>query_type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Scripted</label>
+            <language>en</language>
+            <name>x_snc_table_saw_filter</name>
+            <sequence>1</sequence>
+            <sys_created_by>ben.hollifield@snc_SHARE_SHARE</sys_created_by>
+            <sys_created_on>2015-08-25 00:17:29</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>f5f5db420f4e02007a2b778ce1050eae</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>ben.hollifield@snc_SHARE_SHARE</sys_updated_by>
+            <sys_updated_on>2015-08-25 00:17:43</sys_updated_on>
+            <value>scripted</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>query_type</element>
+            <name>x_snc_table_saw_filter</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>ben.hollifield@snc_SHARE_SHARE</sys_created_by>
+            <sys_created_on>2015-08-25 00:17:28</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>423221d90f9c0300a19acf8ce1050e31</sys_id>
+            <sys_mod_count>14</sys_mod_count>
+            <sys_name>query_type</sys_name>
+            <sys_package display_value="Table Saw" source="x_snc_table_saw">1f006bd40f4202007a2b778ce1050ec3</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Table Saw">1f006bd40f4202007a2b778ce1050ec3</sys_scope>
+            <sys_update_name>sys_choice_x_snc_table_saw_filter_query_type</sys_update_name>
+            <sys_updated_by>ben.hollifield_SHARE</sys_updated_by>
+            <sys_updated_on>2016-02-23 15:18:26</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

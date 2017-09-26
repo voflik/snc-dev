@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="gsw_status_of_content">
+    <gsw_status_of_content action="INSERT_OR_UPDATE">
+        <best_practice_allowed_ever>0</best_practice_allowed_ever>
+        <checksum/>
+        <content display_value="Session Management">fc603fef11232200964f016bcc1bddc1</content>
+        <effective_weight>1</effective_weight>
+        <more_info_visited>false</more_info_visited>
+        <previous_status>0</previous_status>
+        <progress>80</progress>
+        <related_log_entry display_value="15-09-2017 14:01:40">7a2e3e1c0f110300a19acf8ce1050ef7</related_log_entry>
+        <status>1</status>
+        <sys_class_name>gsw_status_of_content</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-09-07 09:08:53</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>887eec710f410300a19acf8ce1050e6d</sys_id>
+        <sys_mod_count>28</sys_mod_count>
+        <sys_name>1</sys_name>
+        <sys_package display_value="Table Saw" source="x_snc_table_saw">1f006bd40f4202007a2b778ce1050ec3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Table Saw">1f006bd40f4202007a2b778ce1050ec3</sys_scope>
+        <sys_update_name>gsw_status_of_content_887eec710f410300a19acf8ce1050e6d</sys_update_name>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2017-09-15 14:02:38</sys_updated_on>
+    </gsw_status_of_content>
+</record_update>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_macro">
+    <sys_ui_macro action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category>general</category>
+        <description>Shell UI Macro for Table Saw - loads needed scripts &amp; specific renderers for each table view&#13;
+**Requires that 'jvar_id' be made available as the sys_id of the table view to render</description>
+        <media_type/>
+        <name>shell</name>
+        <scoped_name>x_snc_table_saw_shell</scoped_name>
+        <sys_class_name>sys_ui_macro</sys_class_name>
+        <sys_created_by>ben.hollifield@snc_SHARE_SHARE</sys_created_by>
+        <sys_created_on>2015-08-19 20:46:10</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>f75538240f8202007a2b778ce1050e28</sys_id>
+        <sys_mod_count>104</sys_mod_count>
+        <sys_name>shell</sys_name>
+        <sys_package display_value="Table Saw" source="x_snc_table_saw">1f006bd40f4202007a2b778ce1050ec3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Table Saw">1f006bd40f4202007a2b778ce1050ec3</sys_scope>
+        <sys_update_name>sys_ui_macro_f75538240f8202007a2b778ce1050e28</sys_update_name>
+        <sys_updated_by>ben.hollifield_SHARE</sys_updated_by>
+        <sys_updated_on>2016-02-23 19:53:16</sys_updated_on>
+        <xml><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+	<!-- Add required libraries -->
+	<g:requires name="x_snc_table_saw.angular_min.jsdbx"/>
+	<g:requires name="x_snc_table_saw.angular_animate_min.jsdbx"/>
+	<g:requires name="x_snc_table_saw.angular_filter_min.jsdbx"/>
+	<g:requires name="x_snc_table_saw.ui_bootstrap_min.jsdbx"/>
+	<g:requires name="x_snc_table_saw.table_saw_js.jsdbx"/>
+	
+	<!-- Apply styles -->
+	<style>
+		<!-- Filter 'fetching' animated icon -->
+		#filter-widget .gly-spin {
+			-webkit-animation: spin 2s infinite linear;
+			-moz-animation: spin 2s infinite linear;
+			-o-animation: spin 2s infinite linear;
+			animation: spin 2s infinite linear;
+		}
+		#filter-widget @-moz-keyframes spin {
+			0% {
+				-moz-transform: rotate(0deg);
+			}
+			100% {
+				-moz-transform: rotate(359deg);
+			}
+		}
+		#filter-widget @-webkit-keyframes spin {
+			0% {
+				-webkit-transform: rotate(0deg);
+			}
+			100% {
+				-webkit-transform: rotate(359deg);
+			}
+		}
+		#filter-widget @-o-keyframes spin {
+			0% {
+				-o-transform: rotate(0deg);
+			}
+			100% {
+				-o-transform: rotate(359deg);
+			}
+		}
+		#filter-widget @keyframes spin {
+			0% {
+				-webkit-transform: rotate(0deg);
+				transform: rotate(0deg);
+			}
+			100% {
+				-webkit-transform: rotate(359deg);
+				transform: rotate(359deg);
+			}
+		}
+		<!-- Table view animations -->
+		#ts-widget .ng-hide {
+    		display: none;
+		}
+		#ts-widget .ts-animate.ng-enter{
+			webkit-transition:0.15s linear all;
+			moz-transition:0.15s linear all;
+			o-transition:0.15s linear all;
+			transition:0.15s linear all;
+		}
+		#ts-widget .ts-animate.ng-enter{
+			opacity:0;
+		}
+		#ts-widget .ts-animate.ng-enter.ng-enter-active{
+			opacity:1;
+		}
+	</style>
+	
+	<!-- If sysparm_view_id URL parameter exists, override any existing jvar_id -->
+	<j:if test="${JS:sysparm_view_id != null}">
+		<j:set var="jvar_id" value="${JS:sysparm_view_id}"/>
+	</j:if>
+	
+	<!-- Get requested table view sys_id from the jvar_id parameter -->
+	<g:evaluate jelly="true">
+		var tableView = new GlideRecord("x_snc_table_saw_table_view");
+		tableView.get(jelly.jvar_id);
+	</g:evaluate>
+	
+	<!-- If a Table Saw table view exists for the ID, render it -->
+	<j:if test="${tableView.table != ''}">
+		<!-- Get context parameter -->
+		<j:set var="jvar_context_parameter" value="${JS:sysparm_context}"/>
+		<!-- Get debug property -->
+		<j:set var="jvar_debug_table_saw" value="${gs.getProperty('x_snc_table_saw.debug')}"/>
+		
+		<!-- Make variables available to ui script -->
+		<script>
+			tableViewID = "${tableView.sys_id.toString()}";
+			contextParameter = "${jvar_context_parameter}";
+			debugTableSaw = "${jvar_debug_table_saw}";
+		</script>
+		
+		<!-- Build the angular frame -->
+		<div id="table_saw_frame">
+			<div id="table_saw_app">
+				<div id="table_saw_controller" ng-init="init()" ng-controller="TableSawController as tablesaw">
+					<!-- Inline the renderer for the appropriate table view -->
+					<g:inline template="${tableView.renderer.scoped_name + '.xml'}" />
+				</div>
+			</div>
+		</div>
+		
+		<!-- Manually load bootstrap application -->
+		<!-- Allows this to play nice w/ multiple parallel Angular apps -->
+		<script>
+				angular.bootstrap(document.getElementById("table_saw_frame"), ['tablesaw','angular.filter']);
+		</script>
+	</j:if>
+	
+	<!-- If a Table Saw does not exist for the ID, let 'em know. -->
+	<j:if test="${tableView.table == ''}">
+		<h3>The provided Table View sys_id (${jvar_id}) is invalid. Ouch.</h3>
+		<p><i>Check the call to the x_snc_table_saw_shell ui macro to be sure a valid table view sys_id is being passed in and is available as jvar_id.</i></p>
+	</j:if>
+</j:jelly>]]></xml>
+    </sys_ui_macro>
+</record_update>

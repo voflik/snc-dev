@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_metadata_link">
+    <sys_metadata_link action="INSERT_OR_UPDATE">
+        <directory>unload.demo</directory>
+        <documentkey>2896de160f8e02007a2b778ce1050e5c</documentkey>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;record_update table="x_snc_table_saw_filter_section"&gt;
+    &lt;x_snc_table_saw_filter_section action="INSERT_OR_UPDATE"&gt;
+        &lt;active&gt;true&lt;/active&gt;
+        &lt;filter_source&gt;script&lt;/filter_source&gt;
+        &lt;name&gt;Top Authors&lt;/name&gt;
+        &lt;number&gt;FLS0001020&lt;/number&gt;
+        &lt;order&gt;500&lt;/order&gt;
+        &lt;script&gt;&lt;![CDATA[/*
+Available variables:
+table - table associated with the table view
+sectionID - sys_id of this section
+
+Result variable:
+answer - array of filter objects, each index in the following format:
+{	filterID = [HTML ID for the field],
+filterName = [HTML Name for the field],
+filterQuery = [encodedQuery string to apply when filter is active],
+filterIcon = [displayName of an image field(only for icon-type sections)]}
+ */
+var returnArray = [];
+var i=0;
+//User GlideAggregate to order records by author count
+var topAuthors = new GlideAggregate('kb_knowledge');
+topAuthors.addNotNullQuery('author.name');
+topAuthors.addAggregate('count','author');
+topAuthors.orderByAggregate('count','author');
+topAuthors.orderBy('author');
+topAuthors.query();
+//Iterate through ordered counts, getting a maximum of 10 results
+while (topAuthors.next() &amp;&amp; i &lt; 10){
+	//Only add to array if count of authored results is above 0
+	var authorCount = topAuthors.getAggregate('count','author');
+	if (authorCount &gt; 0){
+		returnArray[i] = {};
+		returnArray[i].filterName = topAuthors.author.name.toString() + ' (' + authorCount + ')';
+		//Ensure that filterID is unique within filter widget
+		returnArray[i].filterID = sectionID.substr(sectionID.length - 4) + '_' + topCat.sys_id.toString().substr(topCat.sys_id.toString().length - 4) + '_' + returnArray[i].filterName.toLowerCase().replace(/ /g,"_");
+		returnArray[i].filterQuery = 'author=' + topAuthors.author.sys_id.toString();
+		if (topAuthors.author.photo.getDisplayValue() != '')
+			returnArray[i].filterIcon = topAuthors.author.photo.getDisplayValue();
+		else
+			returnArray[i].filterIcon = "cb890379ff80820002ad26ec8b649da8.iix";
+	}
+	i++;
+}
+answer = returnArray;]]&gt;&lt;/script&gt;
+        &lt;sys_created_by&gt;ben.hollifield@snc_SHARE_SHARE&lt;/sys_created_by&gt;
+        &lt;sys_created_on&gt;2015-08-25 14:20:16&lt;/sys_created_on&gt;
+        &lt;sys_id&gt;2896de160f8e02007a2b778ce1050e5c&lt;/sys_id&gt;
+        &lt;sys_mod_count&gt;32&lt;/sys_mod_count&gt;
+        &lt;sys_updated_by&gt;ben.hollifield@snc_SHARE_SHARE&lt;/sys_updated_by&gt;
+        &lt;sys_updated_on&gt;2015-09-25 19:51:36&lt;/sys_updated_on&gt;
+        &lt;table_view display_value="Knowledge"&gt;09f4af580f4202007a2b778ce1050eef&lt;/table_view&gt;
+        &lt;type&gt;icons&lt;/type&gt;
+    &lt;/x_snc_table_saw_filter_section&gt;
+&lt;/record_update&gt;
+</payload>
+        <sys_class_name>sys_metadata_link</sys_class_name>
+        <sys_created_by>ben.hollifield@snc_SHARE_SHARE</sys_created_by>
+        <sys_created_on>2015-08-26 19:49:28</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>93cbe4720f4242007a2b778ce1050eec</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Top Authors</sys_name>
+        <sys_package display_value="Table Saw" source="x_snc_table_saw">1f006bd40f4202007a2b778ce1050ec3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Table Saw">1f006bd40f4202007a2b778ce1050ec3</sys_scope>
+        <sys_update_name>sys_metadata_link_93cbe4720f4242007a2b778ce1050eec</sys_update_name>
+        <sys_updated_by>ben.hollifield@snc_SHARE_SHARE</sys_updated_by>
+        <sys_updated_on>2015-09-25 19:52:32</sys_updated_on>
+        <tablename>x_snc_table_saw_filter_section</tablename>
+    </sys_metadata_link>
+</record_update>

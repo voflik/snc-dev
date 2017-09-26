@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_macro">
+    <sys_ui_macro action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category>general</category>
+        <description>Sample table view renderer for Table Saw table views</description>
+        <media_type/>
+        <name>sample_user_view_renderer</name>
+        <scoped_name>x_snc_table_saw_sample_user_view_renderer</scoped_name>
+        <sys_class_name>sys_ui_macro</sys_class_name>
+        <sys_created_by>ben.hollifield@snc_SHARE_SHARE</sys_created_by>
+        <sys_created_on>2015-09-01 18:57:20</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>d6699f600f9e42007a2b778ce1050ef6</sys_id>
+        <sys_mod_count>263</sys_mod_count>
+        <sys_name>sample_user_view_renderer</sys_name>
+        <sys_package display_value="Table Saw" source="x_snc_table_saw">1f006bd40f4202007a2b778ce1050ec3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Table Saw">1f006bd40f4202007a2b778ce1050ec3</sys_scope>
+        <sys_update_name>sys_ui_macro_d6699f600f9e42007a2b778ce1050ef6</sys_update_name>
+        <sys_updated_by>ben.hollifield_SHARE</sys_updated_by>
+        <sys_updated_on>2016-02-23 15:41:42</sys_updated_on>
+        <xml><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+	
+	<!-- Begin apply styles for table view -->
+	<style>
+		<!-- Filter styles -->
+		#filter-widget .filter-results-label {
+			color: #A09E9E;
+			font-size: 1.275rem;
+			font-family: 'Varela Round', sans-serif;
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+		#filter-widget .filter-group {
+			padding: 0 1.5em 1.5rem 2rem;
+		}
+		<!-- Results view styles -->
+		#results-pane .cont-card {
+			box-shadow: 5px 5px 5px -5px #000;
+			background-color: #f7f7f7;
+			border:1px solid #e0e0e0;
+			height: 250px;
+			margin: 2rem 0 2rem 0;
+			overflow: hidden;
+    	}
+		#results-pane .cont-list {
+			color: #485562;
+			font-size: 1.5rem;
+			line-height: 1.6rem;
+			list-style-type: none;
+			padding: 0 1.2rem 0 1.2rem;
+			word-wrap: break-word;
+		}
+		#results-pane .cont-list li {
+			font-size: 1.3rem;
+		}
+		#results-pane .img-circle{
+			float: right;
+			height: 60px;
+			width: 60px;
+			margin: 1rem;
+		}
+		<!-- Pagination widget styles -->
+		#results-pane .pagination li.active a {
+			color: #FFFFFF;
+			background-color: #A09E9E;
+			border-color: #A09E9E;
+		}
+		#results-pane .pagination a {
+			color: #A09E9E;
+		}
+		<!-- Modal styles -->
+		#detail-modal .modal-detail {
+			color: #485562;
+			font-size: 1.5rem;
+			line-height: 1.6rem;
+			list-style-type: none;
+			padding: 0 1.2rem 0 1.2rem;
+			word-wrap: break-word;
+			text-align: center;
+		}
+		#detail-modal .modal-detail li {
+			font-size: 1.3rem;
+		}
+		#detail-modal .modal-chart {
+			display : block;
+			margin : auto;
+			text-align: center;
+		}
+		#detail-modal .img-circle{
+			height: 120px;
+			width: 120px;
+			display : block;
+			margin : auto;
+		}
+	</style>
+	<!-- End apply style for table view -->
+	
+	<!-- Begin visual components -->
+	<div id="ts-widget">
+		
+		<!-- Begin filter widget -->
+		<div id="filter-widget" class="col-md-12 ng-cloak">
+			<div class="nav nav-stacked" id="accordion1">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4>
+							<a class="accordion-toggle filter-results-label" data-toggle="collapse" data-parent="#accordion1" href="#tsFilter">Filter Results<i ng-show="recordsLoaded == false" class="glyphicon glyphicon-repeat gly-spin pull-right"></i></a>
+						</h4>
+					</div>
+					<div id="tsFilter" class="panel-body collapse in">
+						<div ng-repeat="filterSection in filterSectionsArray track by filterSection.sectionID" class="ts-animate">
+							<span class="filter-results-label">{{filterSection.sectionName}}</span>
+							<div class="filter-group">
+							<!-- Conditionally render each fil_section ui macro -->
+							<div ng-if="filterSection.sectionType == 'checkboxes'">	
+								<g:inline template="x_snc_table_saw_fil_checkbox_renderer.xml" />
+							</div>
+							<div ng-if="filterSection.sectionType == 'choice'">	
+								<g:inline template="x_snc_table_saw_fil_choice_renderer.xml" />
+							</div>
+							<div ng-if="filterSection.sectionType == 'date'">	
+								<g:inline template="x_snc_table_saw_fil_date_renderer.xml" />
+							</div>
+							<div ng-if="filterSection.sectionType == 'free_text'">	
+								<g:inline template="x_snc_table_saw_fil_free_text_renderer.xml" />
+							</div>
+							<div ng-if="filterSection.sectionType == 'icons'">	
+								<g:inline template="x_snc_table_saw_fil_icon_renderer.xml" />
+							</div>
+							<div ng-if="filterSection.sectionType == 'radio_buttons'">	
+								<g:inline template="x_snc_table_saw_fil_radio_button_renderer.xml" />
+							</div>
+							<div ng-if="filterSection.sectionType == 'reference'">	
+								<g:inline template="x_snc_table_saw_fil_reference_renderer.xml" />
+							</div>
+							<div ng-if="filterSection.sectionType == 'switches'">	
+								<g:inline template="x_snc_table_saw_fil_switch_renderer.xml" />
+							</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<!-- Collapse filter widget on small screens -->
+		<div class="device-xs visible-xs"></div>
+		<div class="device-sm visible-sm"></div>
+		<script>
+			if(isBreakpoint('xs') || isBreakpoint('sm'))
+				$j('div#tsFilter').removeClass('collapse in').addClass('collapse');
+	
+			function isBreakpoint(alias) {
+				return $j('.device-' + alias).is(':visible');
+			}
+		</script>
+		<!-- End filter widget -->
+	
+		<!-- Begin results pane -->
+		<!-- Record data is accessible via the format {{record["fieldname"]}} -->
+		<!-- **Fields required must be listed on the table view record! -->
+		<div id="results-pane" class="col-md-12 ng-cloak">
+			<div ng-repeat="record in recordsArray track by record.sys_id" class="ts-animate">
+				<div class="sc-card col-xs-12 col-sm-6 col-md-4">
+					<div class="cont-card">
+						<img ng-if="record['photo'] != ''" src="{{record['photo']}}" class="img-circle" alt="User Photo"/>
+						<img ng-if="record['photo'] == ''" src="cb890379ff80820002ad26ec8b649da8.iix" class="img-circle" alt="User Photo"></img>
+						<ul class="cont-list">
+							<li><a ng-click="getDetail(record.sys_id);" href="#detail-modal" data-toggle="modal" data-target="#detail-modal"><h3>{{record["name"]}}</h3></a></li>
+							<li>{{record["title"]}}</li>
+							<li>{{record["location"]}}</li>
+							<li><br/></li>
+							<li><strong>Department:</strong>&#160;{{record["department"]}}</li>
+							<li><strong>Manager:</strong>&#160;{{record["manager"]}}</li>
+							<li><strong>Email:</strong>&#160;<a href="mailto:{{record['email']}}">{{record["email"]}}</a></li>
+							<li><strong>Office:</strong>&#160;<a href="tel:{{record['phone']}}">{{record["phone"]}}</a></li>
+							<li><strong>Mobile:</strong>&#160;<a href="tel:{{record['mobile_phone']}}">{{record["mobile_phone"]}}</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 text-center" ng-show="totalItems == 0 &amp;&amp; initDataLoaded == true">
+				<h4><i>There's nothing to see here!</i></h4>
+			</div>
+		
+			<!-- Begin paginator -->
+			<div class="col-xs-12 text-center">
+				<uib-pagination
+					ng-model="currentPage"
+					ng-change="getPageRecords(currentPage)"
+					ng-show="itemsPerPage &amp;&amp; initDataLoaded == true"
+					total-items="totalItems"
+					items-per-page="itemsPerPage"
+					class="pagination-med"
+					previous-text="&#8249;"
+					next-text="&#8250;"
+					boundary-links="true"
+					first-text="&#171;"
+					last-text="&#187;"
+					max-size="10">
+  	  		</uib-pagination>
+			</div>
+			<!-- End paginator -->
+			
+			<!-- Begin Copy Link action -->
+			<div ng-show="initDataLoaded == true" class="col-xs-12" style="text-align: center;">
+				<a ng-click="aPrompt('Because of a browser limitation the URL can not be placed directly in the clipboard.  Please use Ctrl-C to copy the data and escape to dismiss this dialog', getLink())">Copy link</a>
+			</div>
+			<!-- End Copy Link action -->
+		
+		</div>
+		<!-- End results pane -->
+	
+		<!-- Begin results detail modal -->
+		<div class="modal ng-cloak" ng-show="detailLoaded" role="dialog" aria-labelledby="detailModal" id="detail-modal" tabindex="-1" aria-hidden="true">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<img type="button" class="close" data-dismiss="modal" id="popup_close_image" width="13" height="12" style="cursor: pointer;" src="images/x.gifx" alt="Close" />
+        				<h2 class="modal-title">
+        					{{detail["name"]}}
+        				</h2>
+					</div>
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-md-2 col-md-push-10">
+								<img ng-if="detail['photo'] != ''" src="{{detail['photo']}}" class="img-circle" alt="User Photo"/>
+								<img ng-if="detail['photo'] == ''" src="cb890379ff80820002ad26ec8b649da8.iix" class="img-circle" alt="User Photo"></img>
+							</div>
+							<div class="col-md-4 col-md-pull-2">
+								<ul class="modal-detail ">
+									<li>{{detail["title"]}}</li>
+									<li>{{detail["location"]}}</li>
+									<li><br /></li>
+									<li><strong>Department:</strong>&#160;{{detail["department"]}}</li>
+									<li><strong>Manager:</strong>&#160;{{detail["manager"]}}</li>
+									<li><strong>Email:</strong>&#160;<a href="mailto:{{detail['email']}}">{{detail["email"]}}</a></li>
+									<li><strong>Office:</strong>&#160;<a href="tel:{{detail['phone']}}">{{detail["phone"]}}</a></li>
+									<li><strong>Mobile:</strong>&#160;<a href="tel:{{detail['mobile_phone']}}">{{detail["mobile_phone"]}}</a></li>
+								</ul>
+							</div>
+							<div class="col-md-6 col-md-pull-2 modal-chart">
+								<div class="alert alert-success" role="alert">
+									<a href="/incident_list.do?sysparm_query=caller_id={{detail['sys_id']}}" target="_blank">{{detail['open_inc']}} open incidents</a>
+								</div>
+								<div class="alert alert-info" role="alert">
+									<a href="/sc_req_item_list.do?sysparm_query=request.requested_for={{detail['sys_id']}}" target="_blank">{{detail['open_ritm']}} open requested items</a>
+								</div>
+								<div class="alert alert-warning" role="alert">
+									<a href="/change_request_list.do?sysparm_query=requested_by={{detail['sys_id']}}" target="_blank">{{detail['open_change']}} open change requests</a>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End results detail modal -->
+		
+	</div>
+	<!-- End visual components -->
+</j:jelly>]]></xml>
+    </sys_ui_macro>
+</record_update>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Filter Section" max_length="40" name="x_snc_table_saw_filter_section" type="collection">
+        <element default="true" label="Active" max_length="40" name="active" type="boolean"/>
+        <element choice="3" default="related_list" label="Filter source" mandatory="true" max_length="40" name="filter_source" type="string">
+            <choice>
+                <element label="Related List" sequence="0" value="related_list"/>
+                <element label="Script" sequence="1" value="script"/>
+            </choice>
+        </element>
+        <element display="true" label="Name" mandatory="true" max_length="40" name="name" type="string"/>
+        <element default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" read_only="true" type="string"/>
+        <element default="100" label="Order" max_length="40" name="order" type="integer"/>
+        <element default="/*&#13;&#10;Available variables:&#13;&#10;table - table associated with the table view&#13;&#10;sectionID - sys_id of this section&#13;&#10;&#13;&#10;Result variable:&#13;&#10;answer - array of filter objects, each index in the following format:&#13;&#10;{&#9;filterID = [HTML ID for the field],&#13;&#10;filterName = [HTML Name for the field],&#13;&#10;filterQuery = [encodedQuery string to apply when filter is active],&#13;&#10;filterIcon = [displayName of an image field(only for icon-type sections)]}&#13;&#10;*/" label="Script" max_length="8000" name="script" type="script_plain"/>
+        <element label="Table view" mandatory="true" max_length="32" name="table_view" reference="x_snc_table_saw_table_view" reference_cascade_rule="delete" type="reference"/>
+        <element choice="3" default="checkboxes" label="Type" mandatory="true" max_length="40" name="type" type="string">
+            <choice>
+                <element label="Checkboxes" sequence="0" value="checkboxes"/>
+                <element label="Choice" sequence="1" value="choice"/>
+                <element label="Date" sequence="2" value="date"/>
+                <element label="Free Text" sequence="3" value="free_text"/>
+                <element label="Icons" sequence="4" value="icons"/>
+                <element label="Radio Buttons" sequence="5" value="radio_buttons"/>
+                <element label="Switches" sequence="6" value="switches"/>
+            </choice>
+        </element>
+        <index name="index">
+            <element name="table_view"/>
+        </index>
+    </element>
+</database>

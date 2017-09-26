@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_properties">
+    <sys_properties action="INSERT_OR_UPDATE">
+        <choices/>
+        <description>Number of days without a view before a cache is deleted (does not affect any records associated to the cache).</description>
+        <ignore_cache>false</ignore_cache>
+        <is_private>false</is_private>
+        <name>x_snc_table_saw.expire_days</name>
+        <read_roles/>
+        <suffix>expire_days</suffix>
+        <sys_class_name>sys_properties</sys_class_name>
+        <sys_created_by>ben.hollifield@snc_SHARE</sys_created_by>
+        <sys_created_on>2015-11-18 01:15:24</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>7f225d690f3b4200c8badf2be1050efc</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>x_snc_table_saw.expire_days</sys_name>
+        <sys_package display_value="Table Saw" source="x_snc_table_saw">1f006bd40f4202007a2b778ce1050ec3</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Table Saw">1f006bd40f4202007a2b778ce1050ec3</sys_scope>
+        <sys_update_name>sys_properties_7f225d690f3b4200c8badf2be1050efc</sys_update_name>
+        <sys_updated_by>ben.hollifield@snc_SHARE</sys_updated_by>
+        <sys_updated_on>2015-11-18 01:55:52</sys_updated_on>
+        <type>integer</type>
+        <value>1</value>
+        <write_roles/>
+    </sys_properties>
+    <sys_translated_text action="delete_multiple" query="documentkey=7f225d690f3b4200c8badf2be1050efc"/>
+</record_update>
