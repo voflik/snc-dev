@@ -1,0 +1,990 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unload unload_date="2017-10-12 00:24:06">
+<sys_remote_update_set action="INSERT_OR_UPDATE">
+<application display_value="Global">global</application>
+<application_name>Global</application_name>
+<application_scope>global</application_scope>
+<application_version/>
+<collisions/>
+<commit_date/>
+<deleted/>
+<description/>
+<inserted/>
+<name>Role_Remover_Menu_ver_1.1.2</name>
+<origin_sys_id/>
+<parent display_value=""/>
+<release_date/>
+<remote_base_update_set display_value=""/>
+<remote_parent_id/>
+<remote_sys_id>10638afc0f390300a19acf8ce1050e2e</remote_sys_id>
+<state>loaded</state>
+<summary/>
+<sys_class_name>sys_remote_update_set</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2017-10-12 00:24:06</sys_created_on>
+<sys_id>f9f543b80f3d0300a19acf8ce1050e3a</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2017-10-12 00:24:06</sys_updated_on>
+<update_set display_value=""/>
+<update_source display_value=""/>
+<updated/>
+</sys_remote_update_set>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_app_application_1e859a3c0f790300a19acf8ce1050e1a</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_application"><sys_app_application action="INSERT_OR_UPDATE"><active>true</active><category display_value="Smart Admin">df5d9ab00fb90300a19acf8ce1050e84</category><description>This is the module for Smart Admin app. Different mini apps are handling several major streams in the administraton of the ServiceNow instance.&#13;
+1. Smart Role Remover (to be renamed a bit. Handles roles, groups, inactivity, deletion of users, ticket reassigning for inacive etc.) ((!!! VER. 1.0.1 is handling only roles and groups !!!))&#13;
+2. Smart Tables ( will handle all tables cleanup. Archivign as well )&#13;
+3. Smart Speeder ( will check for bottlenecks and suggest a solution. Ver 2 will handle it alone by follwoing the settings )&#13;
+4. Smart Activity ( checks for  active tickets/recordsand workflows and fixes them )&#13;
+X. FOR FUTURE USE</description><device_type>browser</device_type><hint>You are Smart !</hint><name>SmartAdmin</name><order/><roles>admin</roles><sys_class_name>sys_app_application</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2017-10-11 20:58:46</sys_created_on><sys_customer_update>false</sys_customer_update><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>1e859a3c0f790300a19acf8ce1050e1a</sys_id><sys_mod_count>2</sys_mod_count><sys_name>Smart Admin</sys_name><sys_overrides/><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_app_application_1e859a3c0f790300a19acf8ce1050e1a</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2017-10-11 23:31:49</sys_updated_on><title>Smart Admin</title><view_name/></sys_app_application></record_update>]]></payload>
+<payload_hash>-818281578</payload_hash>
+<remote_update_set display_value="Role_Remover_Menu_ver_1.1.2">f9f543b80f3d0300a19acf8ce1050e3a</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2017-10-12 00:24:06</sys_created_on>
+<sys_id>31f543b80f3d0300a19acf8ce1050e3b</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>15f0dc7a7620000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2017-10-12 00:24:06</sys_updated_on>
+<table/>
+<target_name>Smart Admin</target_name>
+<type>Application Menu</type>
+<update_domain>global</update_domain>
+<update_guid>400a32bceff90300f747349de89624be</update_guid>
+<update_guid_history>400a32bceff90300f747349de89624be:-818281578,3c9ed23414b9030031c838e867da81e2:-495191511,06f69a7c1e7903007aa2b861adfe930b:160508784</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_properties_category_m2m_0301aeb40fb90300a19acf8ce1050eaa</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties_category_m2m"><sys_properties_category_m2m action="INSERT_OR_UPDATE"><category display_value="SmartRole">29a06ab40fb90300a19acf8ce1050e9d</category><order>400</order><property display_value="smart.admin.role.notify" name="smart.admin.role.notify">d0591ebc0f790300a19acf8ce1050e51</property><sys_class_name>sys_properties_category_m2m</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2017-10-11 21:42:48</sys_created_on><sys_customer_update>false</sys_customer_update><sys_id>0301aeb40fb90300a19acf8ce1050eaa</sys_id><sys_mod_count>3</sys_mod_count><sys_name>smart.admin.role.notify.SmartRole</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_properties_category_m2m_0301aeb40fb90300a19acf8ce1050eaa</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2017-10-11 23:36:22</sys_updated_on></sys_properties_category_m2m></record_update>]]></payload>
+<payload_hash>363228149</payload_hash>
+<remote_update_set display_value="Role_Remover_Menu_ver_1.1.2">f9f543b80f3d0300a19acf8ce1050e3a</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2017-10-12 00:24:06</sys_created_on>
+<sys_id>31f543b80f3d0300a19acf8ce1050e3e</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>15f0dcbd2440000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2017-10-12 00:24:06</sys_updated_on>
+<table/>
+<target_name>smart.admin.role.notify.SmartRole</target_name>
+<type>Category Property</type>
+<update_domain>global</update_domain>
+<update_guid>6e0b72fca1f90300a981a9f222338d9c</update_guid>
+<update_guid_history>6e0b72fca1f90300a981a9f222338d9c:363228149,eff5a2f858b90300ddc1ca59850b40b9:1471297290,b935ae78f1b90300b9c17ffd03bee6c0:492949163,4301aeb4f8b903001a75fb1f4f5e05ab:-1226740667</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_properties_df45e2f80fb90300a19acf8ce1050efd</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties"><sys_properties action="INSERT_OR_UPDATE"><choices/><description>Select the role name, that the users are to check to have. The engine will search for this role, then for inactivity set in smart.admin.role.timespan property.</description><ignore_cache>false</ignore_cache><is_private>false</is_private><name>smart.admin.role.checkrole</name><read_roles/><suffix/><sys_class_name>sys_properties</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2017-10-11 22:02:53</sys_created_on><sys_customer_update>false</sys_customer_update><sys_id>df45e2f80fb90300a19acf8ce1050efd</sys_id><sys_mod_count>1</sys_mod_count><sys_name>smart.admin.role.checkrole</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_properties_df45e2f80fb90300a19acf8ce1050efd</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2017-10-11 22:03:48</sys_updated_on><type>string</type><value>itil</value><write_roles/></sys_properties><sys_translated_text action="delete_multiple" query="documentkey=df45e2f80fb90300a19acf8ce1050efd"/></record_update>]]></payload>
+<payload_hash>-998485937</payload_hash>
+<remote_update_set display_value="Role_Remover_Menu_ver_1.1.2">f9f543b80f3d0300a19acf8ce1050e3a</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2017-10-12 00:24:06</sys_created_on>
+<sys_id>31f543b80f3d0300a19acf8ce1050e41</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>15f0d771fa00000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2017-10-12 00:24:06</sys_updated_on>
+<table/>
+<target_name>smart.admin.role.checkrole</target_name>
+<type>System Property</type>
+<update_domain>global</update_domain>
+<update_guid>6fd56ef88bb9030086ce6bd8e32f9083</update_guid>
+<update_guid_history>6fd56ef88bb9030086ce6bd8e32f9083:-998485937,8ea5e6f89fb903007691c2c4e29cdad5:-1355632246</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_properties_c061aeb40fb90300a19acf8ce1050efd</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties"><sys_properties action="INSERT_OR_UPDATE"><choices/><description>If true, prints all available messages in the application log. Use only for debugging purposes as otherwise performace issue might occur</description><ignore_cache>false</ignore_cache><is_private>false</is_private><name>smart.admin.role.debugger</name><read_roles/><suffix/><sys_class_name>sys_properties</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2017-10-11 21:46:11</sys_created_on><sys_customer_update>false</sys_customer_update><sys_id>c061aeb40fb90300a19acf8ce1050efd</sys_id><sys_mod_count>1</sys_mod_count><sys_name>smart.admin.role.debugger</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_properties_c061aeb40fb90300a19acf8ce1050efd</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2017-10-11 21:51:16</sys_updated_on><type>boolean</type><value>false</value><write_roles/></sys_properties><sys_translated_text action="delete_multiple" query="documentkey=c061aeb40fb90300a19acf8ce1050efd"/></record_update>]]></payload>
+<payload_hash>-441679020</payload_hash>
+<remote_update_set display_value="Role_Remover_Menu_ver_1.1.2">f9f543b80f3d0300a19acf8ce1050e3a</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2017-10-12 00:24:06</sys_created_on>
+<sys_id>35f543b80f3d0300a19acf8ce1050e3d</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>15f0d6ba46a0000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2017-10-12 00:24:06</sys_updated_on>
+<table/>
+<target_name>smart.admin.role.debugger</target_name>
+<type>System Property</type>
+<update_domain>global</update_domain>
+<update_guid>33f26278d4b90300d0e33e47eacee149</update_guid>
+<update_guid_history>33f26278d4b90300d0e33e47eacee149:-441679020,d9d1eab4f0b90300fe3ba5f2148e3529:-1442566702</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>DELETE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_properties_category_m2m_dc5222380fb90300a19acf8ce1050efc</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties_category_m2m"><sys_properties_category_m2m action="DELETE"><category display_value="Smart Admin App">29a06ab40fb90300a19acf8ce1050e9d</category><order>800</order><property display_value="smart.admin.table.list" name="smart.admin.table.list">2a5a9efc0f790300a19acf8ce1050e35</property><sys_class_name>sys_properties_category_m2m</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2017-10-11 21:48:21</sys_created_on><sys_customer_update>false</sys_customer_update><sys_id>dc5222380fb90300a19acf8ce1050efc</sys_id><sys_mod_count>3</sys_mod_count><sys_name>smart.admin.table.list.Smart Admin App</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_properties_category_m2m_dc5222380fb90300a19acf8ce1050efc</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2017-10-11 22:04:49</sys_updated_on></sys_properties_category_m2m></record_update>]]></payload>
+<payload_hash>1194505957</payload_hash>
+<remote_update_set display_value="Role_Remover_Menu_ver_1.1.2">f9f543b80f3d0300a19acf8ce1050e3a</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2017-10-12 00:24:06</sys_created_on>
+<sys_id>35f543b80f3d0300a19acf8ce1050e40</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>15f0d7c8d7a0000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2017-10-12 00:24:06</sys_updated_on>
+<table/>
+<target_name>smart.admin.table.list.Smart Admin App</target_name>
+<type>Category Property</type>
+<update_domain>global</update_domain>
+<update_guid>9a37ee3c9db903004461bb06764e1ecb</update_guid>
+<update_guid_history>9a37ee3c9db903004461bb06764e1ecb:1194505957,b1162ef8bfb903004b2134c3d3b22e82:392780529,7935a2f888b90300aedfacddb4f39d5a:1760278254,9df36278d0b90300aced854697399e9c:553410927,54522238cdb903002849dd2efa30affe:-711358742</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_properties_2a5a9efc0f790300a19acf8ce1050e35</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties"><sys_properties action="INSERT_OR_UPDATE"><choices/><description>List of tables that clean up activities are to be performed agains. Use this pattern : table, table2, tale3, etc.</description><ignore_cache>false</ignore_cache><is_private>false</is_private><name>smart.admin.table.list</name><read_roles/><suffix/><sys_class_name>sys_properties</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2017-10-11 21:17:10</sys_created_on><sys_customer_update>false</sys_customer_update><sys_id>2a5a9efc0f790300a19acf8ce1050e35</sys_id><sys_mod_count>0</sys_mod_count><sys_name>smart.admin.table.list</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_properties_2a5a9efc0f790300a19acf8ce1050e35</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2017-10-11 21:17:10</sys_updated_on><type>string</type><value/><write_roles/></sys_properties><sys_translated_text action="delete_multiple" query="documentkey=2a5a9efc0f790300a19acf8ce1050e35"/></record_update>]]></payload>
+<payload_hash>-746814170</payload_hash>
+<remote_update_set display_value="Role_Remover_Menu_ver_1.1.2">f9f543b80f3d0300a19acf8ce1050e3a</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2017-10-12 00:24:06</sys_created_on>
+<sys_id>39f543b80f3d0300a19acf8ce1050e3c</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>15f0d4c6c9f0000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2017-10-12 00:24:06</sys_updated_on>
+<table/>
+<target_name>smart.admin.table.list</target_name>
+<type>System Property</type>
+<update_domain>global</update_domain>
+<update_guid>503bd670afb90300cc77ce598375bb50</update_guid>
+<update_guid_history>503bd670afb90300cc77ce598375bb50:-746814170</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>DELETE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_properties_category_m2m_7a332e380fb90300a19acf8ce1050e2e</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties_category_m2m"><sys_properties_category_m2m action="DELETE"><category display_value="Smart Admin App">29a06ab40fb90300a19acf8ce1050e9d</category><order>700</order><property display_value="smart.admin.table.debug" name="smart.admin.table.debug">5e62a2380fb90300a19acf8ce1050e24</property><sys_class_name>sys_properties_category_m2m</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2017-10-11 21:52:20</sys_created_on><sys_customer_update>false</sys_customer_update><sys_id>7a332e380fb90300a19acf8ce1050e2e</sys_id><sys_mod_count>3</sys_mod_count><sys_name>smart.admin.table.debug.Smart Admin App</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_properties_category_m2m_7a332e380fb90300a19acf8ce1050e2e</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2017-10-11 22:04:45</sys_updated_on></sys_properties_category_m2m></record_update>]]></payload>
+<payload_hash>604396476</payload_hash>
+<remote_update_set display_value="Role_Remover_Menu_ver_1.1.2">f9f543b80f3d0300a19acf8ce1050e3a</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2017-10-12 00:24:06</sys_created_on>
+<sys_id>39f543b80f3d0300a19acf8ce1050e3f</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>15f0d7c8dad0000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2017-10-12 00:24:06</sys_updated_on>
+<table/>
+<target_name>smart.admin.table.debug.Smart Admin App</target_name>
+<type>Category Property</type>
+<update_domain>global</update_domain>
+<update_guid>1e37ee3c89b90300121dd06188338ace</update_guid>
+<update_guid_history>1e37ee3c89b90300121dd06188338ace:604396476,7c166ef8ecb903008c2f9043e3f8a187:715303984,f935a2f828b903008a532a2dad0d7758:2075226899,44f322b8b3b90300036510a55472f6db:-608788174,fa332e3801b90300f16126612a2a122f:-859817482</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_app_module_5e775e7c0f790300a19acf8ce1050edb</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_module"><sys_app_module action="INSERT_OR_UPDATE"><active>true</active><application display_value="Smart Admin">1e859a3c0f790300a19acf8ce1050e1a</application><assessment/><content_page/><device_type/><filter/><hint>You are smart, using Smart Role Remover!</hint><homepage/><image/><link_type>DIRECT</link_type><map_page/><mobile_title>Smart Role Remover</mobile_title><mobile_view_name>Mobile</mobile_view_name><name/><order>100</order><override_menu_roles>false</override_menu_roles><query>system_properties_ui.do?sysparm_category=SmartRole&amp;sysparm_title=SmartRole</query><report/><roles>admin</roles><survey/><survey_overwrite>true</survey_overwrite><sys_class_name>sys_app_module</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2017-10-11 21:04:34</sys_created_on><sys_customer_update>false</sys_customer_update><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>5e775e7c0f790300a19acf8ce1050edb</sys_id><sys_mod_count>12</sys_mod_count><sys_name>Smart Role</sys_name><sys_overrides/><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_app_module_5e775e7c0f790300a19acf8ce1050edb</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2017-10-12 00:16:51</sys_updated_on><timeline_page/><title>Smart Role</title><uncancelable>false</uncancelable><view_name/><window_name/></sys_app_module></record_update>]]></payload>
+<payload_hash>453359629</payload_hash>
+<remote_update_set display_value="Role_Remover_Menu_ver_1.1.2">f9f543b80f3d0300a19acf8ce1050e3a</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2017-10-12 00:24:06</sys_created_on>
+<sys_id>3df543b80f3d0300a19acf8ce1050e3b</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>15f0df0e2c10000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2017-10-12 00:24:06</sys_updated_on>
+<table/>
+<target_name>Smart Role</target_name>
+<type>Module</type>
+<update_domain>global</update_domain>
+<update_guid>334443b43a3d0300b69e1f6682eeb739</update_guid>
+<update_guid_history>334443b43a3d0300b69e1f6682eeb739:453359629,057cf230563d030021f12147e251fc70:-174889519,beea7ebc24f903007221cc965d0cb957:-1208706505,4429f67cbcf9030058f5eabd1ab82665:-907318541,8419727cbcf903004051ce49807f31f7:618530662,6f08f63c61f9030075310f149e3158db:1778913446,69a7bef8b7f903002e9e94f2ea6e9f0d:1522092947,25837238d5f903005fa2fe2eb7b988cd:938896146,5132feb45df903002e1de525fb4b1818:1995681479,02e1bab436f90300b0b6a2c0b0c8feb8:1130580253,87ef26349df90300dd4c6af60deac448:-509947221,e60e2eb01bf90300ce5a48542f42cdf8:326177043,434852bc427903001f82a2981deae8bf:1775846605</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_properties_category_m2m_3dc52ef80fb90300a19acf8ce1050e70</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties_category_m2m"><sys_properties_category_m2m action="INSERT_OR_UPDATE"><category display_value="SmartRole">29a06ab40fb90300a19acf8ce1050e9d</category><order>300</order><property display_value="smart.admin.role.checkrole" name="smart.admin.role.checkrole">df45e2f80fb90300a19acf8ce1050efd</property><sys_class_name>sys_properties_category_m2m</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2017-10-11 22:03:28</sys_created_on><sys_customer_update>false</sys_customer_update><sys_id>3dc52ef80fb90300a19acf8ce1050e70</sys_id><sys_mod_count>2</sys_mod_count><sys_name>smart.admin.role.checkrole.SmartRole</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_properties_category_m2m_3dc52ef80fb90300a19acf8ce1050e70</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2017-10-11 23:36:18</sys_updated_on></sys_properties_category_m2m></record_update>]]></payload>
+<payload_hash>650739701</payload_hash>
+<remote_update_set display_value="Role_Remover_Menu_ver_1.1.2">f9f543b80f3d0300a19acf8ce1050e3a</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2017-10-12 00:24:06</sys_created_on>
+<sys_id>3df543b80f3d0300a19acf8ce1050e3e</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>15f0dcbc3cb0000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2017-10-12 00:24:06</sys_updated_on>
+<table/>
+<target_name>smart.admin.role.checkrole.SmartRole</target_name>
+<type>Category Property</type>
+<update_domain>global</update_domain>
+<update_guid>b10b76fcadf9030091efe4312b10106d</update_guid>
+<update_guid_history>b10b76fcadf9030091efe4312b10106d:650739701,2af562f8c8b903000080237b1298ad69:1824403188,0ec52ef898b9030007b971b7b2f10f72:871148589</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_properties_b2363ab80ff90300a19acf8ce1050e0b</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties"><sys_properties action="INSERT_OR_UPDATE"><choices/><description>Turn off/on archiving</description><ignore_cache>false</ignore_cache><is_private>false</is_private><name>smart.admin.table.archive.on</name><read_roles/><suffix/><sys_class_name>sys_properties</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2017-10-11 23:15:51</sys_created_on><sys_customer_update>false</sys_customer_update><sys_id>b2363ab80ff90300a19acf8ce1050e0b</sys_id><sys_mod_count>0</sys_mod_count><sys_name>smart.admin.table.archive.on</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_properties_b2363ab80ff90300a19acf8ce1050e0b</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2017-10-11 23:15:51</sys_updated_on><type>boolean</type><value/><write_roles/></sys_properties><sys_translated_text action="delete_multiple" query="documentkey=b2363ab80ff90300a19acf8ce1050e0b"/></record_update>]]></payload>
+<payload_hash>-95165861</payload_hash>
+<remote_update_set display_value="Role_Remover_Menu_ver_1.1.2">f9f543b80f3d0300a19acf8ce1050e3a</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2017-10-12 00:24:06</sys_created_on>
+<sys_id>71f543b80f3d0300a19acf8ce1050e3d</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>15f0db9173e0000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2017-10-12 00:24:06</sys_updated_on>
+<table/>
+<target_name>smart.admin.table.archive.on</target_name>
+<type>System Property</type>
+<update_domain>global</update_domain>
+<update_guid>43567a7894f90300b93f7e7a8b296497</update_guid>
+<update_guid_history>43567a7894f90300b93f7e7a8b296497:-95165861</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_properties_category_m2m_cc057e380ff90300a19acf8ce1050e6a</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties_category_m2m"><sys_properties_category_m2m action="INSERT_OR_UPDATE"><category display_value="Smart Table Admin">7df37ab40ff90300a19acf8ce1050ee9</category><order>100</order><property display_value="smart.admin.table.debug" name="smart.admin.table.debug">5e62a2380fb90300a19acf8ce1050e24</property><sys_class_name>sys_properties_category_m2m</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2017-10-11 23:09:59</sys_created_on><sys_customer_update>false</sys_customer_update><sys_id>cc057e380ff90300a19acf8ce1050e6a</sys_id><sys_mod_count>0</sys_mod_count><sys_name>smart.admin.table.debug.Smart Table Admin</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_properties_category_m2m_cc057e380ff90300a19acf8ce1050e6a</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2017-10-11 23:09:59</sys_updated_on></sys_properties_category_m2m></record_update>]]></payload>
+<payload_hash>-1091119240</payload_hash>
+<remote_update_set display_value="Role_Remover_Menu_ver_1.1.2">f9f543b80f3d0300a19acf8ce1050e3a</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2017-10-12 00:24:06</sys_created_on>
+<sys_id>71f543b80f3d0300a19acf8ce1050e40</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>15f0db3a9c10000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2017-10-12 00:24:06</sys_updated_on>
+<table/>
+<target_name>smart.admin.table.debug.Smart Table Admin</target_name>
+<type>Category Property</type>
+<update_domain>global</update_domain>
+<update_guid>c4057e3834f9030030d83e51c66d676c</update_guid>
+<update_guid_history>c4057e3834f9030030d83e51c66d676c:-1091119240</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_properties_1f4896bc0f790300a19acf8ce1050e83</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties"><sys_properties action="INSERT_OR_UPDATE"><choices/><description>Do a dry run - do not update/delete any records, only SELECT and return values</description><ignore_cache>false</ignore_cache><is_private>false</is_private><name>smart.admin.role.dryrun</name><read_roles/><suffix/><sys_class_name>sys_properties</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2017-10-11 21:10:24</sys_created_on><sys_customer_update>false</sys_customer_update><sys_id>1f4896bc0f790300a19acf8ce1050e83</sys_id><sys_mod_count>3</sys_mod_count><sys_name>smart.admin.role.dryrun</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_properties_1f4896bc0f790300a19acf8ce1050e83</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2017-10-11 21:50:00</sys_updated_on><type>boolean</type><value>false</value><write_roles/></sys_properties><sys_translated_text action="delete_multiple" query="documentkey=1f4896bc0f790300a19acf8ce1050e83"/></record_update>]]></payload>
+<payload_hash>1630457993</payload_hash>
+<remote_update_set display_value="Role_Remover_Menu_ver_1.1.2">f9f543b80f3d0300a19acf8ce1050e3a</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2017-10-12 00:24:06</sys_created_on>
+<sys_id>75f543b80f3d0300a19acf8ce1050e3c</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>15f0d6a7cdc0000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2017-10-12 00:24:06</sys_updated_on>
+<table/>
+<target_name>smart.admin.role.dryrun</target_name>
+<type>System Property</type>
+<update_domain>global</update_domain>
+<update_guid>59b26a3870b903005a0c1bb01a261198</update_guid>
+<update_guid_history>59b26a3870b903005a0c1bb01a261198:1630457993,3c1f16743fb90300ff121ea5041f6318:465137705,377c12f0fcb90300c68b7daeb88d961a:-64859457,d9a952fc03790300954813b9d4223075:-210756641</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_properties_category_m2m_6326fa780ff90300a19acf8ce1050e78</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties_category_m2m"><sys_properties_category_m2m action="INSERT_OR_UPDATE"><category display_value="Smart Table Admin">7df37ab40ff90300a19acf8ce1050ee9</category><order>500</order><property display_value="smart.admin.table.query" name="smart.admin.table.query">01857e780ff90300a19acf8ce1050e0f</property><sys_class_name>sys_properties_category_m2m</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2017-10-11 23:15:08</sys_created_on><sys_customer_update>false</sys_customer_update><sys_id>6326fa780ff90300a19acf8ce1050e78</sys_id><sys_mod_count>1</sys_mod_count><sys_name>smart.admin.table.query.Smart Table Admin</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_properties_category_m2m_6326fa780ff90300a19acf8ce1050e78</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2017-10-11 23:19:11</sys_updated_on></sys_properties_category_m2m></record_update>]]></payload>
+<payload_hash>452858564</payload_hash>
+<remote_update_set display_value="Role_Remover_Menu_ver_1.1.2">f9f543b80f3d0300a19acf8ce1050e3a</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2017-10-12 00:24:06</sys_created_on>
+<sys_id>75f543b80f3d0300a19acf8ce1050e3f</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>15f0dbc18220000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2017-10-12 00:24:06</sys_updated_on>
+<table/>
+<target_name>smart.admin.table.query.Smart Table Admin</target_name>
+<type>Category Property</type>
+<update_domain>global</update_domain>
+<update_guid>cf17f6f855f9030032823ee6fb7b2f2f</update_guid>
+<update_guid_history>cf17f6f855f9030032823ee6fb7b2f2f:452858564,7f26fa783bf9030030e16bef28d78879:2008361032</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_app_module_2c4ad6300fb90300a19acf8ce1050efa</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_module"><sys_app_module action="INSERT_OR_UPDATE"><active>true</active><application display_value="Smart Admin">1e859a3c0f790300a19acf8ce1050e1a</application><assessment/><content_page/><device_type/><filter/><hint/><homepage/><image/><link_type>SEPARATOR</link_type><map_page/><mobile_title>Separator</mobile_title><mobile_view_name>Mobile</mobile_view_name><name/><order>300</order><override_menu_roles>false</override_menu_roles><query/><report/><roles>admin</roles><survey/><survey_overwrite>true</survey_overwrite><sys_class_name>sys_app_module</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2017-10-11 21:13:32</sys_created_on><sys_customer_update>false</sys_customer_update><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>2c4ad6300fb90300a19acf8ce1050efa</sys_id><sys_mod_count>12</sys_mod_count><sys_name>Smart Stats</sys_name><sys_overrides/><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_app_module_2c4ad6300fb90300a19acf8ce1050efa</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2017-10-12 00:05:36</sys_updated_on><timeline_page/><title>Smart Stats</title><uncancelable>false</uncancelable><view_name/><window_name/></sys_app_module></record_update>]]></payload>
+<payload_hash>1032398365</payload_hash>
+<remote_update_set display_value="Role_Remover_Menu_ver_1.1.2">f9f543b80f3d0300a19acf8ce1050e3a</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2017-10-12 00:24:06</sys_created_on>
+<sys_id>79f543b80f3d0300a19acf8ce1050e3b</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>15f0de697e70000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2017-10-12 00:24:06</sys_updated_on>
+<table/>
+<target_name>Smart Stats</target_name>
+<type>Module</type>
+<update_domain>global</update_domain>
+<update_guid>0fb103b4233d0300723236c56a610469</update_guid>
+<update_guid_history>0fb103b4233d0300723236c56a610469:1032398365,424df670c63d0300bf3277fad5a9f9c7:-1530653749,ff3df2703b3d03003168e285d38ffe50:-1880280596,7e2afa7c67f9030002f079b4d73d4ae2:-854406068,fae1fab464f903003e8eb31a87342002:-2020444750,85d1b6747bf90300a1d6b099c2d8a802:-204543924,f0bf263403f903006b606819fda201c9:1022996254,e5b7ee3c5ab90300deda26fddb6bedc4:785055582,6e5a523008b903007aa05ae7f1b2fc2a:-1876625991</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_properties_category_m2m_3113a6780fb90300a19acf8ce1050e09</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties_category_m2m"><sys_properties_category_m2m action="INSERT_OR_UPDATE"><category display_value="SmartRole">29a06ab40fb90300a19acf8ce1050e9d</category><order>100</order><property display_value="smart.admin.role.debugger" name="smart.admin.role.debugger">c061aeb40fb90300a19acf8ce1050efd</property><sys_class_name>sys_properties_category_m2m</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2017-10-11 21:51:44</sys_created_on><sys_customer_update>false</sys_customer_update><sys_id>3113a6780fb90300a19acf8ce1050e09</sys_id><sys_mod_count>5</sys_mod_count><sys_name>smart.admin.role.debugger.SmartRole</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_properties_category_m2m_3113a6780fb90300a19acf8ce1050e09</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2017-10-11 23:36:10</sys_updated_on></sys_properties_category_m2m></record_update>]]></payload>
+<payload_hash>-917362656</payload_hash>
+<remote_update_set display_value="Role_Remover_Menu_ver_1.1.2">f9f543b80f3d0300a19acf8ce1050e3a</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2017-10-12 00:24:06</sys_created_on>
+<sys_id>79f543b80f3d0300a19acf8ce1050e3e</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>15f0dcba22c0000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2017-10-12 00:24:06</sys_updated_on>
+<table/>
+<target_name>smart.admin.role.debugger.SmartRole</target_name>
+<type>Category Property</type>
+<update_domain>global</update_domain>
+<update_guid>a7fafebc38f90300bb9638d2f113c1c5</update_guid>
+<update_guid_history>a7fafebc38f90300bb9638d2f113c1c5:-917362656,798d66b088f90300327170932d8b9c7e:301527650,b935ae780eb903008a315ce5f4bb32be:1928180692,eef3ea38f0b903000091a7d1362021a9:-1261159788,75e3ee7848b90300b83eeed04d841f5c:99310451,3113a6785bb903004a93562a4571420b:1928180692</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_ui_view_f8fe7eb00f3d0300a19acf8ce1050e98</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_view"><sys_ui_view action="INSERT_OR_UPDATE"><group/><hidden>false</hidden><name>store_usage_overview</name><roles/><sys_class_name>sys_ui_view</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2017-10-11 23:53:27</sys_created_on><sys_customer_update>false</sys_customer_update><sys_id>f8fe7eb00f3d0300a19acf8ce1050e98</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Store_usage_overview</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_ui_view_f8fe7eb00f3d0300a19acf8ce1050e98</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2017-10-11 23:53:27</sys_updated_on><title>Store_usage_overview</title><user/></sys_ui_view></record_update>]]></payload>
+<payload_hash>-1119460438</payload_hash>
+<remote_update_set display_value="Role_Remover_Menu_ver_1.1.2">f9f543b80f3d0300a19acf8ce1050e3a</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2017-10-12 00:24:06</sys_created_on>
+<sys_id>79f543b80f3d0300a19acf8ce1050e41</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>15f0ddb756e0000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2017-10-12 00:24:06</sys_updated_on>
+<table/>
+<target_name>Store_usage_overview</target_name>
+<type>UI View</type>
+<update_domain>global</update_domain>
+<update_guid>7cfe7eb0813d030082ad49377eeb0499</update_guid>
+<update_guid_history>7cfe7eb0813d030082ad49377eeb0499:-1119460438</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_properties_category_7df37ab40ff90300a19acf8ce1050ee9</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_properties_category"&gt;&lt;sys_properties_category action="INSERT_OR_UPDATE"&gt;&lt;name&gt;SmartTable&lt;/name&gt;&lt;sys_class_name&gt;sys_properties_category&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2017-10-11 23:09:31&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;false&lt;/sys_customer_update&gt;&lt;sys_id&gt;7df37ab40ff90300a19acf8ce1050ee9&lt;/sys_id&gt;&lt;sys_mod_count&gt;3&lt;/sys_mod_count&gt;&lt;sys_name&gt;SmartTable&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_properties_category_7df37ab40ff90300a19acf8ce1050ee9&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2017-10-11 23:36:49&lt;/sys_updated_on&gt;&lt;title&gt;&lt;![CDATA[&lt;p style="text-align: center;"&gt;&lt;span style="font-family: &amp;#39;arial black&amp;#39;, &amp;#39;avant garde&amp;#39;; font-size: 12pt;"&gt;Smart Table Admin&lt;/span&gt;&lt;/p&gt;
+&lt;p style="text-align: center;"&gt;&lt;span style="font-family: &amp;#39;arial black&amp;#39;, &amp;#39;avant garde&amp;#39;; font-size: 12pt;"&gt;This tool handles data tables cleanups, archiving, etc.&lt;/span&gt;&lt;/p&gt;
+&lt;p style="text-align: center;"&gt; &lt;/p&gt;
+&lt;p style="text-align: center;"&gt;&lt;span style="font-family: &amp;#39;arial black&amp;#39;, &amp;#39;avant garde&amp;#39;; font-size: 12pt;"&gt;&lt;img style="border: 7px solid black; align: middle;" title="" src="sys_attachment.do?sys_id&amp;#61;3714b2380ff90300a19acf8ce1050ec3" alt="In DEVELOPMENT! Joro" width="255" height="255" align="middle" border="7" hspace="" vspace="" /&gt;&lt;/span&gt;&lt;/p&gt;]]&gt;&lt;/title&gt;&lt;/sys_properties_category&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=7df37ab40ff90300a19acf8ce1050ee9"/&gt;&lt;/record_update&gt;</payload>
+<payload_hash>1801583778</payload_hash>
+<remote_update_set display_value="Role_Remover_Menu_ver_1.1.2">f9f543b80f3d0300a19acf8ce1050e3a</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2017-10-12 00:24:06</sys_created_on>
+<sys_id>7df543b80f3d0300a19acf8ce1050e3d</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>15f0dcc3e010000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2017-10-12 00:24:06</sys_updated_on>
+<table/>
+<target_name>SmartTable</target_name>
+<type>System Property Category</type>
+<update_domain>global</update_domain>
+<update_guid>152bb6fc8ff903002d652df181b501be</update_guid>
+<update_guid_history>152bb6fc8ff903002d652df181b501be:1801583778,7128f63cc3f90300cb4682904ba349df:987208588,8bc7723c22f90300b26fecc2606e0b85:61055170,95e4b238b4f9030062e8fb00192ef4cf:-1230655574</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_properties_d0591ebc0f790300a19acf8ce1050e51</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties"><sys_properties action="INSERT_OR_UPDATE"><choices/><description>True or false. If set to true, the event will be triggered and notification sent</description><ignore_cache>false</ignore_cache><is_private>false</is_private><name>smart.admin.role.notify</name><read_roles/><suffix/><sys_class_name>sys_properties</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2017-10-11 21:09:54</sys_created_on><sys_customer_update>false</sys_customer_update><sys_id>d0591ebc0f790300a19acf8ce1050e51</sys_id><sys_mod_count>2</sys_mod_count><sys_name>smart.admin.role.notify</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_properties_d0591ebc0f790300a19acf8ce1050e51</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2017-10-11 21:49:51</sys_updated_on><type>boolean</type><value>true</value><write_roles/></sys_properties><sys_translated_text action="delete_multiple" query="documentkey=d0591ebc0f790300a19acf8ce1050e51"/></record_update>]]></payload>
+<payload_hash>-1332209866</payload_hash>
+<remote_update_set display_value="Role_Remover_Menu_ver_1.1.2">f9f543b80f3d0300a19acf8ce1050e3a</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2017-10-12 00:24:06</sys_created_on>
+<sys_id>7df543b80f3d0300a19acf8ce1050e40</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>15f0d6a56ce0000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2017-10-12 00:24:06</sys_updated_on>
+<table/>
+<target_name>smart.admin.role.notify</target_name>
+<type>System Property</type>
+<update_domain>global</update_domain>
+<update_guid>8ba2eaf4c0b90300b37f760b7cebae06</update_guid>
+<update_guid_history>8ba2eaf4c0b90300b37f760b7cebae06:-1332209866,f47cd6b0abb903002ec9528c43f8b131:948772488,f989dafcce79030091340f1be6894973:460015680</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_properties_01857e780ff90300a19acf8ce1050e0f</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties"><sys_properties action="INSERT_OR_UPDATE"><choices/><description>Query needed for the tables for archive. smart.admin.table.debug needs it for selecting the right records. &#13;
+Example: active=false^closed&lt;=javascript:gs.now();^username=someone&#13;
+If not aware of the above use the next properies and system will do default archive</description><ignore_cache>false</ignore_cache><is_private>false</is_private><name>smart.admin.table.query</name><read_roles/><suffix/><sys_class_name>sys_properties</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2017-10-11 23:15:05</sys_created_on><sys_customer_update>false</sys_customer_update><sys_id>01857e780ff90300a19acf8ce1050e0f</sys_id><sys_mod_count>0</sys_mod_count><sys_name>smart.admin.table.query</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_properties_01857e780ff90300a19acf8ce1050e0f</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2017-10-11 23:15:05</sys_updated_on><type>string</type><value/><write_roles/></sys_properties><sys_translated_text action="delete_multiple" query="documentkey=01857e780ff90300a19acf8ce1050e0f"/></record_update>]]></payload>
+<payload_hash>-2092575602</payload_hash>
+<remote_update_set display_value="Role_Remover_Menu_ver_1.1.2">f9f543b80f3d0300a19acf8ce1050e3a</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2017-10-12 00:24:06</sys_created_on>
+<sys_id>b1f543b80f3d0300a19acf8ce1050e3c</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>15f0db861e90000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2017-10-12 00:24:06</sys_updated_on>
+<table/>
+<target_name>smart.admin.table.query</target_name>
+<type>System Property</type>
+<update_domain>global</update_domain>
+<update_guid>2726fa7846f90300d6ddfed0fa9f3d76</update_guid>
+<update_guid_history>2726fa7846f90300d6ddfed0fa9f3d76:-2092575602</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_properties_category_m2m_4235a2f80fb90300a19acf8ce1050e7c</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties_category_m2m"><sys_properties_category_m2m action="INSERT_OR_UPDATE"><category display_value="SmartRole">29a06ab40fb90300a19acf8ce1050e9d</category><order>600</order><property display_value="smart.admin.role.timespan" name="smart.admin.role.timespan">cb54a2b80fb90300a19acf8ce1050e3e</property><sys_class_name>sys_properties_category_m2m</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2017-10-11 22:01:01</sys_created_on><sys_customer_update>false</sys_customer_update><sys_id>4235a2f80fb90300a19acf8ce1050e7c</sys_id><sys_mod_count>2</sys_mod_count><sys_name>smart.admin.role.timespan.SmartRole</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_properties_category_m2m_4235a2f80fb90300a19acf8ce1050e7c</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2017-10-11 23:36:32</sys_updated_on></sys_properties_category_m2m></record_update>]]></payload>
+<payload_hash>-883014356</payload_hash>
+<remote_update_set display_value="Role_Remover_Menu_ver_1.1.2">f9f543b80f3d0300a19acf8ce1050e3a</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2017-10-12 00:24:06</sys_created_on>
+<sys_id>b1f543b80f3d0300a19acf8ce1050e3f</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>15f0dcbf9570000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2017-10-12 00:24:06</sys_updated_on>
+<table/>
+<target_name>smart.admin.role.timespan.SmartRole</target_name>
+<type>Category Property</type>
+<update_domain>global</update_domain>
+<update_guid>091b76fcbdf90300f69a6479e722a83d</update_guid>
+<update_guid_history>091b76fcbdf90300f69a6479e722a83d:-883014356,e20662f80cb903009bab9f9ffbb68ef2:-475499839,c235a2f8bab903003490559ab2112b7d:1266341856</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_app_module_09f992300fb90300a19acf8ce1050ecd</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_module"><sys_app_module action="INSERT_OR_UPDATE"><active>true</active><application display_value="Smart Admin">1e859a3c0f790300a19acf8ce1050e1a</application><assessment/><content_page/><device_type/><filter/><hint>You are smart, using Smart Table!</hint><homepage/><image/><link_type>DIRECT</link_type><map_page/><mobile_title>Smart Table</mobile_title><mobile_view_name>Mobile</mobile_view_name><name/><order>200</order><override_menu_roles>true</override_menu_roles><query>system_properties_ui.do?sysparm_category=SmartTable&amp;sysparm_title=SmartTable</query><report/><roles>admin</roles><survey/><survey_overwrite>true</survey_overwrite><sys_class_name>sys_app_module</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2017-10-11 21:13:07</sys_created_on><sys_customer_update>false</sys_customer_update><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>09f992300fb90300a19acf8ce1050ecd</sys_id><sys_mod_count>10</sys_mod_count><sys_name>Smart Table</sys_name><sys_overrides/><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_app_module_09f992300fb90300a19acf8ce1050ecd</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2017-10-11 23:46:20</sys_updated_on><timeline_page/><title>Smart Table</title><uncancelable>false</uncancelable><view_name/><window_name/></sys_app_module></record_update>]]></payload>
+<payload_hash>233426023</payload_hash>
+<remote_update_set display_value="Role_Remover_Menu_ver_1.1.2">f9f543b80f3d0300a19acf8ce1050e3a</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2017-10-12 00:24:06</sys_created_on>
+<sys_id>b5f543b80f3d0300a19acf8ce1050e3b</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>15f0dd4f3310000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2017-10-12 00:24:06</sys_updated_on>
+<table/>
+<target_name>Smart Table</target_name>
+<type>Module</type>
+<update_domain>global</update_domain>
+<update_guid>b05dfe30653d030016de2a1aaaf69665</update_guid>
+<update_guid_history>b05dfe30653d030016de2a1aaaf69665:233426023,03acf230ef3d03008320c9ac30ef19de:-1565898426,eacbfefcd6f9030056f29425dcfd7931:-1333776057,c9d8f27cbef903003fcb50ca67d1e006:1447778632,b097bef824f903009e606799ce05280a:1836379370,9383b238d7f9030002705fec3300fbc4:69699313,bf52b2f41cf90300523bfee12e2e5964:1447778632,7be1b2b4dff9030087b0039b5d39d4a0:-1229291045,a7213e7460f90300a7d41aed0ecdb996:-2024392341,d17b5a7020b903004c15561d42d05f78:1682402868,104a1e30b4b903006d0a1b2ef83cccba:1091415016</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_properties_category_m2m_246da2700ff90300a19acf8ce1050e6d</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties_category_m2m"><sys_properties_category_m2m action="INSERT_OR_UPDATE"><category display_value="SmartRole">29a06ab40fb90300a19acf8ce1050e9d</category><order>200</order><property display_value="smart.admin.role.debug.level" name="smart.admin.role.debug.level">8fdbe6300ff90300a19acf8ce1050eae</property><sys_class_name>sys_properties_category_m2m</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2017-10-11 22:36:41</sys_created_on><sys_customer_update>false</sys_customer_update><sys_id>246da2700ff90300a19acf8ce1050e6d</sys_id><sys_mod_count>1</sys_mod_count><sys_name>smart.admin.role.debug.level.SmartRole</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_properties_category_m2m_246da2700ff90300a19acf8ce1050e6d</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2017-10-11 23:36:14</sys_updated_on></sys_properties_category_m2m></record_update>]]></payload>
+<payload_hash>159682159</payload_hash>
+<remote_update_set display_value="Role_Remover_Menu_ver_1.1.2">f9f543b80f3d0300a19acf8ce1050e3a</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2017-10-12 00:24:06</sys_created_on>
+<sys_id>b5f543b80f3d0300a19acf8ce1050e3e</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>15f0dcbb2910000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2017-10-12 00:24:06</sys_updated_on>
+<table/>
+<target_name>smart.admin.role.debug.level.SmartRole</target_name>
+<type>Category Property</type>
+<update_domain>global</update_domain>
+<update_guid>640bb2fcb6f903002fdbcd0587eb4a43</update_guid>
+<update_guid_history>640bb2fcb6f903002fdbcd0587eb4a43:159682159,246da27019f9030029b2e25099b0386f:-1715910098</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_ui_view_90fe7eb00f3d0300a19acf8ce1050e1c</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_view"><sys_ui_view action="INSERT_OR_UPDATE"><group/><hidden>false</hidden><name>usage_overview</name><roles/><sys_class_name>sys_ui_view</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2017-10-11 23:53:25</sys_created_on><sys_customer_update>false</sys_customer_update><sys_id>90fe7eb00f3d0300a19acf8ce1050e1c</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Usage_overview</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_ui_view_90fe7eb00f3d0300a19acf8ce1050e1c</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2017-10-11 23:53:25</sys_updated_on><title>Usage_overview</title><user/></sys_ui_view></record_update>]]></payload>
+<payload_hash>-1835312440</payload_hash>
+<remote_update_set display_value="Role_Remover_Menu_ver_1.1.2">f9f543b80f3d0300a19acf8ce1050e3a</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2017-10-12 00:24:06</sys_created_on>
+<sys_id>b5f543b80f3d0300a19acf8ce1050e41</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>15f0ddb6d830000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2017-10-12 00:24:06</sys_updated_on>
+<table/>
+<target_name>Usage_overview</target_name>
+<type>UI View</type>
+<update_domain>global</update_domain>
+<update_guid>98fe7eb0aa3d03007ab2a88ab30a731d</update_guid>
+<update_guid_history>98fe7eb0aa3d03007ab2a88ab30a731d:-1835312440</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_properties_category_29a06ab40fb90300a19acf8ce1050e9d</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_properties_category"&gt;&lt;sys_properties_category action="INSERT_OR_UPDATE"&gt;&lt;name&gt;SmartRole&lt;/name&gt;&lt;sys_class_name&gt;sys_properties_category&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2017-10-11 21:41:34&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;false&lt;/sys_customer_update&gt;&lt;sys_id&gt;29a06ab40fb90300a19acf8ce1050e9d&lt;/sys_id&gt;&lt;sys_mod_count&gt;6&lt;/sys_mod_count&gt;&lt;sys_name&gt;SmartRole&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_properties_category_29a06ab40fb90300a19acf8ce1050e9d&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2017-10-11 23:35:56&lt;/sys_updated_on&gt;&lt;title&gt;&lt;![CDATA[&lt;p style="text-align: center;"&gt;&lt;span style="text-decoration: underline; color: #000080; background-color: #ffffff;"&gt;&lt;span style="font-family: &amp;#39;arial black&amp;#39;, &amp;#39;avant garde&amp;#39;; font-size: 12pt;"&gt;&lt;img style="align: middle;" title="" src="sys_attachment.do?sys_id&amp;#61;a85aaafc0fb90300a19acf8ce1050e70" alt="Still is DEVELOPMENT !!! Joro" width="255" height="255" align="middle" border="" hspace="" vspace="" /&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style="text-align: center;"&gt;&lt;span style="font-family: &amp;#39;courier new&amp;#39;, courier; color: #000080; background-color: #ffffff;"&gt;&lt;em&gt;&lt;span style="font-size: 12pt;"&gt;&lt;strong&gt;May the ServiceNOW force be with you, less bugs, more performance!!!&lt;/strong&gt;&lt;/span&gt;&lt;/em&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style="text-align: center;"&gt;&lt;span style="font-family: &amp;#39;courier new&amp;#39;, courier;"&gt;&lt;em&gt;&lt;span style="font-size: 12pt;"&gt;&lt;strong&gt;  &lt;/strong&gt;&lt;/span&gt;&lt;/em&gt;&lt;/span&gt;&lt;/p&gt;]]&gt;&lt;/title&gt;&lt;/sys_properties_category&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=29a06ab40fb90300a19acf8ce1050e9d"/&gt;&lt;/record_update&gt;</payload>
+<payload_hash>-906206101</payload_hash>
+<remote_update_set display_value="Role_Remover_Menu_ver_1.1.2">f9f543b80f3d0300a19acf8ce1050e3a</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2017-10-12 00:24:06</sys_created_on>
+<sys_id>b9f543b80f3d0300a19acf8ce1050e3d</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>15f0dcb6d010000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2017-10-12 00:24:06</sys_updated_on>
+<table/>
+<target_name>SmartRole</target_name>
+<type>System Property Category</type>
+<update_domain>global</update_domain>
+<update_guid>90fa36bc77f90300ace831995caa4182</update_guid>
+<update_guid_history>90fa36bc77f90300ace831995caa4182:-906206101,7318feb8b2f903007e43fd99638bb281:-1037873691,75c7b6f8d4f9030003b145a0c7277e7c:1774117453,e604b23889f90300be30efad8b48f5c1:-1062778939,559a26fcdab903005c6e07f09028f3b7:-1108896905,b5272ef820b90300f2abf4c4d972387d:343843678,49c0ea34f7b90300b64dd7f2b759fa7b:617269916</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_properties_cb54a2b80fb90300a19acf8ce1050e3e</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties"><sys_properties action="INSERT_OR_UPDATE"><choices/><description>Choose the time frame, that if user havent been logged in, to mark for role strip. &#13;
+Example - 1 is for one month, 2 for two months, etc.</description><ignore_cache>false</ignore_cache><is_private>false</is_private><name>smart.admin.role.timespan</name><read_roles/><suffix/><sys_class_name>sys_properties</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2017-10-11 22:00:31</sys_created_on><sys_customer_update>false</sys_customer_update><sys_id>cb54a2b80fb90300a19acf8ce1050e3e</sys_id><sys_mod_count>0</sys_mod_count><sys_name>smart.admin.role.timespan</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_properties_cb54a2b80fb90300a19acf8ce1050e3e</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2017-10-11 22:00:31</sys_updated_on><type>integer</type><value>3</value><write_roles/></sys_properties><sys_translated_text action="delete_multiple" query="documentkey=cb54a2b80fb90300a19acf8ce1050e3e"/></record_update>]]></payload>
+<payload_hash>-1995967936</payload_hash>
+<remote_update_set display_value="Role_Remover_Menu_ver_1.1.2">f9f543b80f3d0300a19acf8ce1050e3a</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2017-10-12 00:24:06</sys_created_on>
+<sys_id>b9f543b80f3d0300a19acf8ce1050e40</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>15f0d741ba40000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2017-10-12 00:24:06</sys_updated_on>
+<table/>
+<target_name>smart.admin.role.timespan</target_name>
+<type>System Property</type>
+<update_domain>global</update_domain>
+<update_guid>d715eeb847b90300d89b1bfb2eb5a031</update_guid>
+<update_guid_history>d715eeb847b90300d89b1bfb2eb5a031:-1995967936</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_properties_8fdbe6300ff90300a19acf8ce1050eae</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties"><sys_properties action="INSERT_OR_UPDATE"><choices>Default=1,Error=2,Info=3,Debug=4 </choices><description>If smart.admin.role.debugger is true , adds more info to logs + onscreen.&#13;
+Default - normal log file only&#13;
+Error - output of all errors on screen and log file&#13;
+Info - logs + on screen info messages&#13;
+Debug - debug logs + exception trace + on screen messages for error, info, etc. (where applicable)</description><ignore_cache>false</ignore_cache><is_private>false</is_private><name>smart.admin.role.debug.level</name><read_roles/><suffix/><sys_class_name>sys_properties</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2017-10-11 22:35:30</sys_created_on><sys_customer_update>false</sys_customer_update><sys_id>8fdbe6300ff90300a19acf8ce1050eae</sys_id><sys_mod_count>3</sys_mod_count><sys_name>smart.admin.role.debug.level</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_properties_8fdbe6300ff90300a19acf8ce1050eae</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2017-10-11 23:52:41</sys_updated_on><type>choicelist</type><value>1</value><write_roles/></sys_properties><sys_translated_text action="delete_multiple" query="documentkey=8fdbe6300ff90300a19acf8ce1050eae"/></record_update>]]></payload>
+<payload_hash>-853718389</payload_hash>
+<remote_update_set display_value="Role_Remover_Menu_ver_1.1.2">f9f543b80f3d0300a19acf8ce1050e3a</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2017-10-12 00:24:06</sys_created_on>
+<sys_id>bdf543b80f3d0300a19acf8ce1050e3c</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>15f0ddacdb00000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2017-10-12 00:24:06</sys_updated_on>
+<table/>
+<target_name>smart.admin.role.debug.level</target_name>
+<type>System Property</type>
+<update_domain>global</update_domain>
+<update_guid>dece3ab0803d030051149f2ef88e2fa2</update_guid>
+<update_guid_history>dece3ab0803d030051149f2ef88e2fa2:-853718389,214faef05cf903001e03381c743bea07:254573179,566d62b013f9030083875e1f56c2c146:1451786320,b31da270bcf90300506bc994b4a2dc5e:848722100</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_properties_category_m2m_83567ab80ff90300a19acf8ce1050ec7</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties_category_m2m"><sys_properties_category_m2m action="INSERT_OR_UPDATE"><category display_value="Smart Table Admin">7df37ab40ff90300a19acf8ce1050ee9</category><order>300</order><property display_value="smart.admin.table.archive.on" name="smart.admin.table.archive.on">b2363ab80ff90300a19acf8ce1050e0b</property><sys_class_name>sys_properties_category_m2m</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2017-10-11 23:15:54</sys_created_on><sys_customer_update>false</sys_customer_update><sys_id>83567ab80ff90300a19acf8ce1050ec7</sys_id><sys_mod_count>1</sys_mod_count><sys_name>smart.admin.table.archive.on.Smart Table Admin</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_properties_category_m2m_83567ab80ff90300a19acf8ce1050ec7</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2017-10-11 23:18:57</sys_updated_on></sys_properties_category_m2m></record_update>]]></payload>
+<payload_hash>553290275</payload_hash>
+<remote_update_set display_value="Role_Remover_Menu_ver_1.1.2">f9f543b80f3d0300a19acf8ce1050e3a</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2017-10-12 00:24:06</sys_created_on>
+<sys_id>bdf543b80f3d0300a19acf8ce1050e3f</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>15f0dbbe2670000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2017-10-12 00:24:06</sys_updated_on>
+<table/>
+<target_name>smart.admin.table.archive.on.Smart Table Admin</target_name>
+<type>Category Property</type>
+<update_domain>global</update_domain>
+<update_guid>a307fa782af9030045e2e36d824d66ed</update_guid>
+<update_guid_history>a307fa782af9030045e2e36d824d66ed:553290275,4b567ab852f90300119e0928fa0fcdc9:-248758495</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_app_category_df5d9ab00fb90300a19acf8ce1050e84</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_app_category"><sys_app_category action="INSERT_OR_UPDATE"><default_order>7</default_order><name>Smart Admin</name><style>border: 15px solid #96bcdc; background-color: #FBFBFB;color:red;text-align: center;</style><sys_class_name>sys_app_category</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2017-10-11 21:30:57</sys_created_on><sys_customer_update>false</sys_customer_update><sys_id>df5d9ab00fb90300a19acf8ce1050e84</sys_id><sys_mod_count>2</sys_mod_count><sys_name>Smart Admin</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_app_category_df5d9ab00fb90300a19acf8ce1050e84</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2017-10-11 23:38:49</sys_updated_on></sys_app_category></record_update>]]></payload>
+<payload_hash>-418037623</payload_hash>
+<remote_update_set display_value="Role_Remover_Menu_ver_1.1.2">f9f543b80f3d0300a19acf8ce1050e3a</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2017-10-12 00:24:06</sys_created_on>
+<sys_id>f1f543b80f3d0300a19acf8ce1050e3b</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>15f0dce130a0000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2017-10-12 00:24:06</sys_updated_on>
+<table/>
+<target_name>Smart Admin</target_name>
+<type>Menu Category</type>
+<update_domain>global</update_domain>
+<update_guid>b29b36fce7f90300e57872871314ef7e</update_guid>
+<update_guid_history>b29b36fce7f90300e57872871314ef7e:-418037623,88a7a67c1eb9030089b513a75e06f177:-1353056039,695ed23484b9030015455d615565b2de:1907464548</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_properties_category_m2m_04057e380ff90300a19acf8ce1050e6d</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties_category_m2m"><sys_properties_category_m2m action="INSERT_OR_UPDATE"><category display_value="Smart Table Admin">7df37ab40ff90300a19acf8ce1050ee9</category><order>200</order><property display_value="smart.admin.table.list" name="smart.admin.table.list">2a5a9efc0f790300a19acf8ce1050e35</property><sys_class_name>sys_properties_category_m2m</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2017-10-11 23:09:59</sys_created_on><sys_customer_update>false</sys_customer_update><sys_id>04057e380ff90300a19acf8ce1050e6d</sys_id><sys_mod_count>0</sys_mod_count><sys_name>smart.admin.table.list.Smart Table Admin</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_properties_category_m2m_04057e380ff90300a19acf8ce1050e6d</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2017-10-11 23:09:59</sys_updated_on></sys_properties_category_m2m></record_update>]]></payload>
+<payload_hash>-120706013</payload_hash>
+<remote_update_set display_value="Role_Remover_Menu_ver_1.1.2">f9f543b80f3d0300a19acf8ce1050e3a</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2017-10-12 00:24:06</sys_created_on>
+<sys_id>f1f543b80f3d0300a19acf8ce1050e3e</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>15f0db3a9ec0000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2017-10-12 00:24:06</sys_updated_on>
+<table/>
+<target_name>smart.admin.table.list.Smart Table Admin</target_name>
+<type>Category Property</type>
+<update_domain>global</update_domain>
+<update_guid>80057e3845f903004f53e6b1df27246e</update_guid>
+<update_guid_history>80057e3845f903004f53e6b1df27246e:-120706013</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_properties_e8157e380ff90300a19acf8ce1050e73</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties"><sys_properties action="INSERT_OR_UPDATE"><choices/><description>Point the list of the tables forclean up. Next propertie, smart.admin.table.choice, will add additional query for these tables</description><ignore_cache>false</ignore_cache><is_private>false</is_private><name>smart.admin.table.archive</name><read_roles/><suffix/><sys_class_name>sys_properties</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2017-10-11 23:11:36</sys_created_on><sys_customer_update>false</sys_customer_update><sys_id>e8157e380ff90300a19acf8ce1050e73</sys_id><sys_mod_count>0</sys_mod_count><sys_name>smart.admin.table.archive</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_properties_e8157e380ff90300a19acf8ce1050e73</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2017-10-11 23:11:36</sys_updated_on><type>string</type><value/><write_roles/></sys_properties><sys_translated_text action="delete_multiple" query="documentkey=e8157e380ff90300a19acf8ce1050e73"/></record_update>]]></payload>
+<payload_hash>515662557</payload_hash>
+<remote_update_set display_value="Role_Remover_Menu_ver_1.1.2">f9f543b80f3d0300a19acf8ce1050e3a</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2017-10-12 00:24:06</sys_created_on>
+<sys_id>f1f543b80f3d0300a19acf8ce1050e41</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>15f0db52fd40000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2017-10-12 00:24:06</sys_updated_on>
+<table/>
+<target_name>smart.admin.table.archive</target_name>
+<type>System Property</type>
+<update_domain>global</update_domain>
+<update_guid>28653a38a4f90300174b66b292b7e887</update_guid>
+<update_guid_history>28653a38a4f90300174b66b292b7e887:515662557</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_properties_c2663eb80ff90300a19acf8ce1050e2b</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties"><sys_properties action="INSERT_OR_UPDATE"><choices/><description>Basetime after which archive can happen - this is per record.&#13;
+Example - 1 is one month, 2 is two months.&#13;
+NOTE: Usually archive is done after 6 months to some tables and others after 1 or 2 years.&#13;
+Defaul value is set to 6 ( six months)</description><ignore_cache>false</ignore_cache><is_private>false</is_private><name>smart.admin.table.archive.basetime</name><read_roles/><suffix/><sys_class_name>sys_properties</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2017-10-11 23:18:18</sys_created_on><sys_customer_update>false</sys_customer_update><sys_id>c2663eb80ff90300a19acf8ce1050e2b</sys_id><sys_mod_count>0</sys_mod_count><sys_name>smart.admin.table.archive.basetime</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_properties_c2663eb80ff90300a19acf8ce1050e2b</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2017-10-11 23:18:18</sys_updated_on><type>integer</type><value>6</value><write_roles/></sys_properties><sys_translated_text action="delete_multiple" query="documentkey=c2663eb80ff90300a19acf8ce1050e2b"/></record_update>]]></payload>
+<payload_hash>-37745167</payload_hash>
+<remote_update_set display_value="Role_Remover_Menu_ver_1.1.2">f9f543b80f3d0300a19acf8ce1050e3a</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2017-10-12 00:24:06</sys_created_on>
+<sys_id>f5f543b80f3d0300a19acf8ce1050e3d</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>15f0dbb52790000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2017-10-12 00:24:06</sys_updated_on>
+<table/>
+<target_name>smart.admin.table.archive.basetime</target_name>
+<type>System Property</type>
+<update_domain>global</update_domain>
+<update_guid>6ae6f6b84cf90300bfc65c07757d2677</update_guid>
+<update_guid_history>6ae6f6b84cf90300bfc65c07757d2677:-37745167</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_properties_category_m2m_e4653a380ff90300a19acf8ce1050e89</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties_category_m2m"><sys_properties_category_m2m action="INSERT_OR_UPDATE"><category display_value="Smart Table Admin">7df37ab40ff90300a19acf8ce1050ee9</category><order>400</order><property display_value="smart.admin.table.archive" name="smart.admin.table.archive">e8157e380ff90300a19acf8ce1050e73</property><sys_class_name>sys_properties_category_m2m</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2017-10-11 23:11:39</sys_created_on><sys_customer_update>false</sys_customer_update><sys_id>e4653a380ff90300a19acf8ce1050e89</sys_id><sys_mod_count>3</sys_mod_count><sys_name>smart.admin.table.archive.Smart Table Admin</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_properties_category_m2m_e4653a380ff90300a19acf8ce1050e89</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2017-10-11 23:19:08</sys_updated_on></sys_properties_category_m2m></record_update>]]></payload>
+<payload_hash>-1669992926</payload_hash>
+<remote_update_set display_value="Role_Remover_Menu_ver_1.1.2">f9f543b80f3d0300a19acf8ce1050e3a</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2017-10-12 00:24:06</sys_created_on>
+<sys_id>f5f543b80f3d0300a19acf8ce1050e40</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>15f0dbc0ad60000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2017-10-12 00:24:06</sys_updated_on>
+<table/>
+<target_name>smart.admin.table.archive.Smart Table Admin</target_name>
+<type>Category Property</type>
+<update_domain>global</update_domain>
+<update_guid>5217f6f8acf90300ce39e3f18078ba0b</update_guid>
+<update_guid_history>5217f6f8acf90300ce39e3f18078ba0b:-1669992926,8085b278c6f90300024d4ca8ba9f24f5:-542616381,6c75767896f90300e42d93c38a8c89ba:1712136709,24653a382cf90300af7ecbe3c3118c8b:978151941</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_properties_5e62a2380fb90300a19acf8ce1050e24</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties"><sys_properties action="INSERT_OR_UPDATE"><choices/><description>If true, prints debug messages in application log.&#13;
+Use with caution!</description><ignore_cache>false</ignore_cache><is_private>false</is_private><name>smart.admin.table.debug</name><read_roles/><suffix/><sys_class_name>sys_properties</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2017-10-11 21:49:27</sys_created_on><sys_customer_update>false</sys_customer_update><sys_id>5e62a2380fb90300a19acf8ce1050e24</sys_id><sys_mod_count>0</sys_mod_count><sys_name>smart.admin.table.debug</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_properties_5e62a2380fb90300a19acf8ce1050e24</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2017-10-11 21:49:27</sys_updated_on><type>boolean</type><value>false</value><write_roles/></sys_properties><sys_translated_text action="delete_multiple" query="documentkey=5e62a2380fb90300a19acf8ce1050e24"/></record_update>]]></payload>
+<payload_hash>1864584822</payload_hash>
+<remote_update_set display_value="Role_Remover_Menu_ver_1.1.2">f9f543b80f3d0300a19acf8ce1050e3a</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2017-10-12 00:24:06</sys_created_on>
+<sys_id>f9f543b80f3d0300a19acf8ce1050e3c</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>15f0d69fac70000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2017-10-12 00:24:06</sys_updated_on>
+<table/>
+<target_name>smart.admin.table.debug</target_name>
+<type>System Property</type>
+<update_domain>global</update_domain>
+<update_guid>d192263876b90300f240e3e4bb4e2818</update_guid>
+<update_guid_history>d192263876b90300f240e3e4bb4e2818:1864584822</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_properties_category_m2m_8270e6b40fb90300a19acf8ce1050e3e</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties_category_m2m"><sys_properties_category_m2m action="INSERT_OR_UPDATE"><category display_value="SmartRole">29a06ab40fb90300a19acf8ce1050e9d</category><order>500</order><property display_value="smart.admin.role.dryrun" name="smart.admin.role.dryrun">1f4896bc0f790300a19acf8ce1050e83</property><sys_class_name>sys_properties_category_m2m</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2017-10-11 21:42:33</sys_created_on><sys_customer_update>false</sys_customer_update><sys_id>8270e6b40fb90300a19acf8ce1050e3e</sys_id><sys_mod_count>5</sys_mod_count><sys_name>smart.admin.role.dryrun.SmartRole</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_properties_category_m2m_8270e6b40fb90300a19acf8ce1050e3e</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2017-10-11 23:36:26</sys_updated_on></sys_properties_category_m2m></record_update>]]></payload>
+<payload_hash>-66920580</payload_hash>
+<remote_update_set display_value="Role_Remover_Menu_ver_1.1.2">f9f543b80f3d0300a19acf8ce1050e3a</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2017-10-12 00:24:06</sys_created_on>
+<sys_id>f9f543b80f3d0300a19acf8ce1050e3f</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>15f0dcbe2980000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2017-10-12 00:24:06</sys_updated_on>
+<table/>
+<target_name>smart.admin.role.dryrun.SmartRole</target_name>
+<type>Category Property</type>
+<update_domain>global</update_domain>
+<update_guid>bf0bfebc79f90300af5cc8997bb1a7c8</update_guid>
+<update_guid_history>bf0bfebc79f90300af5cc8997bb1a7c8:-66920580,8106623c30b90300382a25732e3d9468:1528146257,7d35a2f8c4b903003ed4bf8b5557d856:549798130,bff3ee78aab90300685739478e01625f:1335947058,ff22aeb43fb90300b7149e4223ef3dae:2087914844,ebf026b4d7b90300cb9aee024fba6d66:1038995100</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_app_module_db8176b40ff90300a19acf8ce1050eb0</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_module"><sys_app_module action="INSERT_OR_UPDATE"><active>false</active><application display_value="Smart Admin">1e859a3c0f790300a19acf8ce1050e1a</application><assessment/><content_page/><device_type/><filter/><hint/><homepage/><image/><link_type>SEPARATOR</link_type><map_page/><mobile_title>Separator 2 Smart Admin</mobile_title><mobile_view_name>Mobile</mobile_view_name><name/><order>400</order><override_menu_roles>false</override_menu_roles><query/><report/><roles>admin</roles><survey/><survey_overwrite>true</survey_overwrite><sys_class_name>sys_app_module</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2017-10-11 22:55:42</sys_created_on><sys_customer_update>false</sys_customer_update><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>db8176b40ff90300a19acf8ce1050eb0</sys_id><sys_mod_count>3</sys_mod_count><sys_name>Line 2</sys_name><sys_overrides/><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_app_module_db8176b40ff90300a19acf8ce1050eb0</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2017-10-11 23:46:25</sys_updated_on><timeline_page/><title>Line 2</title><uncancelable>false</uncancelable><view_name/><window_name/></sys_app_module></record_update>]]></payload>
+<payload_hash>2040028437</payload_hash>
+<remote_update_set display_value="Role_Remover_Menu_ver_1.1.2">f9f543b80f3d0300a19acf8ce1050e3a</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2017-10-12 00:24:06</sys_created_on>
+<sys_id>fdf543b80f3d0300a19acf8ce1050e3b</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>15f0dd507780000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2017-10-12 00:24:06</sys_updated_on>
+<table/>
+<target_name>Line 2</target_name>
+<type>Module</type>
+<update_domain>global</update_domain>
+<update_guid>0e5df670f83d0300442885d3314cebca</update_guid>
+<update_guid_history>0e5df670f83d0300442885d3314cebca:2040028437,483a7e7c56f90300892fd3551688b35a:-1849262316,c3b1b6744df90300ecac5a9b6fc59e64:1802874867</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_properties_category_m2m_3ee6f6b80ff90300a19acf8ce1050e79</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties_category_m2m"><sys_properties_category_m2m action="INSERT_OR_UPDATE"><category display_value="Smart Table Admin">7df37ab40ff90300a19acf8ce1050ee9</category><order>600</order><property display_value="smart.admin.table.archive.basetime" name="smart.admin.table.archive.basetime">c2663eb80ff90300a19acf8ce1050e2b</property><sys_class_name>sys_properties_category_m2m</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2017-10-11 23:18:21</sys_created_on><sys_customer_update>false</sys_customer_update><sys_id>3ee6f6b80ff90300a19acf8ce1050e79</sys_id><sys_mod_count>1</sys_mod_count><sys_name>smart.admin.table.archive.basetime.Smart Table Admin</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_properties_category_m2m_3ee6f6b80ff90300a19acf8ce1050e79</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2017-10-11 23:19:15</sys_updated_on></sys_properties_category_m2m></record_update>]]></payload>
+<payload_hash>-999448279</payload_hash>
+<remote_update_set display_value="Role_Remover_Menu_ver_1.1.2">f9f543b80f3d0300a19acf8ce1050e3a</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2017-10-12 00:24:06</sys_created_on>
+<sys_id>fdf543b80f3d0300a19acf8ce1050e3e</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>15f0dbc26400000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2017-10-12 00:24:06</sys_updated_on>
+<table/>
+<target_name>smart.admin.table.archive.basetime.Smart Table Admin</target_name>
+<type>Category Property</type>
+<update_domain>global</update_domain>
+<update_guid>bf17b6f8b1f90300aaa34f3f16121a77</update_guid>
+<update_guid_history>bf17b6f8b1f90300aaa34f3f16121a77:-999448279,7ae6f6b81ef90300995f3b15d678fb7b:1140967652</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+</unload>
